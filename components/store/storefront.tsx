@@ -265,9 +265,11 @@ export function Storefront({
 
   return (
     <main className="min-h-screen bg-background text-foreground">
-      <div className="bg-ink px-5 py-2.5 text-center text-[10px] font-medium uppercase tracking-[0.16em] text-white sm:text-xs sm:tracking-[0.19em]">
-        Atrinkta profesionali plaukų priežiūra · Pristatymas visoje Lietuvoje
-      </div>
+      {view === 'catalog' && (
+        <div className="bg-ink px-5 py-2.5 text-center text-[10px] font-medium uppercase tracking-[0.16em] text-white sm:text-xs sm:tracking-[0.19em]">
+          Atrinkta profesionali plaukų priežiūra · Pristatymas visoje Lietuvoje
+        </div>
+      )}
 
       <header className="sticky top-0 z-40 border-b border-black/10 bg-background/95 backdrop-blur-xl">
         <div className="mx-auto flex h-[82px] max-w-[1480px] items-center justify-between px-4 sm:h-[88px] sm:px-8 lg:px-12">
@@ -644,36 +646,38 @@ export function Storefront({
         </>
       )}
 
-      <footer className="bg-[#1f1d1a] px-5 py-12 text-white sm:px-8 lg:px-12">
-        <div className="mx-auto grid max-w-[1384px] gap-10 border-b border-white/15 pb-12 md:grid-cols-[1fr_auto_auto]">
-          <div>
-            <p className="font-display text-3xl">SFINKSAS</p>
-            <p className="mt-2 text-xs uppercase tracking-[0.24em] text-white/45">
-              Grožio namai
-            </p>
+      {view === 'catalog' && (
+        <footer className="bg-[#1f1d1a] px-5 py-12 text-white sm:px-8 lg:px-12">
+          <div className="mx-auto grid max-w-[1384px] gap-10 border-b border-white/15 pb-12 md:grid-cols-[1fr_auto_auto]">
+            <div>
+              <p className="font-display text-3xl">SFINKSAS</p>
+              <p className="mt-2 text-xs uppercase tracking-[0.24em] text-white/45">
+                Grožio namai
+              </p>
+            </div>
+            <div className="text-sm leading-8">
+              <p className="text-white/45">Parduotuvė</p>
+              <a href="/produktai" className="block">
+                Visi produktai
+              </a>
+              <a href="/produktai#kategorijos" className="block">
+                Kategorijos
+              </a>
+            </div>
+            <div className="text-sm leading-8">
+              <p className="text-white/45">Valdymas</p>
+              <a href="/admin" className="block">
+                Administratoriaus puslapis
+              </a>
+              <p>Vilnius · Lietuva</p>
+            </div>
           </div>
-          <div className="text-sm leading-8">
-            <p className="text-white/45">Parduotuvė</p>
-            <a href="/produktai" className="block">
-              Visi produktai
-            </a>
-            <a href="/produktai#kategorijos" className="block">
-              Kategorijos
-            </a>
+          <div className="mx-auto flex max-w-[1384px] flex-col gap-3 pt-6 text-xs text-white/38 sm:flex-row sm:justify-between">
+            <p>© {new Date().getFullYear()} Sfinksas grožio namai</p>
+            <p>Profesionali plaukų priežiūra</p>
           </div>
-          <div className="text-sm leading-8">
-            <p className="text-white/45">Valdymas</p>
-            <a href="/admin" className="block">
-              Administratoriaus puslapis
-            </a>
-            <p>Vilnius · Lietuva</p>
-          </div>
-        </div>
-        <div className="mx-auto flex max-w-[1384px] flex-col gap-3 pt-6 text-xs text-white/38 sm:flex-row sm:justify-between">
-          <p>© {new Date().getFullYear()} Sfinksas grožio namai</p>
-          <p>Profesionali plaukų priežiūra</p>
-        </div>
-      </footer>
+        </footer>
+      )}
 
       <ProductDialog
         product={selectedProduct}
