@@ -15,7 +15,6 @@ import {
   ShoppingBag,
   SlidersHorizontal,
   Sparkles,
-  Trash2,
   Truck,
 } from 'lucide-react';
 
@@ -112,7 +111,13 @@ function ProductVisual({
   );
 }
 
-export function Storefront({ products }: { products: Product[] }) {
+export function Storefront({
+  products,
+  view = 'home',
+}: {
+  products: Product[];
+  view?: 'home' | 'catalog';
+}) {
   const [query, setQuery] = useState('');
   const [category, setCategory] = useState('Visi');
   const [brand, setBrand] = useState('Visi');
@@ -161,7 +166,7 @@ export function Storefront({ products }: { products: Product[] }) {
     [products],
   );
   const featured = useMemo(
-    () => products.filter((product) => product.isFeatured).slice(0, 4),
+    () => products.filter((product) => product.isFeatured).slice(0, 5),
     [products],
   );
   const filtered = useMemo(() => {
@@ -275,7 +280,7 @@ export function Storefront({ products }: { products: Product[] }) {
           >
             <Menu />
           </Button>
-          <a href="#pradzia" aria-label="Sfinksas pradžia" className="shrink-0">
+          <a href="/" aria-label="Sfinksas pradžia" className="shrink-0">
             <img
               src="/sfinksas-logo.png"
               alt="Sfinksas grožio namai"
@@ -283,16 +288,16 @@ export function Storefront({ products }: { products: Product[] }) {
             />
           </a>
           <nav className="hidden items-center gap-8 text-[12px] font-medium uppercase tracking-[0.12em] lg:flex">
-            <a href="#naujienos" className="nav-link">
+            <a href="/" className="nav-link">
               Naujienos
             </a>
-            <a href="#produktai" className="nav-link">
+            <a href="/produktai" className="nav-link">
               Produktai
             </a>
-            <a href="#zenklai" className="nav-link">
+            <a href="/produktai#zenklai" className="nav-link">
               Prekės ženklai
             </a>
-            <a href="#apie" className="nav-link">
+            <a href="/produktai#apie" className="nav-link">
               Apie mus
             </a>
           </nav>
@@ -323,265 +328,131 @@ export function Storefront({ products }: { products: Product[] }) {
         </div>
       </header>
 
-      <section
-        id="pradzia"
-        className="hero-grid scroll-mt-32 border-b border-black/10"
-      >
-        <div className="mx-auto grid max-w-[1480px] lg:grid-cols-[1.04fr_0.96fr]">
-          <div className="flex min-h-[570px] flex-col justify-between px-5 py-14 sm:px-8 sm:py-20 lg:min-h-[680px] lg:px-12 lg:py-24">
-            <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.19em] text-[#6d6558]">
-              <Sparkles className="size-4" /> Profesionalų atrinkta kolekcija
-            </div>
-            <div className="max-w-3xl py-14 lg:py-8">
-              <h1 className="font-display text-[clamp(3.65rem,7.2vw,7.7rem)] leading-[0.83] tracking-[-0.055em]">
-                Ritualas, kurį
-                <span className="block italic text-[#756d60]">pajusite.</span>
-              </h1>
-              <p className="mt-8 max-w-xl text-base leading-7 text-black/62 sm:text-lg">
-                Profesionalios priemonės plaukams, kurias kasdien renkasi
-                „Sfinksas“ grožio namų meistrai.
-              </p>
-              <div className="mt-10 flex flex-wrap gap-3">
-                <Button
-                  size="lg"
-                  className="h-12 rounded-full bg-ink px-7 text-sm text-white hover:bg-black/75"
-                  onClick={() =>
-                    document
-                      .querySelector('#produktai')
-                      ?.scrollIntoView({ behavior: 'smooth' })
-                  }
-                >
-                  Atrasti produktus <ArrowRight />
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="h-12 rounded-full border-black/20 bg-transparent px-7 text-sm"
-                  onClick={() =>
-                    document
-                      .querySelector('#kategorijos')
-                      ?.scrollIntoView({ behavior: 'smooth' })
-                  }
-                >
-                  Rinktis pagal poreikį
-                </Button>
+      {view === 'home' && (
+        <section
+          id="pradzia"
+          className="hero-grid scroll-mt-32 border-b border-black/10"
+        >
+          <div className="mx-auto grid max-w-[1480px] lg:grid-cols-[1.04fr_0.96fr]">
+            <div className="flex min-h-[570px] flex-col justify-between px-5 py-14 sm:px-8 sm:py-20 lg:min-h-[680px] lg:px-12 lg:py-24">
+              <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.19em] text-[#6d6558]">
+                <Sparkles className="size-4" /> Profesionalų atrinkta kolekcija
               </div>
-            </div>
-            <div className="grid max-w-xl grid-cols-3 gap-5 border-t border-black/15 pt-6 text-sm">
-              <div>
-                <strong className="block text-2xl font-medium">
-                  {products.length}
-                </strong>
-                <span className="text-black/55">atrinkti produktai</span>
+              <div className="max-w-3xl py-14 lg:py-8">
+                <h1 className="font-display text-[clamp(3.65rem,7.2vw,7.7rem)] leading-[0.83] tracking-[-0.055em]">
+                  Ritualas, kurį
+                  <span className="block italic text-[#756d60]">pajusite.</span>
+                </h1>
+                <p className="mt-8 max-w-xl text-base leading-7 text-black/62 sm:text-lg">
+                  Profesionalios priemonės plaukams, kurias kasdien renkasi
+                  „Sfinksas“ grožio namų meistrai.
+                </p>
               </div>
-              <div>
-                <strong className="block text-2xl font-medium">
-                  {brands.length}
-                </strong>
-                <span className="text-black/55">profesionalūs ženklai</span>
-              </div>
-              <div>
-                <strong className="block text-2xl font-medium">7</strong>
-                <span className="text-black/55">kategorijos</span>
-              </div>
-            </div>
-          </div>
-
-          <aside className="relative min-h-[430px] overflow-hidden border-l border-black/10 bg-[#cec7bb] lg:min-h-[680px]">
-            <img
-              src="/og.png"
-              alt="Sfinksas profesionalios plaukų priežiūros kolekcija"
-              className="absolute inset-0 h-full w-full object-cover object-[62%_center]"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
-            <span className="absolute right-5 top-5 rounded-full border border-white/50 bg-white/55 px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.16em] backdrop-blur-md sm:right-8 sm:top-8">
-              Meistrų rekomendacija
-            </span>
-          </aside>
-        </div>
-      </section>
-
-      <section
-        id="kategorijos"
-        className="mx-auto max-w-[1480px] scroll-mt-28 px-5 py-20 sm:px-8 lg:px-12 lg:py-28"
-      >
-        <div className="mb-10 flex items-end justify-between gap-6">
-          <div>
-            <p className="eyebrow">Parduotuvė</p>
-            <h2 className="font-display mt-3 text-4xl tracking-tight sm:text-5xl">
-              Rinkitės pagal kategoriją
-            </h2>
-          </div>
-          <button
-            className="hidden items-center gap-2 text-sm font-medium sm:flex"
-            onClick={() => {
-              setCategory('Visi');
-              document
-                .querySelector('#produktai')
-                ?.scrollIntoView({ behavior: 'smooth' });
-            }}
-          >
-            Visi produktai <ArrowRight className="size-4" />
-          </button>
-        </div>
-        <div className="grid border-l border-t border-black/15 sm:grid-cols-2 lg:grid-cols-4">
-          {categoryOrder.map((item, index) => (
-            <button
-              key={item}
-              onClick={() => {
-                setCategory(item);
-                document
-                  .querySelector('#produktai')
-                  ?.scrollIntoView({ behavior: 'smooth' });
-              }}
-              className="group min-h-52 border-b border-r border-black/15 p-6 text-left transition-colors hover:bg-[#ded7ca]"
-            >
-              <span className="text-xs text-black/45">0{index + 1}</span>
-              <div className="mt-12 flex items-end justify-between gap-4">
+              <div className="grid max-w-xl grid-cols-3 gap-5 border-t border-black/15 pt-6 text-sm">
                 <div>
-                  <h3 className="font-display text-2xl leading-tight">
-                    {displayCategory(item)}
-                  </h3>
-                  <p className="mt-2 max-w-[220px] text-xs leading-5 text-black/48">
-                    {categoryCopy[item]}
-                  </p>
-                  <p className="mt-3 text-[10px] font-semibold uppercase tracking-[0.12em] text-black/42">
-                    {categoryCounts[item]} produktai
-                  </p>
+                  <strong className="block text-2xl font-medium">
+                    {products.length}
+                  </strong>
+                  <span className="text-black/55">atrinkti produktai</span>
                 </div>
-                <ArrowRight className="size-5 shrink-0 transition-transform group-hover:translate-x-1" />
+                <div>
+                  <strong className="block text-2xl font-medium">
+                    {brands.length}
+                  </strong>
+                  <span className="text-black/55">profesionalūs ženklai</span>
+                </div>
+                <div>
+                  <strong className="block text-2xl font-medium">7</strong>
+                  <span className="text-black/55">kategorijos</span>
+                </div>
               </div>
-            </button>
-          ))}
-        </div>
-      </section>
+            </div>
 
-      <section
-        id="naujienos"
-        className="scroll-mt-28 border-y border-black/10 bg-[#f1ede5] py-20 lg:py-28"
-      >
-        <div className="mx-auto max-w-[1480px] px-5 sm:px-8 lg:px-12">
+            <aside className="relative min-h-[430px] overflow-hidden border-l border-black/10 bg-[#cec7bb] lg:min-h-[680px]">
+              <img
+                src="/og.png"
+                alt="Sfinksas profesionalios plaukų priežiūros kolekcija"
+                className="absolute inset-0 h-full w-full object-cover object-[62%_center]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
+            </aside>
+          </div>
+        </section>
+      )}
+
+      {view === 'catalog' && (
+        <section
+          id="kategorijos"
+          className="mx-auto max-w-[1480px] scroll-mt-28 px-5 py-20 sm:px-8 lg:px-12 lg:py-28"
+        >
           <div className="mb-10 flex items-end justify-between gap-6">
             <div>
-              <p className="eyebrow">Atrinkta jums</p>
+              <p className="eyebrow">Parduotuvė</p>
               <h2 className="font-display mt-3 text-4xl tracking-tight sm:text-5xl">
-                Meistrų favoritai
+                Rinkitės pagal kategoriją
               </h2>
             </div>
             <button
               className="hidden items-center gap-2 text-sm font-medium sm:flex"
-              onClick={() =>
+              onClick={() => {
+                setCategory('Visi');
                 document
                   .querySelector('#produktai')
-                  ?.scrollIntoView({ behavior: 'smooth' })
-              }
+                  ?.scrollIntoView({ behavior: 'smooth' });
+              }}
             >
-              Žiūrėti visus <ArrowRight className="size-4" />
+              Visi produktai <ArrowRight className="size-4" />
             </button>
           </div>
-          <div className="grid grid-cols-2 gap-x-3 gap-y-10 lg:grid-cols-4 lg:gap-x-5">
-            {featured.map((product) => (
-              <ProductCard
-                key={product.id}
-                product={product}
-                onOpen={setSelectedProduct}
-                onAdd={addToCart}
-              />
+          <div className="grid border-l border-t border-black/15 sm:grid-cols-2 lg:grid-cols-4">
+            {categoryOrder.map((item, index) => (
+              <button
+                key={item}
+                onClick={() => {
+                  setCategory(item);
+                  document
+                    .querySelector('#produktai')
+                    ?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="group min-h-52 border-b border-r border-black/15 p-6 text-left transition-colors hover:bg-[#ded7ca]"
+              >
+                <span className="text-xs text-black/45">0{index + 1}</span>
+                <div className="mt-12 flex items-end justify-between gap-4">
+                  <div>
+                    <h3 className="font-display text-2xl leading-tight">
+                      {displayCategory(item)}
+                    </h3>
+                    <p className="mt-2 max-w-[220px] text-xs leading-5 text-black/48">
+                      {categoryCopy[item]}
+                    </p>
+                    <p className="mt-3 text-[10px] font-semibold uppercase tracking-[0.12em] text-black/42">
+                      {categoryCounts[item]} produktai
+                    </p>
+                  </div>
+                  <ArrowRight className="size-5 shrink-0 transition-transform group-hover:translate-x-1" />
+                </div>
+              </button>
             ))}
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
-      <section
-        id="produktai"
-        className="mx-auto max-w-[1480px] scroll-mt-28 px-5 py-20 sm:px-8 lg:px-12 lg:py-28"
-      >
-        <div className="mb-10 max-w-2xl">
-          <p className="eyebrow">Visas katalogas</p>
-          <h2 className="font-display mt-3 text-4xl tracking-tight sm:text-5xl">
-            Atraskite savo ritualą
-          </h2>
-          <p className="mt-4 text-sm leading-6 text-black/55 sm:text-base">
-            Filtruokite pagal plaukų poreikį, kategoriją ar mėgstamą
-            profesionalų ženklą.
-          </p>
-        </div>
-        <div className="sticky top-[82px] z-30 -mx-5 mb-10 border-y border-black/10 bg-background/95 px-5 py-4 backdrop-blur-xl sm:top-[88px] sm:-mx-8 sm:px-8 lg:-mx-12 lg:px-12">
-          <div className="mx-auto grid max-w-[1384px] gap-3 lg:grid-cols-[minmax(260px,1fr)_220px_220px_180px]">
-            <label className="relative block">
-              <span className="sr-only">Ieškoti produktų</span>
-              <Search className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-black/45" />
-              <Input
-                value={query}
-                onChange={(event) => {
-                  setQuery(event.target.value);
-                  setVisibleCount(16);
-                }}
-                placeholder="Ieškoti produkto ar poreikio..."
-                className="h-11 rounded-full border-black/15 bg-white/55 pl-10"
-              />
-            </label>
-            <FilterSelect
-              label="Kategorija"
-              value={category}
-              onChange={(value) => {
-                setCategory(value);
-                setVisibleCount(16);
-              }}
-            >
-              <option value="Visi">Visos kategorijos</option>
-              {categoryOrder.map((item) => (
-                <option key={item} value={item}>
-                  {displayCategory(item)}
-                </option>
-              ))}
-            </FilterSelect>
-            <FilterSelect
-              label="Prekės ženklas"
-              value={brand}
-              onChange={(value) => {
-                setBrand(value);
-                setVisibleCount(16);
-              }}
-            >
-              <option value="Visi">Visi prekės ženklai</option>
-              {brands.map((item) => (
-                <option key={item} value={item}>
-                  {item}
-                </option>
-              ))}
-            </FilterSelect>
-            <FilterSelect label="Rikiavimas" value={sort} onChange={setSort}>
-              <option value="recommended">Rekomenduojami</option>
-              <option value="price-asc">Kaina: nuo mažiausios</option>
-              <option value="price-desc">Kaina: nuo didžiausios</option>
-              <option value="name">Pagal pavadinimą</option>
-            </FilterSelect>
-          </div>
-        </div>
-
-        <div className="mb-6 flex items-center justify-between gap-4 text-sm">
-          <span className="text-black/52">
-            Rasta {filtered.length} produktų
-          </span>
-          {(category !== 'Visi' || brand !== 'Visi' || query) && (
-            <button
-              className="font-medium underline underline-offset-4"
-              onClick={() => {
-                setQuery('');
-                setCategory('Visi');
-                setBrand('Visi');
-              }}
-            >
-              Išvalyti filtrus
-            </button>
-          )}
-        </div>
-
-        {filtered.length ? (
-          <>
-            <div className="grid grid-cols-2 gap-x-3 gap-y-10 md:grid-cols-3 lg:grid-cols-4 lg:gap-x-5">
-              {filtered.slice(0, visibleCount).map((product) => (
+      {view === 'home' && (
+        <section
+          id="naujienos"
+          className="scroll-mt-28 border-b border-black/10 bg-[#f1ede5] py-20 lg:py-28"
+        >
+          <div className="mx-auto max-w-[1480px] px-5 sm:px-8 lg:px-12">
+            <div className="mb-10 flex items-end justify-between gap-6">
+              <div>
+                <p className="eyebrow">Atrinkta jums</p>
+                <h2 className="font-display mt-3 text-4xl tracking-tight sm:text-5xl">
+                  Meistrų favoritai
+                </h2>
+              </div>
+            </div>
+            <div className="grid grid-cols-2 gap-x-3 gap-y-10 md:grid-cols-3 xl:grid-cols-5 xl:gap-x-5">
+              {featured.map((product) => (
                 <ProductCard
                   key={product.id}
                   product={product}
@@ -590,84 +461,194 @@ export function Storefront({ products }: { products: Product[] }) {
                 />
               ))}
             </div>
-            {visibleCount < filtered.length && (
-              <div className="mt-14 text-center">
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="h-12 rounded-full border-black/20 bg-transparent px-8"
-                  onClick={() => setVisibleCount((count) => count + 16)}
+          </div>
+        </section>
+      )}
+
+      {view === 'catalog' && (
+        <>
+          <section
+            id="produktai"
+            className="mx-auto max-w-[1480px] scroll-mt-28 px-5 py-20 sm:px-8 lg:px-12 lg:py-28"
+          >
+            <div className="mb-10 max-w-2xl">
+              <p className="eyebrow">Visas katalogas</p>
+              <h2 className="font-display mt-3 text-4xl tracking-tight sm:text-5xl">
+                Atraskite savo ritualą
+              </h2>
+              <p className="mt-4 text-sm leading-6 text-black/55 sm:text-base">
+                Filtruokite pagal plaukų poreikį, kategoriją ar mėgstamą
+                profesionalų ženklą.
+              </p>
+            </div>
+            <div className="sticky top-[82px] z-30 -mx-5 mb-10 border-y border-black/10 bg-background/95 px-5 py-4 backdrop-blur-xl sm:top-[88px] sm:-mx-8 sm:px-8 lg:-mx-12 lg:px-12">
+              <div className="mx-auto grid max-w-[1384px] gap-3 lg:grid-cols-[minmax(260px,1fr)_220px_220px_180px]">
+                <label className="relative block">
+                  <span className="sr-only">Ieškoti produktų</span>
+                  <Search className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-black/45" />
+                  <Input
+                    value={query}
+                    onChange={(event) => {
+                      setQuery(event.target.value);
+                      setVisibleCount(16);
+                    }}
+                    placeholder="Ieškoti produkto ar poreikio..."
+                    className="h-11 rounded-full border-black/15 bg-white/55 pl-10"
+                  />
+                </label>
+                <FilterSelect
+                  label="Kategorija"
+                  value={category}
+                  onChange={(value) => {
+                    setCategory(value);
+                    setVisibleCount(16);
+                  }}
                 >
-                  Rodyti daugiau <ChevronDown />
-                </Button>
+                  <option value="Visi">Visos kategorijos</option>
+                  {categoryOrder.map((item) => (
+                    <option key={item} value={item}>
+                      {displayCategory(item)}
+                    </option>
+                  ))}
+                </FilterSelect>
+                <FilterSelect
+                  label="Prekės ženklas"
+                  value={brand}
+                  onChange={(value) => {
+                    setBrand(value);
+                    setVisibleCount(16);
+                  }}
+                >
+                  <option value="Visi">Visi prekės ženklai</option>
+                  {brands.map((item) => (
+                    <option key={item} value={item}>
+                      {item}
+                    </option>
+                  ))}
+                </FilterSelect>
+                <FilterSelect
+                  label="Rikiavimas"
+                  value={sort}
+                  onChange={setSort}
+                >
+                  <option value="recommended">Rekomenduojami</option>
+                  <option value="price-asc">Kaina: nuo mažiausios</option>
+                  <option value="price-desc">Kaina: nuo didžiausios</option>
+                  <option value="name">Pagal pavadinimą</option>
+                </FilterSelect>
+              </div>
+            </div>
+
+            <div className="mb-6 flex items-center justify-between gap-4 text-sm">
+              <span className="text-black/52">
+                Rasta {filtered.length} produktų
+              </span>
+              {(category !== 'Visi' || brand !== 'Visi' || query) && (
+                <button
+                  className="font-medium underline underline-offset-4"
+                  onClick={() => {
+                    setQuery('');
+                    setCategory('Visi');
+                    setBrand('Visi');
+                  }}
+                >
+                  Išvalyti filtrus
+                </button>
+              )}
+            </div>
+
+            {filtered.length ? (
+              <>
+                <div className="grid grid-cols-2 gap-x-3 gap-y-10 md:grid-cols-3 lg:grid-cols-4 lg:gap-x-5">
+                  {filtered.slice(0, visibleCount).map((product) => (
+                    <ProductCard
+                      key={product.id}
+                      product={product}
+                      onOpen={setSelectedProduct}
+                      onAdd={addToCart}
+                    />
+                  ))}
+                </div>
+                {visibleCount < filtered.length && (
+                  <div className="mt-14 text-center">
+                    <Button
+                      variant="outline"
+                      size="lg"
+                      className="h-12 rounded-full border-black/20 bg-transparent px-8"
+                      onClick={() => setVisibleCount((count) => count + 16)}
+                    >
+                      Rodyti daugiau <ChevronDown />
+                    </Button>
+                  </div>
+                )}
+              </>
+            ) : (
+              <div className="border border-black/12 bg-[#eee9df] px-6 py-20 text-center">
+                <SlidersHorizontal className="mx-auto size-7 text-black/35" />
+                <h3 className="font-display mt-5 text-3xl">Produktų nerasta</h3>
+                <p className="mt-2 text-sm text-black/50">
+                  Pakeiskite paiešką arba išvalykite filtrus.
+                </p>
               </div>
             )}
-          </>
-        ) : (
-          <div className="border border-black/12 bg-[#eee9df] px-6 py-20 text-center">
-            <SlidersHorizontal className="mx-auto size-7 text-black/35" />
-            <h3 className="font-display mt-5 text-3xl">Produktų nerasta</h3>
-            <p className="mt-2 text-sm text-black/50">
-              Pakeiskite paiešką arba išvalykite filtrus.
-            </p>
-          </div>
-        )}
-      </section>
+          </section>
 
-      <section
-        id="zenklai"
-        className="border-y border-black/10 bg-[#27241f] py-16 text-[#f3efe7]"
-      >
-        <div className="mx-auto max-w-[1480px] px-5 sm:px-8 lg:px-12">
-          <p className="text-center text-[10px] font-semibold uppercase tracking-[0.22em] text-white/45">
-            Profesionalūs partneriai
-          </p>
-          <div className="mt-10 grid grid-cols-2 items-center border-l border-t border-white/15 md:grid-cols-4">
-            {brands.map((item) => (
-              <button
-                key={item}
-                className="min-h-28 border-b border-r border-white/15 px-4 font-display text-xl tracking-wide text-white/78 transition-colors hover:bg-white/7 hover:text-white sm:text-2xl"
-                onClick={() => {
-                  setBrand(item);
-                  document
-                    .querySelector('#produktai')
-                    ?.scrollIntoView({ behavior: 'smooth' });
-                }}
-              >
-                {item}
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
+          <section
+            id="zenklai"
+            className="border-y border-black/10 bg-[#27241f] py-16 text-[#f3efe7]"
+          >
+            <div className="mx-auto max-w-[1480px] px-5 sm:px-8 lg:px-12">
+              <p className="text-center text-[10px] font-semibold uppercase tracking-[0.22em] text-white/45">
+                Profesionalūs partneriai
+              </p>
+              <div className="mt-10 grid grid-cols-2 items-center border-l border-t border-white/15 md:grid-cols-4">
+                {brands.map((item) => (
+                  <button
+                    key={item}
+                    className="min-h-28 border-b border-r border-white/15 px-4 font-display text-xl tracking-wide text-white/78 transition-colors hover:bg-white/7 hover:text-white sm:text-2xl"
+                    onClick={() => {
+                      setBrand(item);
+                      document
+                        .querySelector('#produktai')
+                        ?.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                  >
+                    {item}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </section>
 
-      <section
-        id="apie"
-        className="mx-auto grid max-w-[1480px] scroll-mt-28 gap-12 px-5 py-20 sm:px-8 lg:grid-cols-2 lg:px-12 lg:py-28"
-      >
-        <div>
-          <p className="eyebrow">Kodėl Sfinksas</p>
-          <h2 className="font-display mt-4 max-w-xl text-4xl leading-[1.05] tracking-tight sm:text-6xl">
-            Profesionalų žinios – jūsų kasdieniam grožiui.
-          </h2>
-        </div>
-        <div className="grid gap-8 sm:grid-cols-2">
-          <div className="border-t border-black/15 pt-5">
-            <PackageCheck className="size-5" />
-            <h3 className="mt-5 font-medium">Meistrų atranka</h3>
-            <p className="mt-2 text-sm leading-6 text-black/52">
-              Tik profesionalių salonų patikrintos formulės ir įrankiai.
-            </p>
-          </div>
-          <div className="border-t border-black/15 pt-5">
-            <Truck className="size-5" />
-            <h3 className="mt-5 font-medium">Pristatymas Lietuvoje</h3>
-            <p className="mt-2 text-sm leading-6 text-black/52">
-              Užsakymo informaciją patvirtinsime asmeniškai.
-            </p>
-          </div>
-        </div>
-      </section>
+          <section
+            id="apie"
+            className="mx-auto grid max-w-[1480px] scroll-mt-28 gap-12 px-5 py-20 sm:px-8 lg:grid-cols-2 lg:px-12 lg:py-28"
+          >
+            <div>
+              <p className="eyebrow">Kodėl Sfinksas</p>
+              <h2 className="font-display mt-4 max-w-xl text-4xl leading-[1.05] tracking-tight sm:text-6xl">
+                Profesionalų žinios – jūsų kasdieniam grožiui.
+              </h2>
+            </div>
+            <div className="grid gap-8 sm:grid-cols-2">
+              <div className="border-t border-black/15 pt-5">
+                <PackageCheck className="size-5" />
+                <h3 className="mt-5 font-medium">Meistrų atranka</h3>
+                <p className="mt-2 text-sm leading-6 text-black/52">
+                  Tik profesionalių salonų patikrintos formulės ir įrankiai.
+                </p>
+              </div>
+              <div className="border-t border-black/15 pt-5">
+                <Truck className="size-5" />
+                <h3 className="mt-5 font-medium">Pristatymas Lietuvoje</h3>
+                <p className="mt-2 text-sm leading-6 text-black/52">
+                  Užsakymo informaciją patvirtinsime asmeniškai.
+                </p>
+              </div>
+            </div>
+          </section>
+        </>
+      )}
 
       <footer className="bg-[#1f1d1a] px-5 py-12 text-white sm:px-8 lg:px-12">
         <div className="mx-auto grid max-w-[1384px] gap-10 border-b border-white/15 pb-12 md:grid-cols-[1fr_auto_auto]">
@@ -679,10 +660,10 @@ export function Storefront({ products }: { products: Product[] }) {
           </div>
           <div className="text-sm leading-8">
             <p className="text-white/45">Parduotuvė</p>
-            <a href="#produktai" className="block">
+            <a href="/produktai" className="block">
               Visi produktai
             </a>
-            <a href="#kategorijos" className="block">
+            <a href="/produktai#kategorijos" className="block">
               Kategorijos
             </a>
           </div>
@@ -717,10 +698,10 @@ export function Storefront({ products }: { products: Product[] }) {
           </SheetHeader>
           <nav className="flex flex-col px-6 py-8 font-display text-3xl">
             {[
-              ['Naujienos', '#naujienos'],
-              ['Produktai', '#produktai'],
-              ['Prekės ženklai', '#zenklai'],
-              ['Apie mus', '#apie'],
+              ['Naujienos', '/'],
+              ['Produktai', '/produktai'],
+              ['Prekės ženklai', '/produktai#zenklai'],
+              ['Apie mus', '/produktai#apie'],
               ['Administravimas', '/admin'],
             ].map(([label, href]) => (
               <a
