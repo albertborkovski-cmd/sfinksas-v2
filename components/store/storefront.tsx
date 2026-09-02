@@ -63,6 +63,17 @@ const categoryCopy: Record<string, string> = {
   'Maisto papildas': 'Grožis ir stiprybė iš vidaus',
 };
 
+const categoryTones = [
+  'bg-[#28251f] text-white',
+  'bg-[#d8cfc0]',
+  'bg-[#c9c0b2]',
+  'bg-[#e3ddd2]',
+  'bg-[#bbb1a3]',
+  'bg-[#d7d1c7]',
+  'bg-[#c8beb0]',
+  'bg-[#e7e1d7]',
+];
+
 const brandTones: Record<string, string> = {
   Kérastase: '#d8d2c7',
   "L'Oréal Professionnel": '#e0ddd5',
@@ -385,58 +396,79 @@ export function Storefront({
       {view === 'catalog' && (
         <section
           id="kategorijos"
-          className="mx-auto max-w-[1480px] scroll-mt-28 px-5 py-20 sm:px-8 lg:px-12 lg:py-28"
+          className="scroll-mt-28 border-b border-black/10 bg-[#eee9df] py-16 sm:py-20 lg:py-24"
         >
-          <div className="mb-10 flex items-end justify-between gap-6">
-            <div>
-              <p className="eyebrow">Parduotuvė</p>
-              <h2 className="font-display mt-3 text-4xl tracking-tight sm:text-5xl">
-                Rinkitės pagal kategoriją
-              </h2>
-            </div>
-            <button
-              className="flex shrink-0 items-center gap-2 text-sm font-medium"
-              onClick={() => {
-                setCategory('Visi');
-                setVisibleCount(16);
-                document
-                  .querySelector('#produktai')
-                  ?.scrollIntoView({ behavior: 'smooth' });
-              }}
-            >
-              Visi produktai <ArrowRight className="size-4" />
-            </button>
-          </div>
-          <div className="grid border-l border-t border-black/15 sm:grid-cols-2 lg:grid-cols-4">
-            {categoryOrder.map((item, index) => (
-              <button
-                key={item}
-                onClick={() => {
-                  setCategory(item);
-                  setVisibleCount(16);
-                  document
-                    .querySelector('#produktai')
-                    ?.scrollIntoView({ behavior: 'smooth' });
-                }}
-                className="group min-h-52 border-b border-r border-black/15 p-6 text-left transition-colors hover:bg-[#ded7ca]"
-              >
-                <span className="text-xs text-black/45">0{index + 1}</span>
-                <div className="mt-12 flex items-end justify-between gap-4">
-                  <div>
-                    <h3 className="font-display text-2xl leading-tight">
-                      {displayCategory(item)}
-                    </h3>
-                    <p className="mt-2 max-w-[220px] text-xs leading-5 text-black/48">
-                      {categoryCopy[item]}
-                    </p>
-                    <p className="mt-3 text-[10px] font-semibold uppercase tracking-[0.12em] text-black/42">
-                      {categoryCounts[item]} produktai
-                    </p>
-                  </div>
-                  <ArrowRight className="size-5 shrink-0 transition-transform group-hover:translate-x-1" />
+          <div className="mx-auto max-w-[1480px] px-5 sm:px-8 lg:px-12">
+            <div className="mb-12 grid gap-5 lg:grid-cols-[1fr_auto] lg:items-end">
+              <div>
+                <div className="flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.2em] text-black/42">
+                  <span className="flex size-7 items-center justify-center rounded-full border border-black/15">
+                    01
+                  </span>
+                  Parduotuvė
                 </div>
-              </button>
-            ))}
+                <h1 className="font-display mt-5 max-w-3xl text-4xl leading-[.98] tracking-[-0.035em] sm:text-6xl lg:text-7xl">
+                  Rinkitės pagal kategoriją
+                </h1>
+              </div>
+              <p className="max-w-sm text-sm leading-6 text-black/52 lg:pb-2">
+                Pradėkite nuo visos kolekcijos arba pasirinkite tai, ko šiuo
+                metu labiausiai reikia jūsų plaukams.
+              </p>
+            </div>
+
+            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+              {['Visi', ...categoryOrder].map((item, index) => {
+                const isAll = item === 'Visi';
+                const isActive = category === item;
+                return (
+                  <button
+                    key={item}
+                    aria-pressed={isActive}
+                    onClick={() => {
+                      setCategory(item);
+                      setVisibleCount(16);
+                      document
+                        .querySelector('#zenklai')
+                        ?.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                    className={`group relative min-h-56 overflow-hidden rounded-2xl p-6 text-left shadow-[0_12px_35px_rgba(54,47,39,.08)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_45px_rgba(54,47,39,.14)] ${categoryTones[index]} ${isActive ? 'ring-2 ring-black ring-offset-2 ring-offset-[#eee9df]' : ''}`}
+                  >
+                    <div className="absolute -right-14 -top-14 size-40 rounded-full border border-current opacity-[.08] transition-transform duration-500 group-hover:scale-110" />
+                    <div className="relative flex h-full flex-col justify-between">
+                      <div className="flex items-start justify-between gap-4">
+                        <span className="text-[10px] font-semibold uppercase tracking-[0.18em] opacity-50">
+                          {String(index + 1).padStart(2, '0')}
+                        </span>
+                        <span className="rounded-full border border-current px-2.5 py-1 text-[9px] font-semibold uppercase tracking-[0.12em] opacity-60">
+                          {isAll ? products.length : categoryCounts[item]}{' '}
+                          prekės
+                        </span>
+                      </div>
+                      <div className="mt-12 flex items-end justify-between gap-5">
+                        <div>
+                          <h2 className="font-display text-2xl leading-[1.05] sm:text-3xl">
+                            {isAll ? 'Visi produktai' : displayCategory(item)}
+                          </h2>
+                          <p className="mt-3 max-w-[230px] text-xs leading-5 opacity-60">
+                            {isAll
+                              ? 'Visa profesionalų atrinkta kolekcija'
+                              : categoryCopy[item]}
+                          </p>
+                        </div>
+                        <span className="flex size-9 shrink-0 items-center justify-center rounded-full border border-current opacity-70 transition-transform group-hover:translate-x-1">
+                          {isActive ? (
+                            <Check className="size-4" />
+                          ) : (
+                            <ArrowRight className="size-4" />
+                          )}
+                        </span>
+                      </div>
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
           </div>
         </section>
       )}
@@ -444,28 +476,47 @@ export function Storefront({
       {view === 'catalog' && (
         <section
           id="zenklai"
-          className="border-y border-black/10 bg-[#27241f] py-16 text-[#f3efe7]"
+          className="scroll-mt-24 border-b border-black/10 bg-[#28251f] py-16 text-[#f3efe7] lg:py-20"
         >
           <div className="mx-auto max-w-[1480px] px-5 sm:px-8 lg:px-12">
-            <p className="text-center text-[10px] font-semibold uppercase tracking-[0.22em] text-white/45">
-              Profesionalūs partneriai
-            </p>
-            <div className="mt-10 grid grid-cols-2 items-center border-l border-t border-white/15 md:grid-cols-4">
-              {brands.map((item) => (
-                <button
-                  key={item}
-                  className="min-h-28 border-b border-r border-white/15 px-4 font-display text-xl tracking-wide text-white/78 transition-colors hover:bg-white/7 hover:text-white sm:text-2xl"
-                  onClick={() => {
-                    setBrand(item);
-                    setVisibleCount(16);
-                    document
-                      .querySelector('#produktai')
-                      ?.scrollIntoView({ behavior: 'smooth' });
-                  }}
-                >
-                  {item}
-                </button>
-              ))}
+            <div className="grid gap-8 lg:grid-cols-[.7fr_1.3fr] lg:items-end">
+              <div>
+                <div className="flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.2em] text-white/42">
+                  <span className="flex size-7 items-center justify-center rounded-full border border-white/20">
+                    02
+                  </span>
+                  Profesionalūs partneriai
+                </div>
+                <h2 className="font-display mt-5 text-4xl leading-none tracking-tight sm:text-5xl">
+                  Tada rinkitės ženklą
+                </h2>
+              </div>
+              <div className="grid gap-2 sm:grid-cols-2 xl:grid-cols-5">
+                {['Visi', ...brands].map((item) => {
+                  const isActive = brand === item;
+                  return (
+                    <button
+                      key={item}
+                      aria-pressed={isActive}
+                      className={`flex min-h-20 items-center justify-between gap-3 rounded-xl border px-4 text-left font-display text-lg leading-tight transition-all ${isActive ? 'border-white bg-white text-[#28251f]' : 'border-white/15 bg-white/[.03] text-white/75 hover:border-white/40 hover:bg-white/[.07] hover:text-white'}`}
+                      onClick={() => {
+                        setBrand(item);
+                        setVisibleCount(16);
+                        document
+                          .querySelector('#produktai')
+                          ?.scrollIntoView({ behavior: 'smooth' });
+                      }}
+                    >
+                      <span>{item === 'Visi' ? 'Visi partneriai' : item}</span>
+                      {isActive ? (
+                        <Check className="size-4 shrink-0" />
+                      ) : (
+                        <ArrowRight className="size-4 shrink-0 opacity-50" />
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </section>
@@ -503,20 +554,27 @@ export function Storefront({
         <>
           <section
             id="produktai"
-            className="mx-auto max-w-[1480px] scroll-mt-28 px-5 py-20 sm:px-8 lg:px-12 lg:py-28"
+            className="mx-auto max-w-[1480px] scroll-mt-28 px-5 py-16 sm:px-8 lg:px-12 lg:py-24"
           >
-            <div className="mb-10 max-w-2xl">
-              <p className="eyebrow">Visas katalogas</p>
-              <h2 className="font-display mt-3 text-4xl tracking-tight sm:text-5xl">
-                Atraskite savo ritualą
-              </h2>
-              <p className="mt-4 text-sm leading-6 text-black/55 sm:text-base">
-                Ieškokite pagal plaukų poreikį arba pasirinkite mėgstamą
-                profesionalų ženklą.
+            <div className="mb-12 grid gap-5 lg:grid-cols-[1fr_auto] lg:items-end">
+              <div>
+                <div className="flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.2em] text-black/42">
+                  <span className="flex size-7 items-center justify-center rounded-full border border-black/15">
+                    03
+                  </span>
+                  Visas katalogas
+                </div>
+                <h2 className="font-display mt-5 text-4xl tracking-tight sm:text-6xl">
+                  Atraskite savo ritualą
+                </h2>
+              </div>
+              <p className="max-w-sm text-sm leading-6 text-black/52 lg:pb-2">
+                Paieškoje įveskite produkto pavadinimą arba plaukų poreikį.
+                Pasirinkimus visuomet galite pakeisti viršuje.
               </p>
             </div>
             <div className="sticky top-[82px] z-30 -mx-5 mb-10 border-y border-black/10 bg-background/95 px-5 py-4 backdrop-blur-xl sm:top-[88px] sm:-mx-8 sm:px-8 lg:-mx-12 lg:px-12">
-              <div className="mx-auto grid max-w-[1384px] gap-3 lg:grid-cols-[minmax(280px,1fr)_240px_210px]">
+              <div className="mx-auto grid max-w-[1384px] gap-3 sm:grid-cols-[minmax(280px,1fr)_220px]">
                 <label className="relative block">
                   <span className="sr-only">Ieškoti produktų</span>
                   <Search className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-black/45" />
@@ -530,21 +588,6 @@ export function Storefront({
                     className="h-11 rounded-full border-black/15 bg-white/55 pl-10"
                   />
                 </label>
-                <FilterSelect
-                  label="Prekės ženklas"
-                  value={brand}
-                  onChange={(value) => {
-                    setBrand(value);
-                    setVisibleCount(16);
-                  }}
-                >
-                  <option value="Visi">Visi prekės ženklai</option>
-                  {brands.map((item) => (
-                    <option key={item} value={item}>
-                      {item}
-                    </option>
-                  ))}
-                </FilterSelect>
                 <FilterSelect
                   label="Rikiavimas"
                   value={sort}
@@ -567,6 +610,9 @@ export function Storefront({
                   {category === 'Visi'
                     ? 'Visos kategorijos'
                     : displayCategory(category)}
+                </span>
+                <span className="rounded-full border border-black/15 px-3 py-1 text-xs font-medium">
+                  {brand === 'Visi' ? 'Visi partneriai' : brand}
                 </span>
               </div>
               {(category !== 'Visi' || brand !== 'Visi' || query) && (
