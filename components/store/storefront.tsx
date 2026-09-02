@@ -53,17 +53,6 @@ const categoryNames: Record<string, string> = {
   'Maisto papildas': 'Maisto papildai',
 };
 
-const categoryTones = [
-  'bg-[#28251f] text-white',
-  'bg-[#d8cfc0]',
-  'bg-[#c9c0b2]',
-  'bg-[#e3ddd2]',
-  'bg-[#bbb1a3]',
-  'bg-[#d7d1c7]',
-  'bg-[#c8beb0]',
-  'bg-[#e7e1d7]',
-];
-
 const brandTones: Record<string, string> = {
   Kérastase: '#d8d2c7',
   "L'Oréal Professionnel": '#e0ddd5',
@@ -388,71 +377,51 @@ export function Storefront({
       {view === 'catalog' && (
         <section
           id="kategorijos"
-          className="scroll-mt-28 border-b border-black/10 bg-[#eee9df] py-10 sm:py-12 lg:py-14"
+          className="scroll-mt-28 border-b border-black/10 bg-[#eee9df] py-5 sm:py-6"
         >
           <div className="mx-auto max-w-[1480px] px-5 sm:px-8 lg:px-12">
-            <div className="mb-8 grid gap-4 lg:grid-cols-[1fr_auto] lg:items-end">
-              <div>
-                <div className="flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.2em] text-black/42">
-                  <span className="flex size-7 items-center justify-center rounded-full border border-black/15">
-                    01
-                  </span>
-                  Parduotuvė
+            <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+              <div className="flex shrink-0 items-center gap-3">
+                <span className="flex size-7 items-center justify-center rounded-full border border-black/15 text-[10px] font-semibold text-black/45">
+                  01
+                </span>
+                <div>
+                  <p className="text-[9px] font-semibold uppercase tracking-[0.18em] text-black/42">
+                    Parduotuvė
+                  </p>
+                  <h1 className="font-display text-xl leading-tight tracking-[-0.015em] sm:text-2xl">
+                    Rinkitės pagal kategoriją
+                  </h1>
                 </div>
-                <h1 className="font-display mt-3 max-w-3xl text-3xl leading-none tracking-[-0.025em] sm:text-4xl lg:text-5xl">
-                  Rinkitės pagal kategoriją
-                </h1>
               </div>
-              <p className="hidden max-w-sm text-sm leading-6 text-black/52 md:block lg:pb-1">
-                Pradėkite nuo visos kolekcijos arba pasirinkite tai, ko šiuo
-                metu labiausiai reikia jūsų plaukams.
-              </p>
-            </div>
-
-            <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
-              {['Visi', ...categoryOrder].map((item, index) => {
-                const isAll = item === 'Visi';
-                const isActive = category === item;
-                return (
-                  <button
-                    key={item}
-                    aria-pressed={isActive}
-                    onClick={() => {
-                      setCategory(item);
-                      setVisibleCount(16);
-                      document
-                        .querySelector('#zenklai')
-                        ?.scrollIntoView({ behavior: 'smooth' });
-                    }}
-                    className={`group relative min-h-32 overflow-hidden rounded-xl p-4 text-left shadow-[0_8px_24px_rgba(54,47,39,.07)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_30px_rgba(54,47,39,.12)] sm:min-h-36 ${categoryTones[index]} ${isActive ? 'ring-2 ring-black ring-offset-2 ring-offset-[#eee9df]' : ''}`}
-                  >
-                    <div className="absolute -right-10 -top-10 size-28 rounded-full border border-current opacity-[.08] transition-transform duration-500 group-hover:scale-110" />
-                    <div className="relative flex h-full flex-col justify-between">
-                      <div className="flex items-start justify-between gap-4">
-                        <span className="text-[10px] font-semibold uppercase tracking-[0.18em] opacity-50">
-                          {String(index + 1).padStart(2, '0')}
-                        </span>
-                        <span className="rounded-full border border-current px-2 py-0.5 text-[8px] font-semibold uppercase tracking-[0.1em] opacity-60">
-                          {isAll ? products.length : categoryCounts[item]}{' '}
-                          prekės
-                        </span>
-                      </div>
-                      <div className="mt-7 flex items-end justify-between gap-4">
-                        <h2 className="font-display text-xl leading-[1.05] sm:text-2xl">
-                          {isAll ? 'Visi produktai' : displayCategory(item)}
-                        </h2>
-                        <span className="flex size-8 shrink-0 items-center justify-center rounded-full border border-current opacity-70 transition-transform group-hover:translate-x-1">
-                          {isActive ? (
-                            <Check className="size-4" />
-                          ) : (
-                            <ArrowRight className="size-4" />
-                          )}
-                        </span>
-                      </div>
-                    </div>
-                  </button>
-                );
-              })}
+              <div className="-mx-1 flex gap-2 overflow-x-auto px-1 pb-1 lg:mx-0 lg:flex-wrap lg:justify-end lg:px-0">
+                {['Visi', ...categoryOrder].map((item) => {
+                  const isAll = item === 'Visi';
+                  const isActive = category === item;
+                  return (
+                    <button
+                      key={item}
+                      aria-pressed={isActive}
+                      onClick={() => {
+                        setCategory(item);
+                        setVisibleCount(16);
+                        document
+                          .querySelector('#zenklai')
+                          ?.scrollIntoView({ behavior: 'smooth' });
+                      }}
+                      className={`flex shrink-0 items-center gap-2 rounded-full border px-3.5 py-2 text-xs font-semibold transition-colors sm:text-sm ${isActive ? 'border-[#28251f] bg-[#28251f] text-white' : 'border-black/15 bg-white/45 text-black/65 hover:border-black/35 hover:bg-white/80 hover:text-black'}`}
+                    >
+                      {isActive && <Check className="size-3.5 shrink-0" />}
+                      <span>
+                        {isAll ? 'Visi produktai' : displayCategory(item)}
+                      </span>
+                      <span className="text-[10px] opacity-50">
+                        {isAll ? products.length : categoryCounts[item]}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </section>
@@ -461,29 +430,31 @@ export function Storefront({
       {view === 'catalog' && (
         <section
           id="zenklai"
-          className="scroll-mt-24 border-b border-black/10 bg-[#28251f] py-16 text-[#f3efe7] lg:py-20"
+          className="scroll-mt-24 border-b border-black/10 bg-[#28251f] py-5 text-[#f3efe7] sm:py-6"
         >
           <div className="mx-auto max-w-[1480px] px-5 sm:px-8 lg:px-12">
-            <div className="grid gap-8 lg:grid-cols-[.7fr_1.3fr] lg:items-end">
-              <div>
-                <div className="flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.2em] text-white/42">
-                  <span className="flex size-7 items-center justify-center rounded-full border border-white/20">
-                    02
-                  </span>
-                  Profesionalūs partneriai
+            <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+              <div className="flex shrink-0 items-center gap-3">
+                <span className="flex size-7 items-center justify-center rounded-full border border-white/20 text-[10px] font-semibold text-white/45">
+                  02
+                </span>
+                <div>
+                  <p className="text-[9px] font-semibold uppercase tracking-[0.18em] text-white/42">
+                    Profesionalūs partneriai
+                  </p>
+                  <h2 className="font-display text-xl leading-tight tracking-[-0.015em] sm:text-2xl">
+                    Tada rinkitės ženklą
+                  </h2>
                 </div>
-                <h2 className="font-display mt-5 text-4xl leading-none tracking-tight sm:text-5xl">
-                  Tada rinkitės ženklą
-                </h2>
               </div>
-              <div className="grid gap-2 sm:grid-cols-2 xl:grid-cols-5">
+              <div className="-mx-1 flex gap-2 overflow-x-auto px-1 pb-1 lg:mx-0 lg:flex-wrap lg:justify-end lg:px-0">
                 {['Visi', ...brands].map((item) => {
                   const isActive = brand === item;
                   return (
                     <button
                       key={item}
                       aria-pressed={isActive}
-                      className={`flex min-h-20 items-center justify-between gap-3 rounded-xl border px-4 text-left font-display text-lg leading-tight transition-all ${isActive ? 'border-white bg-white text-[#28251f]' : 'border-white/15 bg-white/[.03] text-white/75 hover:border-white/40 hover:bg-white/[.07] hover:text-white'}`}
+                      className={`flex shrink-0 items-center gap-2 rounded-full border px-4 py-2 text-xs font-semibold transition-colors sm:text-sm ${isActive ? 'border-white bg-white text-[#28251f]' : 'border-white/15 bg-white/[.03] text-white/70 hover:border-white/40 hover:bg-white/[.07] hover:text-white'}`}
                       onClick={() => {
                         setBrand(item);
                         setVisibleCount(16);
@@ -492,12 +463,8 @@ export function Storefront({
                           ?.scrollIntoView({ behavior: 'smooth' });
                       }}
                     >
-                      <span>{item === 'Visi' ? 'Visi partneriai' : item}</span>
-                      {isActive ? (
-                        <Check className="size-4 shrink-0" />
-                      ) : (
-                        <ArrowRight className="size-4 shrink-0 opacity-50" />
-                      )}
+                      {isActive && <Check className="size-3.5 shrink-0" />}
+                      <span>{item === 'Visi' ? 'Visi ženklai' : item}</span>
                     </button>
                   );
                 })}
