@@ -289,9 +289,6 @@ export function Storefront({
             <a href="/produktai" className="nav-link">
               Produktai
             </a>
-            <a href="/produktai#zenklai" className="nav-link">
-              Prekės ženklai
-            </a>
             <a href="/apie-mus" className="nav-link">
               Apie mus
             </a>
@@ -713,7 +710,6 @@ export function Storefront({
             {[
               ['Naujienos', '/'],
               ['Produktai', '/produktai'],
-              ['Prekės ženklai', '/produktai#zenklai'],
               ['Apie mus', '/apie-mus'],
               ['Administravimas', '/admin'],
             ].map(([label, href]) => (
