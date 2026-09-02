@@ -393,9 +393,10 @@ export function Storefront({
               </h2>
             </div>
             <button
-              className="hidden items-center gap-2 text-sm font-medium sm:flex"
+              className="flex shrink-0 items-center gap-2 text-sm font-medium"
               onClick={() => {
                 setCategory('Visi');
+                setVisibleCount(16);
                 document
                   .querySelector('#produktai')
                   ?.scrollIntoView({ behavior: 'smooth' });
@@ -410,6 +411,7 @@ export function Storefront({
                 key={item}
                 onClick={() => {
                   setCategory(item);
+                  setVisibleCount(16);
                   document
                     .querySelector('#produktai')
                     ?.scrollIntoView({ behavior: 'smooth' });
@@ -477,12 +479,12 @@ export function Storefront({
                 Atraskite savo ritualą
               </h2>
               <p className="mt-4 text-sm leading-6 text-black/55 sm:text-base">
-                Filtruokite pagal plaukų poreikį, kategoriją ar mėgstamą
+                Ieškokite pagal plaukų poreikį arba pasirinkite mėgstamą
                 profesionalų ženklą.
               </p>
             </div>
             <div className="sticky top-[82px] z-30 -mx-5 mb-10 border-y border-black/10 bg-background/95 px-5 py-4 backdrop-blur-xl sm:top-[88px] sm:-mx-8 sm:px-8 lg:-mx-12 lg:px-12">
-              <div className="mx-auto grid max-w-[1384px] gap-3 lg:grid-cols-[minmax(260px,1fr)_220px_220px_180px]">
+              <div className="mx-auto grid max-w-[1384px] gap-3 lg:grid-cols-[minmax(280px,1fr)_240px_210px]">
                 <label className="relative block">
                   <span className="sr-only">Ieškoti produktų</span>
                   <Search className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-black/45" />
@@ -496,21 +498,6 @@ export function Storefront({
                     className="h-11 rounded-full border-black/15 bg-white/55 pl-10"
                   />
                 </label>
-                <FilterSelect
-                  label="Kategorija"
-                  value={category}
-                  onChange={(value) => {
-                    setCategory(value);
-                    setVisibleCount(16);
-                  }}
-                >
-                  <option value="Visi">Visos kategorijos</option>
-                  {categoryOrder.map((item) => (
-                    <option key={item} value={item}>
-                      {displayCategory(item)}
-                    </option>
-                  ))}
-                </FilterSelect>
                 <FilterSelect
                   label="Prekės ženklas"
                   value={brand}
@@ -539,10 +526,17 @@ export function Storefront({
               </div>
             </div>
 
-            <div className="mb-6 flex items-center justify-between gap-4 text-sm">
-              <span className="text-black/52">
-                Rasta {filtered.length} produktų
-              </span>
+            <div className="mb-6 flex flex-wrap items-center justify-between gap-4 text-sm">
+              <div className="flex flex-wrap items-center gap-3">
+                <span className="text-black/52">
+                  Rasta {filtered.length} produktų
+                </span>
+                <span className="rounded-full border border-black/15 px-3 py-1 text-xs font-medium">
+                  {category === 'Visi'
+                    ? 'Visos kategorijos'
+                    : displayCategory(category)}
+                </span>
+              </div>
               {(category !== 'Visi' || brand !== 'Visi' || query) && (
                 <button
                   className="font-medium underline underline-offset-4"
