@@ -648,7 +648,7 @@ export function Storefront({
         </section>
       )}
 
-      {view !== 'home' && (
+      {view === 'about' && (
         <footer className="bg-[#1f1d1a] px-5 py-12 text-white sm:px-8 lg:px-12">
           <div className="mx-auto grid max-w-[1384px] gap-10 border-b border-white/15 pb-12 md:grid-cols-[1fr_auto_auto]">
             <div>
