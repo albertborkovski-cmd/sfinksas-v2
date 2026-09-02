@@ -14,7 +14,6 @@ import {
   Search,
   ShoppingBag,
   SlidersHorizontal,
-  Sparkles,
   Truck,
 } from 'lucide-react';
 
@@ -329,48 +328,65 @@ export function Storefront({
           id="pradzia"
           className="hero-grid scroll-mt-32 border-b border-black/10"
         >
-          <div className="mx-auto grid max-w-[1480px] lg:grid-cols-[1.04fr_0.96fr]">
-            <div className="flex min-h-[570px] flex-col justify-between px-5 py-14 sm:px-8 sm:py-20 lg:min-h-[680px] lg:px-12 lg:py-24">
-              <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.19em] text-[#6d6558]">
-                <Sparkles className="size-4" /> Profesionalų atrinkta kolekcija
+          <div className="mx-auto grid max-w-[1480px] lg:grid-cols-[1.08fr_0.92fr]">
+            <div className="flex min-h-[570px] flex-col justify-between px-5 py-14 sm:px-10 sm:py-20 lg:min-h-[700px] lg:px-16 lg:py-20 xl:px-20">
+              <div className="flex items-center gap-4 text-[10px] font-semibold uppercase tracking-[0.24em] text-[#6d6558] sm:text-xs">
+                <span className="h-px w-10 bg-[#8b8274]" aria-hidden="true" />
+                Profesionalų atrinkta kolekcija
               </div>
-              <div className="max-w-3xl py-14 lg:py-8">
-                <h1 className="font-display text-[clamp(3.65rem,7.2vw,7.7rem)] leading-[0.83] tracking-[-0.055em]">
+              <div className="max-w-3xl py-16 lg:py-10">
+                <h1 className="font-display text-[clamp(3.7rem,7vw,7.5rem)] leading-[0.86] tracking-[-0.055em]">
                   Ritualas, kurį
-                  <span className="block italic text-[#756d60]">pajusite.</span>
+                  <span className="mt-2 block italic text-[#756d60]">
+                    pajusite.
+                  </span>
                 </h1>
-                <p className="mt-8 max-w-xl text-base leading-7 text-black/62 sm:text-lg">
+                <p className="mt-9 max-w-lg border-l border-black/20 pl-5 text-base leading-7 text-black/62 sm:text-lg">
                   Profesionalios priemonės plaukams, kurias kasdien renkasi
                   „Sfinksas“ grožio namų meistrai.
                 </p>
               </div>
-              <div className="grid max-w-xl grid-cols-3 gap-5 border-t border-black/15 pt-6 text-sm">
-                <div>
-                  <strong className="block text-2xl font-medium">
+              <div className="grid max-w-2xl grid-cols-3 border-y border-black/15 py-5 text-sm">
+                <div className="pr-4">
+                  <strong className="font-display block text-3xl font-normal">
                     {products.length}
                   </strong>
-                  <span className="text-black/55">atrinkti produktai</span>
+                  <span className="mt-1 block text-xs leading-5 text-black/55 sm:text-sm">
+                    atrinkti produktai
+                  </span>
                 </div>
-                <div>
-                  <strong className="block text-2xl font-medium">
+                <div className="border-l border-black/15 px-4 sm:px-6">
+                  <strong className="font-display block text-3xl font-normal">
                     {brands.length}
                   </strong>
-                  <span className="text-black/55">profesionalūs ženklai</span>
+                  <span className="mt-1 block text-xs leading-5 text-black/55 sm:text-sm">
+                    profesionalūs ženklai
+                  </span>
                 </div>
-                <div>
-                  <strong className="block text-2xl font-medium">7</strong>
-                  <span className="text-black/55">kategorijos</span>
+                <div className="border-l border-black/15 pl-4 sm:pl-6">
+                  <strong className="font-display block text-3xl font-normal">
+                    7
+                  </strong>
+                  <span className="mt-1 block text-xs leading-5 text-black/55 sm:text-sm">
+                    kategorijos
+                  </span>
                 </div>
               </div>
             </div>
 
-            <aside className="relative min-h-[430px] overflow-hidden border-l border-black/10 bg-[#cec7bb] lg:min-h-[680px]">
-              <img
-                src="/og.png"
-                alt="Sfinksas profesionalios plaukų priežiūros kolekcija"
-                className="absolute inset-0 h-full w-full object-cover object-[62%_center]"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
+            <aside className="border-t border-black/10 bg-[#d4cdbf] p-5 sm:p-8 lg:min-h-[700px] lg:border-l lg:border-t-0 lg:p-10">
+              <div className="relative h-[430px] overflow-hidden border border-black/10 shadow-[0_30px_80px_rgba(44,39,32,0.16)] sm:h-[540px] lg:h-full">
+                <img
+                  src="/og.png"
+                  alt="Sfinksas profesionalios plaukų priežiūros kolekcija"
+                  className="absolute inset-0 h-full w-full object-cover object-[62%_center] transition-transform duration-1000 hover:scale-[1.02]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-white/5" />
+                <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between border-t border-white/45 pt-3 text-[10px] font-medium uppercase tracking-[0.2em] text-white/85">
+                  <span>Sfinksas grožio namai</span>
+                  <span>Vilnius</span>
+                </div>
+              </div>
             </aside>
           </div>
         </section>
