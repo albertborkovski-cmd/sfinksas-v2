@@ -323,69 +323,62 @@ export function Storefront({
       {view === 'home' && (
         <section
           id="pradzia"
-          className="hero-grid scroll-mt-32 border-b border-black/10"
+          className="relative z-0 min-h-[calc(100svh-82px)] scroll-mt-32 overflow-hidden bg-[#d4ccbf] sm:min-h-[calc(100svh-88px)]"
         >
-          <div className="mx-auto grid max-w-[1480px] lg:grid-cols-[1.08fr_0.92fr]">
-            <div className="flex min-h-[570px] flex-col justify-between px-5 py-14 sm:px-10 sm:py-20 lg:min-h-[700px] lg:px-16 lg:py-20 xl:px-20">
-              <div className="flex items-center gap-4 text-[10px] font-semibold uppercase tracking-[0.24em] text-[#6d6558] sm:text-xs">
-                <span className="h-px w-10 bg-[#8b8274]" aria-hidden="true" />
+          <img
+            src="/og.png"
+            alt="Sfinksas profesionalios plaukų priežiūros kolekcija"
+            className="absolute inset-0 h-full w-full object-cover object-[68%_center]"
+          />
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(235,228,216,.97)_0%,rgba(235,228,216,.9)_35%,rgba(235,228,216,.18)_68%,rgba(28,24,20,.12)_100%)]" />
+
+          <div className="relative z-10 mx-auto flex min-h-[calc(100svh-82px)] max-w-[1480px] items-center px-5 pb-28 pt-16 sm:min-h-[calc(100svh-88px)] sm:px-10 lg:px-16 xl:px-20">
+            <div className="max-w-[650px]">
+              <div className="flex items-center gap-4 text-[10px] font-semibold uppercase tracking-[0.24em] text-[#665f54] sm:text-xs">
+                <span className="h-px w-10 bg-[#81786a]" aria-hidden="true" />
                 Profesionalų atrinkta kolekcija
               </div>
-              <div className="max-w-3xl py-16 lg:py-10">
-                <h1 className="font-display text-[clamp(3.7rem,7vw,7.5rem)] leading-[0.86] tracking-[-0.055em]">
-                  Ritualas, kurį
-                  <span className="mt-2 block italic text-[#756d60]">
-                    pajusite.
-                  </span>
-                </h1>
-                <p className="mt-9 max-w-lg border-l border-black/20 pl-5 text-base leading-7 text-black/62 sm:text-lg">
-                  Profesionalios priemonės plaukams, kurias kasdien renkasi
-                  „Sfinksas“ grožio namų meistrai.
-                </p>
-              </div>
-              <div className="grid max-w-2xl grid-cols-3 border-y border-black/15 py-5 text-sm">
-                <div className="pr-4">
-                  <strong className="font-display block text-3xl font-normal">
-                    {products.length}
-                  </strong>
-                  <span className="mt-1 block text-xs leading-5 text-black/55 sm:text-sm">
-                    atrinkti produktai
-                  </span>
-                </div>
-                <div className="border-l border-black/15 px-4 sm:px-6">
-                  <strong className="font-display block text-3xl font-normal">
-                    {brands.length}
-                  </strong>
-                  <span className="mt-1 block text-xs leading-5 text-black/55 sm:text-sm">
-                    profesionalūs ženklai
-                  </span>
-                </div>
-                <div className="border-l border-black/15 pl-4 sm:pl-6">
-                  <strong className="font-display block text-3xl font-normal">
-                    7
-                  </strong>
-                  <span className="mt-1 block text-xs leading-5 text-black/55 sm:text-sm">
-                    kategorijos
-                  </span>
-                </div>
+              <h1 className="font-display mt-10 text-[clamp(4rem,7.4vw,7.8rem)] leading-[0.84] tracking-[-0.06em]">
+                Ritualas, kurį
+                <span className="mt-2 block italic text-[#756d60]">
+                  pajusite.
+                </span>
+              </h1>
+              <p className="mt-9 max-w-lg border-l border-black/20 pl-5 text-base leading-7 text-black/65 sm:text-lg">
+                Profesionalios priemonės plaukams, kurias kasdien renkasi
+                „Sfinksas“ grožio namų meistrai.
+              </p>
+              <div className="mt-10 grid max-w-xl grid-cols-3 border-y border-black/20 bg-[#eee8de]/45 py-5 backdrop-blur-sm">
+                {[
+                  [products.length, 'atrinkti produktai'],
+                  [brands.length, 'profesionalūs ženklai'],
+                  [7, 'kategorijos'],
+                ].map(([value, label], index) => (
+                  <div
+                    key={label}
+                    className={
+                      index ? 'border-l border-black/15 px-4 sm:px-6' : 'pr-4'
+                    }
+                  >
+                    <strong className="font-display block text-3xl font-normal">
+                      {value}
+                    </strong>
+                    <span className="mt-1 block text-xs leading-5 text-black/55 sm:text-sm">
+                      {label}
+                    </span>
+                  </div>
+                ))}
               </div>
             </div>
-
-            <aside className="border-t border-black/10 bg-[#d4cdbf] p-5 sm:p-8 lg:min-h-[700px] lg:border-l lg:border-t-0 lg:p-10">
-              <div className="relative h-[430px] overflow-hidden border border-black/10 shadow-[0_30px_80px_rgba(44,39,32,0.16)] sm:h-[540px] lg:h-full">
-                <img
-                  src="/og.png"
-                  alt="Sfinksas profesionalios plaukų priežiūros kolekcija"
-                  className="absolute inset-0 h-full w-full object-cover object-[62%_center] transition-transform duration-1000 hover:scale-[1.02]"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-white/5" />
-                <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between border-t border-white/45 pt-3 text-[10px] font-medium uppercase tracking-[0.2em] text-white/85">
-                  <span>Sfinksas grožio namai</span>
-                  <span>Vilnius</span>
-                </div>
-              </div>
-            </aside>
           </div>
+
+          <a
+            href="#naujienos"
+            aria-label="Rodyti meistrų favoritus"
+            className="absolute bottom-24 left-1/2 z-20 flex size-11 -translate-x-1/2 items-center justify-center rounded-full border border-white/35 bg-black/65 text-white shadow-lg backdrop-blur-sm transition-transform hover:translate-y-1"
+          >
+            <ChevronDown className="size-5" />
+          </a>
         </section>
       )}
 
@@ -481,13 +474,13 @@ export function Storefront({
       {view === 'home' && (
         <section
           id="naujienos"
-          className="scroll-mt-28 border-b border-black/10 bg-[#f1ede5] py-20 lg:py-28"
+          className="curved-reveal relative z-20 -mt-20 scroll-mt-28 border-b border-black/10 bg-[#f1ede5] pb-20 pt-32 shadow-[0_-24px_60px_rgba(43,37,30,0.14)] lg:-mt-28 lg:pb-28 lg:pt-40"
         >
           <div className="mx-auto max-w-[1480px] px-5 sm:px-8 lg:px-12">
-            <div className="mb-10 flex items-end justify-between gap-6">
-              <div>
+            <div className="mb-12 text-center">
+              <div className="mx-auto max-w-2xl">
                 <p className="eyebrow">Atrinkta jums</p>
-                <h2 className="font-display mt-3 text-4xl tracking-tight sm:text-5xl">
+                <h2 className="font-display mt-3 text-4xl tracking-tight sm:text-6xl">
                   Meistrų favoritai
                 </h2>
               </div>

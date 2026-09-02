@@ -155,6 +155,16 @@ body {
     background-size: 52px 52px;
   }
 
+  .curved-reveal {
+    border-radius: 50% 50% 0 0 / 92px 92px 0 0;
+  }
+
+  @media (min-width: 1024px) {
+    .curved-reveal {
+      border-radius: 50% 50% 0 0 / 140px 140px 0 0;
+    }
+  }
+
   .nav-link {
     position: relative;
     padding-block: 0.5rem;
