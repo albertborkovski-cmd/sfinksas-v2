@@ -326,7 +326,7 @@ export function Storefront({
           className="relative z-0 min-h-[calc(100svh-82px)] scroll-mt-32 overflow-hidden bg-[#d4ccbf] sm:min-h-[calc(100svh-88px)]"
         >
           <img
-            src="/og.png"
+            src="/hero-background.png"
             alt="Sfinksas profesionalios plaukų priežiūros kolekcija"
             className="absolute inset-0 h-full w-full object-cover object-[68%_center]"
           />
