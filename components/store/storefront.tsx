@@ -381,10 +381,7 @@ export function Storefront({
         >
           <div className="mx-auto max-w-[1480px] px-5 sm:px-8 lg:px-12">
             <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-              <div className="flex shrink-0 items-center gap-3">
-                <span className="flex size-7 items-center justify-center rounded-full border border-black/15 text-[10px] font-semibold text-black/45">
-                  01
-                </span>
+              <div className="flex shrink-0 items-center">
                 <div>
                   <p className="text-[9px] font-semibold uppercase tracking-[0.18em] text-black/42">
                     Parduotuvė
@@ -434,10 +431,7 @@ export function Storefront({
         >
           <div className="mx-auto max-w-[1480px] px-5 sm:px-8 lg:px-12">
             <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-              <div className="flex shrink-0 items-center gap-3">
-                <span className="flex size-7 items-center justify-center rounded-full border border-white/20 text-[10px] font-semibold text-white/45">
-                  02
-                </span>
+              <div className="flex shrink-0 items-center">
                 <div>
                   <p className="text-[9px] font-semibold uppercase tracking-[0.18em] text-white/42">
                     Profesionalūs partneriai
@@ -510,10 +504,7 @@ export function Storefront({
           >
             <div className="mb-12 grid gap-5 lg:grid-cols-[1fr_auto] lg:items-end">
               <div>
-                <div className="flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.2em] text-black/42">
-                  <span className="flex size-7 items-center justify-center rounded-full border border-black/15">
-                    03
-                  </span>
+                <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-black/42">
                   Visas katalogas
                 </div>
                 <h2 className="font-display mt-5 text-4xl tracking-tight sm:text-6xl">
@@ -934,11 +925,6 @@ function ProductCard({
         <div className="aspect-[4/5] overflow-hidden">
           <ProductVisual product={product} />
         </div>
-        {product.isFeatured && (
-          <span className="absolute left-3 top-3 rounded-full bg-white/82 px-3 py-1.5 text-[9px] font-semibold uppercase tracking-[0.12em] backdrop-blur-sm sm:left-4 sm:top-4">
-            Rekomenduojame
-          </span>
-        )}
         <span className="absolute bottom-3 right-3 flex size-9 translate-y-2 items-center justify-center rounded-full bg-white opacity-0 shadow-lg transition-all group-hover:translate-y-0 group-hover:opacity-100">
           <ArrowRight className="size-4" />
         </span>
