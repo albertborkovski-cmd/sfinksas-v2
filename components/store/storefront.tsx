@@ -116,7 +116,7 @@ export function Storefront({
   view = 'home',
 }: {
   products: Product[];
-  view?: 'home' | 'catalog';
+  view?: 'home' | 'catalog' | 'about';
 }) {
   const [query, setQuery] = useState('');
   const [category, setCategory] = useState('Visi');
@@ -299,7 +299,7 @@ export function Storefront({
             <a href="/produktai#zenklai" className="nav-link">
               Prekės ženklai
             </a>
-            <a href="/produktai#apie" className="nav-link">
+            <a href="/apie-mus" className="nav-link">
               Apie mus
             </a>
           </nav>
@@ -615,38 +615,40 @@ export function Storefront({
               </div>
             </div>
           </section>
-
-          <section
-            id="apie"
-            className="mx-auto grid max-w-[1480px] scroll-mt-28 gap-12 px-5 py-20 sm:px-8 lg:grid-cols-2 lg:px-12 lg:py-28"
-          >
-            <div>
-              <p className="eyebrow">Kodėl Sfinksas</p>
-              <h2 className="font-display mt-4 max-w-xl text-4xl leading-[1.05] tracking-tight sm:text-6xl">
-                Profesionalų žinios – jūsų kasdieniam grožiui.
-              </h2>
-            </div>
-            <div className="grid gap-8 sm:grid-cols-2">
-              <div className="border-t border-black/15 pt-5">
-                <PackageCheck className="size-5" />
-                <h3 className="mt-5 font-medium">Meistrų atranka</h3>
-                <p className="mt-2 text-sm leading-6 text-black/52">
-                  Tik profesionalių salonų patikrintos formulės ir įrankiai.
-                </p>
-              </div>
-              <div className="border-t border-black/15 pt-5">
-                <Truck className="size-5" />
-                <h3 className="mt-5 font-medium">Pristatymas Lietuvoje</h3>
-                <p className="mt-2 text-sm leading-6 text-black/52">
-                  Užsakymo informaciją patvirtinsime asmeniškai.
-                </p>
-              </div>
-            </div>
-          </section>
         </>
       )}
 
-      {view === 'catalog' && (
+      {view === 'about' && (
+        <section
+          id="apie"
+          className="mx-auto grid min-h-[520px] max-w-[1480px] scroll-mt-28 content-center gap-12 px-5 py-20 sm:px-8 lg:grid-cols-2 lg:px-12 lg:py-28"
+        >
+          <div>
+            <p className="eyebrow">Kodėl Sfinksas</p>
+            <h1 className="font-display mt-4 max-w-xl text-4xl leading-[1.05] tracking-tight sm:text-6xl">
+              Profesionalų žinios – jūsų kasdieniam grožiui.
+            </h1>
+          </div>
+          <div className="grid gap-8 sm:grid-cols-2">
+            <div className="border-t border-black/15 pt-5">
+              <PackageCheck className="size-5" />
+              <h2 className="mt-5 font-medium">Meistrų atranka</h2>
+              <p className="mt-2 text-sm leading-6 text-black/52">
+                Tik profesionalių salonų patikrintos formulės ir įrankiai.
+              </p>
+            </div>
+            <div className="border-t border-black/15 pt-5">
+              <Truck className="size-5" />
+              <h2 className="mt-5 font-medium">Pristatymas Lietuvoje</h2>
+              <p className="mt-2 text-sm leading-6 text-black/52">
+                Užsakymo informaciją patvirtinsime asmeniškai.
+              </p>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {view !== 'home' && (
         <footer className="bg-[#1f1d1a] px-5 py-12 text-white sm:px-8 lg:px-12">
           <div className="mx-auto grid max-w-[1384px] gap-10 border-b border-white/15 pb-12 md:grid-cols-[1fr_auto_auto]">
             <div>
@@ -699,7 +701,7 @@ export function Storefront({
               ['Naujienos', '/'],
               ['Produktai', '/produktai'],
               ['Prekės ženklai', '/produktai#zenklai'],
-              ['Apie mus', '/produktai#apie'],
+              ['Apie mus', '/apie-mus'],
               ['Administravimas', '/admin'],
             ].map(([label, href]) => (
               <a
