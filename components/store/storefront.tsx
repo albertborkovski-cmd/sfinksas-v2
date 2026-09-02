@@ -53,16 +53,6 @@ const categoryNames: Record<string, string> = {
   'Maisto papildas': 'Maisto papildai',
 };
 
-const categoryCopy: Record<string, string> = {
-  'Plaukų priežiūra': 'Kasdieniai ritualai sveikesniems plaukams',
-  'Stiliaus formavimas': 'Tekstūra, apsauga ir ilgai išliekanti forma',
-  Aksesuaras: 'Profesionalūs įrankiai namų ritualui',
-  'Elektroninis įrankis': 'Salono rezultatas jūsų namuose',
-  Rinkinys: 'Apgalvotos priežiūros kombinacijos',
-  Kvepalai: 'Išskirtinis aromatas paskutiniam akcentui',
-  'Maisto papildas': 'Grožis ir stiprybė iš vidaus',
-};
-
 const categoryTones = [
   'bg-[#28251f] text-white',
   'bg-[#d8cfc0]',
@@ -398,10 +388,10 @@ export function Storefront({
       {view === 'catalog' && (
         <section
           id="kategorijos"
-          className="scroll-mt-28 border-b border-black/10 bg-[#eee9df] py-16 sm:py-20 lg:py-24"
+          className="scroll-mt-28 border-b border-black/10 bg-[#eee9df] py-10 sm:py-12 lg:py-14"
         >
           <div className="mx-auto max-w-[1480px] px-5 sm:px-8 lg:px-12">
-            <div className="mb-12 grid gap-5 lg:grid-cols-[1fr_auto] lg:items-end">
+            <div className="mb-8 grid gap-4 lg:grid-cols-[1fr_auto] lg:items-end">
               <div>
                 <div className="flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.2em] text-black/42">
                   <span className="flex size-7 items-center justify-center rounded-full border border-black/15">
@@ -409,17 +399,17 @@ export function Storefront({
                   </span>
                   Parduotuvė
                 </div>
-                <h1 className="font-display mt-5 max-w-3xl text-4xl leading-[.98] tracking-[-0.035em] sm:text-6xl lg:text-7xl">
+                <h1 className="font-display mt-3 max-w-3xl text-3xl leading-none tracking-[-0.025em] sm:text-4xl lg:text-5xl">
                   Rinkitės pagal kategoriją
                 </h1>
               </div>
-              <p className="max-w-sm text-sm leading-6 text-black/52 lg:pb-2">
+              <p className="hidden max-w-sm text-sm leading-6 text-black/52 md:block lg:pb-1">
                 Pradėkite nuo visos kolekcijos arba pasirinkite tai, ko šiuo
                 metu labiausiai reikia jūsų plaukams.
               </p>
             </div>
 
-            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
               {['Visi', ...categoryOrder].map((item, index) => {
                 const isAll = item === 'Visi';
                 const isActive = category === item;
@@ -434,31 +424,24 @@ export function Storefront({
                         .querySelector('#zenklai')
                         ?.scrollIntoView({ behavior: 'smooth' });
                     }}
-                    className={`group relative min-h-56 overflow-hidden rounded-2xl p-6 text-left shadow-[0_12px_35px_rgba(54,47,39,.08)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_45px_rgba(54,47,39,.14)] ${categoryTones[index]} ${isActive ? 'ring-2 ring-black ring-offset-2 ring-offset-[#eee9df]' : ''}`}
+                    className={`group relative min-h-32 overflow-hidden rounded-xl p-4 text-left shadow-[0_8px_24px_rgba(54,47,39,.07)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_30px_rgba(54,47,39,.12)] sm:min-h-36 ${categoryTones[index]} ${isActive ? 'ring-2 ring-black ring-offset-2 ring-offset-[#eee9df]' : ''}`}
                   >
-                    <div className="absolute -right-14 -top-14 size-40 rounded-full border border-current opacity-[.08] transition-transform duration-500 group-hover:scale-110" />
+                    <div className="absolute -right-10 -top-10 size-28 rounded-full border border-current opacity-[.08] transition-transform duration-500 group-hover:scale-110" />
                     <div className="relative flex h-full flex-col justify-between">
                       <div className="flex items-start justify-between gap-4">
                         <span className="text-[10px] font-semibold uppercase tracking-[0.18em] opacity-50">
                           {String(index + 1).padStart(2, '0')}
                         </span>
-                        <span className="rounded-full border border-current px-2.5 py-1 text-[9px] font-semibold uppercase tracking-[0.12em] opacity-60">
+                        <span className="rounded-full border border-current px-2 py-0.5 text-[8px] font-semibold uppercase tracking-[0.1em] opacity-60">
                           {isAll ? products.length : categoryCounts[item]}{' '}
                           prekės
                         </span>
                       </div>
-                      <div className="mt-12 flex items-end justify-between gap-5">
-                        <div>
-                          <h2 className="font-display text-2xl leading-[1.05] sm:text-3xl">
-                            {isAll ? 'Visi produktai' : displayCategory(item)}
-                          </h2>
-                          <p className="mt-3 max-w-[230px] text-xs leading-5 opacity-60">
-                            {isAll
-                              ? 'Visa profesionalų atrinkta kolekcija'
-                              : categoryCopy[item]}
-                          </p>
-                        </div>
-                        <span className="flex size-9 shrink-0 items-center justify-center rounded-full border border-current opacity-70 transition-transform group-hover:translate-x-1">
+                      <div className="mt-7 flex items-end justify-between gap-4">
+                        <h2 className="font-display text-xl leading-[1.05] sm:text-2xl">
+                          {isAll ? 'Visi produktai' : displayCategory(item)}
+                        </h2>
+                        <span className="flex size-8 shrink-0 items-center justify-center rounded-full border border-current opacity-70 transition-transform group-hover:translate-x-1">
                           {isActive ? (
                             <Check className="size-4" />
                           ) : (
