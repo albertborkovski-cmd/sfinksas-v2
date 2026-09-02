@@ -265,12 +265,6 @@ export function Storefront({
 
   return (
     <main className="min-h-screen bg-background text-foreground">
-      {view === 'catalog' && (
-        <div className="bg-ink px-5 py-2.5 text-center text-[10px] font-medium uppercase tracking-[0.16em] text-white sm:text-xs sm:tracking-[0.19em]">
-          Atrinkta profesionali plaukų priežiūra · Pristatymas visoje Lietuvoje
-        </div>
-      )}
-
       <header className="sticky top-0 z-40 border-b border-black/10 bg-background/95 backdrop-blur-xl">
         <div className="mx-auto flex h-[82px] max-w-[1480px] items-center justify-between px-4 sm:h-[88px] sm:px-8 lg:px-12">
           <Button
@@ -441,6 +435,36 @@ export function Storefront({
         </section>
       )}
 
+      {view === 'catalog' && (
+        <section
+          id="zenklai"
+          className="border-y border-black/10 bg-[#27241f] py-16 text-[#f3efe7]"
+        >
+          <div className="mx-auto max-w-[1480px] px-5 sm:px-8 lg:px-12">
+            <p className="text-center text-[10px] font-semibold uppercase tracking-[0.22em] text-white/45">
+              Profesionalūs partneriai
+            </p>
+            <div className="mt-10 grid grid-cols-2 items-center border-l border-t border-white/15 md:grid-cols-4">
+              {brands.map((item) => (
+                <button
+                  key={item}
+                  className="min-h-28 border-b border-r border-white/15 px-4 font-display text-xl tracking-wide text-white/78 transition-colors hover:bg-white/7 hover:text-white sm:text-2xl"
+                  onClick={() => {
+                    setBrand(item);
+                    setVisibleCount(16);
+                    document
+                      .querySelector('#produktai')
+                      ?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                >
+                  {item}
+                </button>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {view === 'home' && (
         <section
           id="naujienos"
@@ -587,33 +611,6 @@ export function Storefront({
                 </p>
               </div>
             )}
-          </section>
-
-          <section
-            id="zenklai"
-            className="border-y border-black/10 bg-[#27241f] py-16 text-[#f3efe7]"
-          >
-            <div className="mx-auto max-w-[1480px] px-5 sm:px-8 lg:px-12">
-              <p className="text-center text-[10px] font-semibold uppercase tracking-[0.22em] text-white/45">
-                Profesionalūs partneriai
-              </p>
-              <div className="mt-10 grid grid-cols-2 items-center border-l border-t border-white/15 md:grid-cols-4">
-                {brands.map((item) => (
-                  <button
-                    key={item}
-                    className="min-h-28 border-b border-r border-white/15 px-4 font-display text-xl tracking-wide text-white/78 transition-colors hover:bg-white/7 hover:text-white sm:text-2xl"
-                    onClick={() => {
-                      setBrand(item);
-                      document
-                        .querySelector('#produktai')
-                        ?.scrollIntoView({ behavior: 'smooth' });
-                    }}
-                  >
-                    {item}
-                  </button>
-                ))}
-              </div>
-            </div>
           </section>
         </>
       )}
