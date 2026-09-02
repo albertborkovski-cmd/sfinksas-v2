@@ -986,82 +986,128 @@ function ProductDialog({
   return (
     <Dialog open={Boolean(product)} onOpenChange={(open) => !open && onClose()}>
       {product && (
-        <DialogContent className="max-h-[92vh] max-w-4xl overflow-y-auto bg-[#f6f2ea] p-0">
-          <div className="grid md:grid-cols-[.9fr_1.1fr]">
-            <div className="group min-h-[340px] overflow-hidden md:min-h-[620px]">
+        <DialogContent className="max-h-[94svh] max-w-5xl gap-0 overflow-y-auto rounded-2xl border-0 bg-[#f6f2ea] p-0 shadow-[0_32px_100px_rgba(20,18,15,.32)] md:overflow-hidden">
+          <div className="grid md:max-h-[94svh] md:grid-cols-[minmax(0,.9fr)_minmax(0,1.1fr)]">
+            <div className="group min-h-[300px] overflow-hidden border-b border-black/10 sm:min-h-[400px] md:h-[min(760px,94svh)] md:min-h-0 md:border-b-0 md:border-r">
               <ProductVisual product={product} />
             </div>
-            <div className="p-6 sm:p-9 lg:p-12">
-              <DialogHeader>
-                <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-black/45">
-                  {product.brand} · {product.productType}
-                </p>
-                <DialogTitle className="font-display mt-3 text-3xl leading-[1.05] sm:text-5xl">
-                  {product.name}
-                </DialogTitle>
-                <DialogDescription className="sr-only">
-                  {product.description}
-                </DialogDescription>
-              </DialogHeader>
-              <div className="mt-6 flex items-end justify-between gap-4 border-b border-black/12 pb-6">
-                <div>
-                  <strong className="text-xl font-medium">
-                    {formatPrice(product.priceCents)}
-                  </strong>
-                  {product.unitPrice && (
-                    <p className="mt-1 text-xs text-black/42">
-                      {product.unitPrice}
-                    </p>
-                  )}
-                </div>
-                <span className="text-sm text-black/52">{product.size}</span>
-              </div>
-              <p className="mt-7 text-sm leading-7 text-black/62">
-                {product.description}
-              </p>
-              <div className="mt-8 space-y-4 border-y border-black/12 py-5 text-sm">
-                {product.hairNeed && (
-                  <div className="grid grid-cols-[120px_1fr] gap-4">
-                    <span className="text-black/42">Plaukų poreikis</span>
-                    <span>{product.hairNeed}</span>
+            <div className="md:h-[min(760px,94svh)] md:overflow-y-auto">
+              <div className="p-6 sm:p-9 lg:p-11">
+                <DialogHeader className="pr-8">
+                  <div className="flex flex-wrap items-center gap-2 text-[9px] font-semibold uppercase tracking-[0.14em] text-black/52 sm:text-[10px]">
+                    <span className="rounded-full border border-black/15 px-3 py-1.5">
+                      {product.brand}
+                    </span>
+                    <span className="rounded-full bg-[#e4ddd1] px-3 py-1.5">
+                      {displayCategory(product.category)}
+                    </span>
                   </div>
-                )}
-                {product.origin && (
-                  <div className="grid grid-cols-[120px_1fr] gap-4">
-                    <span className="text-black/42">Kilmė</span>
-                    <span>{product.origin}</span>
+                  <DialogTitle className="font-display mt-4 text-3xl leading-[1.02] tracking-[-0.025em] sm:text-4xl lg:text-5xl">
+                    {product.name}
+                  </DialogTitle>
+                  <p className="text-xs uppercase tracking-[0.12em] text-black/42">
+                    {product.productType}
+                  </p>
+                  <DialogDescription className="sr-only">
+                    {product.description}
+                  </DialogDescription>
+                </DialogHeader>
+
+                <div className="mt-7 flex items-center justify-between gap-4 rounded-xl border border-black/10 bg-white/50 p-4 sm:p-5">
+                  <div>
+                    <strong className="font-display text-3xl font-normal">
+                      {formatPrice(product.priceCents)}
+                    </strong>
+                    {product.unitPrice && (
+                      <p className="mt-1 text-xs text-black/42">
+                        {product.unitPrice}
+                      </p>
+                    )}
                   </div>
-                )}
-                <div className="grid grid-cols-[120px_1fr] gap-4">
-                  <span className="text-black/42">Prieinamumas</span>
-                  <span>
-                    {product.stock > 0
-                      ? `Turime sandėlyje · ${product.stock} vnt.`
-                      : 'Laikinai neturime'}
+                  <span className="rounded-full border border-black/15 px-3 py-1.5 text-sm text-black/62">
+                    {product.size}
                   </span>
                 </div>
-              </div>
-              {product.usage && (
-                <div className="mt-7">
-                  <h4 className="text-xs font-semibold uppercase tracking-[0.14em]">
-                    Naudojimas
-                  </h4>
-                  <p className="mt-3 text-sm leading-6 text-black/58">
-                    {product.usage}
+
+                <section className="mt-8">
+                  <h3 className="text-[10px] font-semibold uppercase tracking-[0.17em] text-black/42">
+                    Aprašymas
+                  </h3>
+                  <p className="mt-3 text-sm leading-7 text-black/68 sm:text-[15px]">
+                    {product.description}
+                  </p>
+                </section>
+
+                <div className="mt-8 grid gap-3 sm:grid-cols-2">
+                  {product.hairNeed && (
+                    <div className="border-t border-black/15 pt-4">
+                      <p className="text-[10px] uppercase tracking-[0.14em] text-black/40">
+                        Plaukų poreikis
+                      </p>
+                      <p className="mt-2 text-sm leading-6">
+                        {product.hairNeed}
+                      </p>
+                    </div>
+                  )}
+                  {product.origin && (
+                    <div className="border-t border-black/15 pt-4">
+                      <p className="text-[10px] uppercase tracking-[0.14em] text-black/40">
+                        Kilmė
+                      </p>
+                      <p className="mt-2 text-sm leading-6">{product.origin}</p>
+                    </div>
+                  )}
+                  <div className="border-t border-black/15 pt-4 sm:col-span-2">
+                    <p className="text-[10px] uppercase tracking-[0.14em] text-black/40">
+                      Prieinamumas
+                    </p>
+                    <p className="mt-2 flex items-center gap-2 text-sm leading-6">
+                      <span
+                        className={`size-2 rounded-full ${product.stock > 0 ? 'bg-emerald-600' : 'bg-black/25'}`}
+                      />
+                      {product.stock > 0
+                        ? `Turime sandėlyje · ${product.stock} vnt.`
+                        : 'Laikinai neturime'}
+                    </p>
+                  </div>
+                </div>
+
+                {product.usage && (
+                  <section className="mt-8 rounded-xl bg-[#e9e2d7] p-5">
+                    <h3 className="text-[10px] font-semibold uppercase tracking-[0.17em] text-black/45">
+                      Naudojimas
+                    </h3>
+                    <p className="mt-3 text-sm leading-6 text-black/65">
+                      {product.usage}
+                    </p>
+                  </section>
+                )}
+
+                {product.ingredients && (
+                  <section className="mt-7">
+                    <h3 className="text-[10px] font-semibold uppercase tracking-[0.17em] text-black/42">
+                      Sudėtis
+                    </h3>
+                    <p className="mt-3 text-xs leading-6 text-black/52">
+                      {product.ingredients}
+                    </p>
+                  </section>
+                )}
+
+                <div className="sticky -bottom-px mt-9 border-t border-black/10 bg-[#f6f2ea]/95 pb-1 pt-5 backdrop-blur-xl">
+                  <Button
+                    className="h-12 w-full rounded-full text-sm"
+                    disabled={product.stock <= 0}
+                    onClick={() => onAdd(product)}
+                  >
+                    {product.stock > 0 ? 'Į krepšelį' : 'Laikinai neturime'}{' '}
+                    <ShoppingBag />
+                  </Button>
+                  <p className="mt-3 flex items-center justify-center gap-2 text-[11px] text-black/42">
+                    <Heart className="size-3.5" /> Sfinksas meistrų atrinkta
                   </p>
                 </div>
-              )}
-              <Button
-                className="mt-9 h-12 w-full rounded-full"
-                disabled={product.stock <= 0}
-                onClick={() => onAdd(product)}
-              >
-                {product.stock > 0 ? 'Į krepšelį' : 'Laikinai neturime'}{' '}
-                <ShoppingBag />
-              </Button>
-              <p className="mt-4 flex items-center justify-center gap-2 text-[11px] text-black/42">
-                <Heart className="size-3.5" /> Sfinksas meistrų atrinkta
-              </p>
+              </div>
             </div>
           </div>
         </DialogContent>
