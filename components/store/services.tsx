@@ -46,13 +46,42 @@ function BookingLink({ light = false }: { light?: boolean }) {
 export function Services() {
   return (
     <div>
+      <section aria-labelledby="services-heading" className="border-b border-black/10 bg-[#eee8df]/60">
+        <div className="mx-auto max-w-[1480px] px-5 py-12 sm:px-8 lg:px-12 lg:py-16">
+          <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+            <div>
+              <p className="eyebrow">Atraskite savo ritualą</p>
+              <h1 id="services-heading" className="font-display mt-3 text-3xl tracking-tight sm:text-4xl">Mūsų paslaugos</h1>
+            </div>
+            <a href={bookingUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 py-2 text-sm underline underline-offset-4 hover:text-[#766653]">
+              Visos paslaugos ir kainos <ArrowUpRight aria-hidden="true" className="size-4" />
+              <span className="sr-only">Treatwell, naujame skirtuke</span>
+            </a>
+          </div>
+          <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {services.map(({ title, detail, icon: Icon }) => (
+              <a key={title} href={bookingUrl} target="_blank" rel="noopener noreferrer" className="group rounded-2xl border border-black/10 bg-background p-6 transition-colors hover:border-[#9c8b75] hover:bg-white/60 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#766653] sm:p-7">
+                <div className="flex items-center justify-between text-[#766653]">
+                  <Icon aria-hidden="true" className="size-5" strokeWidth={1.5} />
+                  <ArrowUpRight aria-hidden="true" className="size-4 motion-safe:transition-transform motion-safe:group-hover:-translate-y-0.5 motion-safe:group-hover:translate-x-0.5" />
+                </div>
+                <h2 className="mt-6 text-base font-medium">{title}</h2>
+                <p className="mt-2 max-w-xs text-sm leading-6 text-black/60">{detail}</p>
+                <span className="sr-only">Atverti salono paslaugas Treatwell, naujame skirtuke</span>
+              </a>
+            ))}
+          </div>
+          <p className="mt-5 text-xs leading-5 text-black/55">Aktualias kainas, paslaugų trukmę ir laisvus laikus rasite „Treatwell“ registracijoje.</p>
+        </div>
+      </section>
+
       <section className="mx-auto grid max-w-[1480px] gap-8 px-5 pb-10 pt-8 sm:px-8 sm:pt-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center lg:gap-16 lg:px-12 lg:pb-16">
         <div className="py-4 lg:py-10">
           <p className="eyebrow">Grožio namai Sfinksas · Paslaugos</p>
-          <h1 className="font-display mt-6 text-[42px] leading-[1.06] tracking-[-0.035em] sm:text-6xl xl:text-[72px]">
+          <h2 className="font-display mt-6 text-[42px] leading-[1.06] tracking-[-0.035em] sm:text-6xl xl:text-[72px]">
             Jūsų laikas.<br />
             <em className="font-normal text-[#766653]">Jūsų grožis.</em>
-          </h1>
+          </h2>
           <p className="mt-6 max-w-md text-[15px] leading-7 text-black/60">
             Nuo naujo kirpimo iki mažų, svarbių detalių.
             Atraskite savo grožio ritualą „Sfinkso“ namuose.
@@ -82,35 +111,6 @@ export function Services() {
             <p className="font-display mt-2 text-2xl sm:text-3xl">Susitikime „Sfinkse“.</p>
           </figcaption>
         </figure>
-      </section>
-
-      <section aria-labelledby="services-heading" className="border-t border-black/10 bg-[#eee8df]/60">
-        <div className="mx-auto max-w-[1480px] px-5 py-12 sm:px-8 lg:px-12 lg:py-16">
-          <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
-            <div>
-              <p className="eyebrow">Atraskite savo ritualą</p>
-              <h2 id="services-heading" className="font-display mt-3 text-3xl tracking-tight sm:text-4xl">Mūsų paslaugos</h2>
-            </div>
-            <a href={bookingUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 py-2 text-sm underline underline-offset-4 hover:text-[#766653]">
-              Visos paslaugos ir kainos <ArrowUpRight aria-hidden="true" className="size-4" />
-              <span className="sr-only">Treatwell, naujame skirtuke</span>
-            </a>
-          </div>
-          <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {services.map(({ title, detail, icon: Icon }) => (
-              <a key={title} href={bookingUrl} target="_blank" rel="noopener noreferrer" className="group rounded-2xl border border-black/10 bg-background p-6 transition-colors hover:border-[#9c8b75] hover:bg-white/60 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#766653] sm:p-7">
-                <div className="flex items-center justify-between text-[#766653]">
-                  <Icon aria-hidden="true" className="size-5" strokeWidth={1.5} />
-                  <ArrowUpRight aria-hidden="true" className="size-4 motion-safe:transition-transform motion-safe:group-hover:-translate-y-0.5 motion-safe:group-hover:translate-x-0.5" />
-                </div>
-                <h3 className="mt-6 text-base font-medium">{title}</h3>
-                <p className="mt-2 max-w-xs text-sm leading-6 text-black/60">{detail}</p>
-                <span className="sr-only">Atverti salono paslaugas Treatwell, naujame skirtuke</span>
-              </a>
-            ))}
-          </div>
-          <p className="mt-5 text-xs leading-5 text-black/55">Aktualias kainas, paslaugų trukmę ir laisvus laikus rasite „Treatwell“ registracijoje.</p>
-        </div>
       </section>
 
       <section className="mx-auto max-w-[1480px] px-5 py-10 sm:px-8 lg:px-12 lg:py-14">
