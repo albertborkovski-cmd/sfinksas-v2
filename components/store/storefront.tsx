@@ -437,7 +437,7 @@ export function Storefront({
                     Profesionalūs partneriai
                   </p>
                   <h2 className="font-display text-xl leading-tight tracking-[-0.015em] sm:text-2xl">
-                    Tada rinkitės ženklą
+                    Atstovaujami prekių ženklai
                   </h2>
                 </div>
               </div>
