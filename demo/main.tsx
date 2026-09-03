@@ -18,7 +18,7 @@ document.title = `${view ? titles[view] : 'Puslapis nepasiekiamas'} · Sfinksas 
 createRoot(document.getElementById('root')!).render(
   <>
     <aside className="demo-notice" aria-label="Demonstracinė versija">
-      <strong>DEMONSTRACIJA</strong> · Tik dizaino testavimui. Užsakymai, administravimas ir rezervacijos išjungti.
+      <strong>DEMONSTRACIJA</strong> · Produktų užsakymai ir administravimas išjungti. „Treatwell“ nuorodos atidaro tikrą registraciją.
     </aside>
     {view ? <Storefront products={products as Product[]} view={view} /> : (
       <main className="demo-unavailable">

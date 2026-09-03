@@ -6,13 +6,32 @@ import { renderToStaticMarkup } from 'react-dom/server';
 
 const server = await createServer({ configFile: 'vite.demo.config.ts', server: { middlewareMode: true } });
 try {
-  const { isDemo, sitePath, bookingHref } = await server.ssrLoadModule('/../lib/demo.ts');
+  const { isDemo, sitePath } = await server.ssrLoadModule('/../lib/demo.ts');
   assert.equal(isDemo, true);
   assert.equal(sitePath('/'), '/sfinksas-v2/');
   assert.equal(sitePath('/produktai#kategorijos'), '/sfinksas-v2/produktai/#kategorijos');
   assert.equal(sitePath('/sfinksas-logo.png'), '/sfinksas-v2/sfinksas-logo.png');
   assert.equal(sitePath('https://example.com'), 'https://example.com');
-  assert.equal(bookingHref('https://www.treatwell.lt/'), undefined);
+  const { treatwellCalendarUrl } = await server.ssrLoadModule('/../lib/treatwell.ts');
+  const team = JSON.parse(await readFile('lib/team.json', 'utf8'));
+  let bookingCount = 0;
+  for (const member of team.members) {
+    for (const service of member.services) {
+      for (const option of service.bookingOptions) {
+        const url = new URL(treatwellCalendarUrl(member.id, service.id, option.id));
+        assert.equal(url.origin, 'https://www.treatwell.lt');
+        assert.equal(url.pathname, '/availability');
+        assert.equal(url.searchParams.get('venueId'), '405427');
+        assert.deepEqual(JSON.parse(url.searchParams.get('proposedServices')), [
+          { menuItemId: service.id, optionIds: [option.id], employeeId: member.id },
+        ]);
+        assert.deepEqual(JSON.parse(url.searchParams.get('employeeService')), { [service.id]: member.id });
+        bookingCount++;
+      }
+    }
+  }
+  assert(bookingCount > 0);
+  console.log(`PASS: ${bookingCount} employee/service links preserve the selected Treatwell calendar`);
 
   const { Storefront } = await server.ssrLoadModule('/../components/store/storefront.tsx');
   const products = JSON.parse(await readFile('demo/products.json', 'utf8'));
@@ -22,7 +41,15 @@ try {
     const html = renderToStaticMarkup(React.createElement(Storefront, { products, view }));
     assert(html.includes('/sfinksas-v2/sfinksas-logo.png'));
     assert(!html.includes('href="/admin"'));
-    assert(!html.includes('href="https://www.treatwell.lt'));
+    if (view === 'services') {
+      const links = [...html.matchAll(/<a\b[^>]*href="https:\/\/www\.treatwell\.lt[^>]*>/g)];
+      assert.equal(links.length, 7, 'All six service cards and the booking button must link to Treatwell');
+      for (const [link] of links) {
+        assert(link.includes('target="_blank"'));
+        assert(link.includes('rel="noopener noreferrer"'));
+        assert(!link.includes('aria-disabled="true"'));
+      }
+    }
     assert(!html.includes('<form'));
     for (const [, path] of html.matchAll(/(?:href|src)="(\/[^\"]*)"/g)) {
       assert(path.startsWith('/sfinksas-v2/'), `Unprefixed URL: ${path}`);

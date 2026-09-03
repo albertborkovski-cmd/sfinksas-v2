@@ -8,7 +8,7 @@
 - [Paslaugos](https://albertborkovski-cmd.github.io/sfinksas-v2/paslaugos/)
 - [Mūsų meistrai](https://albertborkovski-cmd.github.io/sfinksas-v2/musu-meistrai/)
 
-Tai atskira, vieša dizaino ir sąsajos demonstracija, ne veikianti prekybos ar rezervacijų sistema. Galite peržiūrėti 143 produktus, filtruoti, rūšiuoti, atidaryti produktų bei meistrų korteles ir išbandyti vietinį krepšelį. Užsakymų forma, administravimas ir „Treatwell“ rezervacijos išjungti. Duomenys salonui nesiunčiami.
+Tai atskira, vieša dizaino ir sąsajos demonstracija. Galite peržiūrėti 143 produktus, filtruoti, rūšiuoti, atidaryti produktų bei meistrų korteles ir išbandyti vietinį krepšelį. Produktų užsakymų forma ir administravimas išjungti; krepšelio duomenys salonui nesiunčiami. **„Treatwell“ nuorodos įjungtos ir atidaro tikrą registraciją naujame skirtuke. Rezervacijos ten nėra bandomosios.**
 
 Produktų duomenys yra 2026-09-03 viešo katalogo kopija (`demo/products.json`). Jie automatiškai nesinchronizuojami su tikros parduotuvės duomenų baze. Demonstracijoje naudojami bendri svetainės komponentai, todėl dizainas atitinka šios saugyklos kodą.
 
@@ -20,7 +20,7 @@ Parengta pagal 2026-09-03 svetainės versiją. Įtraukta:
 - kategorijos vienoje eilutėje ir atnaujintas produktų rūšiavimo meniu;
 - platesnis produkto informacijos langas;
 - „Paslaugos“ puslapis su paslaugų bloku viršuje;
-- meistrų kortelės ir siūlomų paslaugų sąrašai (demonstracijoje registracija išjungta);
+- meistrų kortelės, siūlomų paslaugų sąrašai ir aktyvios nuorodos į „Treatwell“ kalendorių;
 - pašalinti nereikalingi paaiškinimai ir papildomos nuorodos.
 
 ## Paleidimas ir paskelbimas

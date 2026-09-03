@@ -8,7 +8,3 @@ export function sitePath(path: string) {
   const suffix = pathname === '/' || /\.[^/]+$/.test(pathname) || pathname.endsWith('/') ? '' : '/';
   return `/sfinksas-v2${pathname}${suffix}${hash === undefined ? '' : `#${hash}`}`;
 }
-
-export function bookingHref(url: string) {
-  return isDemo ? undefined : url;
-}

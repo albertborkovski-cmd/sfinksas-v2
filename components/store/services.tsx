@@ -10,7 +10,7 @@ import {
 
 import { buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
-import { bookingHref, isDemo, sitePath } from '@/lib/demo';
+import { sitePath } from '@/lib/demo';
 
 const bookingUrl = 'https://www.treatwell.lt/salonas/grozio-namai-sfinksas/';
 
@@ -28,9 +28,7 @@ const services = [
 function BookingLink() {
   return (
     <a
-      href={bookingHref(bookingUrl)}
-      aria-disabled={isDemo || undefined}
-      title={isDemo ? 'Registracija demonstracijoje išjungta' : undefined}
+      href={bookingUrl}
       target="_blank"
       rel="noopener noreferrer"
       className={cn(
@@ -57,7 +55,7 @@ export function Services() {
           </div>
           <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {services.map(({ title, detail, icon: Icon }) => (
-              <a key={title} href={bookingHref(bookingUrl)} aria-disabled={isDemo || undefined} title={isDemo ? 'Registracija demonstracijoje išjungta' : undefined} target="_blank" rel="noopener noreferrer" className="group rounded-2xl border border-black/10 bg-background p-6 transition-colors hover:border-[#9c8b75] hover:bg-white/60 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#766653] sm:p-7">
+              <a key={title} href={bookingUrl} target="_blank" rel="noopener noreferrer" className="group rounded-2xl border border-black/10 bg-background p-6 transition-colors hover:border-[#9c8b75] hover:bg-white/60 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#766653] sm:p-7">
                 <div className="flex items-center justify-between text-[#766653]">
                   <Icon aria-hidden="true" className="size-5" strokeWidth={1.5} />
                   <ArrowUpRight aria-hidden="true" className="size-4 motion-safe:transition-transform motion-safe:group-hover:-translate-y-0.5 motion-safe:group-hover:translate-x-0.5" />

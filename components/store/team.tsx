@@ -10,7 +10,7 @@ import {
 import team from '@/lib/team.json';
 import { cn } from '@/lib/utils';
 import { treatwellCalendarUrl } from '@/lib/treatwell';
-import { bookingHref, isDemo, sitePath } from '@/lib/demo';
+import { sitePath } from '@/lib/demo';
 
 type Member = (typeof team.members)[number];
 const filters = ['Visi', 'Plaukai', 'Nagai', 'Veidas', 'Kūnas'];
@@ -53,7 +53,7 @@ function MemberCard({ member }: { member: Member }) {
           </DialogClose>
           <div className="min-h-0 overflow-y-auto overscroll-contain px-5 py-5 sm:px-7">
             <h3 id={`services-${member.id}`} className="text-base font-semibold">Siūlomos paslaugos</h3>
-            {groups.length > 0 && <p className="mt-2 text-xs leading-5 text-black/55">{isDemo ? 'Paslaugų peržiūra. Registracija demonstracijoje išjungta.' : 'Paspauskite paslaugą — atsivers šio meistro kalendorius, kuriame galėsite pasirinkti ir rezervuoti laiką.'}</p>}
+            {groups.length > 0 && <p className="mt-2 text-xs leading-5 text-black/55">Paspauskite paslaugą — atsivers šio meistro kalendorius, kuriame galėsite pasirinkti ir rezervuoti laiką.</p>}
             {groups.length > 0 ? (
               <div className="mt-5 space-y-6">
                 {groups.map((group) => (
@@ -65,8 +65,7 @@ function MemberCard({ member }: { member: Member }) {
                           {service.bookingOptions.map((option) => (
                               <a
                                 key={option.id}
-                                href={bookingHref(treatwellCalendarUrl(member.id, service.id, option.id))}
-                                aria-disabled={isDemo || undefined}
+                                href={treatwellCalendarUrl(member.id, service.id, option.id)}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="group flex items-center gap-3 rounded-lg p-3 transition-colors hover:bg-[#e8dfd1] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#766653]"
@@ -74,10 +73,10 @@ function MemberCard({ member }: { member: Member }) {
                                 <span className="min-w-0 flex-1">
                                   <span className="block font-medium underline decoration-[#9c8b75]/60 underline-offset-4 group-hover:decoration-current">{service.name}</span>
                                   {option.label !== member.name && option.label !== service.name && <span className="block text-xs text-black/60">{option.label}</span>}
-                                  <span className="mt-1 block text-xs text-black/55">{option.durationMinutes} min. · {isDemo ? 'Demonstracinė peržiūra' : 'Rinktis laiką'}</span>
+                                  <span className="mt-1 block text-xs text-black/55">{option.durationMinutes} min. · Rinktis laiką</span>
                                 </span>
                                 <ArrowUpRight aria-hidden="true" className="size-4 shrink-0 text-[#766653]" />
-                                {!isDemo && <span className="sr-only">{member.name}: Treatwell kalendorius naujame skirtuke</span>}
+                                <span className="sr-only">{member.name}: Treatwell kalendorius naujame skirtuke</span>
                               </a>
                           ))}
                         </li>
@@ -95,7 +94,7 @@ function MemberCard({ member }: { member: Member }) {
           </div>
           {groups.length === 0 && (
             <div className="shrink-0 border-t border-black/10 bg-[#f7f3ec] p-4 sm:px-7">
-              <a href={bookingHref(member.profileUrl)} aria-disabled={isDemo || undefined} target="_blank" rel="noopener noreferrer" className={cn(buttonVariants(), 'h-11 w-full gap-3 rounded-full px-5 sm:w-auto')}>
+              <a href={member.profileUrl} target="_blank" rel="noopener noreferrer" className={cn(buttonVariants(), 'h-11 w-full gap-3 rounded-full px-5 sm:w-auto')}>
                 Pasitikslinti meistro profilyje <ArrowUpRight aria-hidden="true" className="size-4" />
                 <span className="sr-only">Treatwell, naujame skirtuke</span>
               </a>
