@@ -34,6 +34,7 @@ import {
   SheetTitle,
 } from '@/components/ui/sheet';
 import { Textarea } from '@/components/ui/textarea';
+import { Services } from '@/components/store/services';
 import type { CartLine, Product } from '@/lib/types';
 import { formatPrice, productImageUrl } from '@/lib/types';
 
@@ -47,10 +48,6 @@ const navigationItems = [
 ] as const;
 
 const informationPages = {
-  services: {
-    title: 'Paslaugos',
-    description: 'Paslaugų aprašymai ir kainos ruošiami.',
-  },
   team: {
     title: 'Mūsų meistrai',
     description: 'Meistrų pristatymai ruošiami.',
@@ -134,7 +131,7 @@ export function Storefront({
   view?: (typeof navigationItems)[number]['view'];
 }) {
   const informationPage =
-    view === 'services' || view === 'team' || view === 'contact'
+    view === 'team' || view === 'contact'
       ? informationPages[view]
       : null;
   const [query, setQuery] = useState('');
@@ -639,6 +636,8 @@ export function Storefront({
           </section>
         </>
       )}
+
+      {view === 'services' && <Services />}
 
       {informationPage && (
         <section className="mx-auto flex min-h-[520px] max-w-[1480px] flex-col justify-center px-5 py-20 sm:px-8 lg:px-12 lg:py-28">
