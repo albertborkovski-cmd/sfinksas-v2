@@ -90,19 +90,16 @@ function MemberCard({ member }: { member: Member }) {
                 <p className="mt-2">Konkrečios individualios paslaugos viešame meniu šiuo metu nepriskirtos. Paslaugas ir registraciją patikslinkite per meistro profilį arba saloną.</p>
               </div>
             )}
-            <p className="mt-5 text-xs leading-5 text-black/55">Sąrašas parengtas pagal „Treatwell“ duomenis. Aktualias kainas, galimas paslaugas ir laisvus laikus patikrinkite registracijos metu.</p>
           </div>
-          <div className="shrink-0 border-t border-black/10 bg-[#f7f3ec] p-4 sm:px-7">
-            {groups.length === 0 && (
+          {groups.length === 0 && (
+            <div className="shrink-0 border-t border-black/10 bg-[#f7f3ec] p-4 sm:px-7">
               <a href={member.profileUrl} target="_blank" rel="noopener noreferrer" className={cn(buttonVariants(), 'h-11 w-full gap-3 rounded-full px-5 sm:w-auto')}>
                 Pasitikslinti meistro profilyje <ArrowUpRight aria-hidden="true" className="size-4" />
                 <span className="sr-only">Treatwell, naujame skirtuke</span>
               </a>
-            )}
-            <p className="mt-2 text-[11px] leading-5 text-black/55">{groups.length > 0
-              ? `Kiekviena paslaugos nuoroda atidaro „Treatwell“ kalendorių su šiuo meistru (${member.name}). Laisvą laiką ir rezervaciją patvirtinsite ten.`
-              : 'Šiam profiliui viešame meniu nėra individualių paslaugų, todėl tiesioginės kalendoriaus nuorodos pateikti negalime.'}</p>
-          </div>
+              <p className="mt-2 text-[11px] leading-5 text-black/55">Šiam profiliui viešame meniu nėra individualių paslaugų, todėl tiesioginės kalendoriaus nuorodos pateikti negalime.</p>
+            </div>
+          )}
         </DialogContent>
       </Dialog>
     </article>
