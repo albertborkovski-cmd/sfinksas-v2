@@ -71,7 +71,6 @@ export function Services() {
               </a>
             ))}
           </div>
-          <p className="mt-5 text-xs leading-5 text-black/55">Aktualias kainas, paslaugų trukmę ir laisvus laikus rasite „Treatwell“ registracijoje.</p>
         </div>
       </section>
 
@@ -88,9 +87,6 @@ export function Services() {
           </p>
           <div className="mt-8 flex flex-col items-start gap-3">
             <BookingLink />
-            <p className="text-xs leading-5 text-black/55">
-              Paslaugą, meistrą ir laiką pasirinksite „Treatwell“.
-            </p>
           </div>
           <p className="mt-9 flex items-center gap-2 border-t border-black/10 pt-5 text-xs text-black/60">
             <MapPin aria-hidden="true" className="size-4 shrink-0" />
@@ -119,12 +115,10 @@ export function Services() {
             <CalendarDays aria-hidden="true" className="mt-1 hidden size-7 shrink-0 text-[#c6b69e] sm:block" strokeWidth={1.5} />
             <div>
               <h2 className="font-display text-3xl tracking-tight">Laikas pasirūpinti savimi.</h2>
-              <p className="mt-3 max-w-lg text-sm leading-6 text-white/70">Išsirinkite paslaugą, savo meistrą ir patogų laiką. Registraciją užbaigsite „Treatwell“ platformoje.</p>
             </div>
           </div>
           <div className="shrink-0">
             <BookingLink light />
-            <p className="mt-3 text-center text-xs text-white/60">Atidaroma naujame skirtuke</p>
           </div>
         </div>
       </section>
