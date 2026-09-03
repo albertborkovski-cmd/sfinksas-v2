@@ -1,6 +1,5 @@
 import {
   ArrowUpRight,
-  CalendarDays,
   Droplets,
   Eye,
   Hand,
@@ -25,7 +24,7 @@ const services = [
   { title: 'Makiažas', detail: 'Makiažo paslaugos jūsų pasirinktai progai.', icon: Paintbrush },
 ];
 
-function BookingLink({ light = false }: { light?: boolean }) {
+function BookingLink() {
   return (
     <a
       href={bookingUrl}
@@ -34,7 +33,6 @@ function BookingLink({ light = false }: { light?: boolean }) {
       className={cn(
         buttonVariants({ size: 'lg' }),
         'h-12 w-full gap-4 rounded-full px-7 sm:w-fit',
-        light && 'bg-[#f3eee5] text-[#28251f] hover:bg-white',
       )}
     >
       Registruotis vizitui <ArrowUpRight aria-hidden="true" className="size-4" />
@@ -53,10 +51,6 @@ export function Services() {
               <p className="eyebrow">Atraskite savo ritualą</p>
               <h1 id="services-heading" className="font-display mt-3 text-3xl tracking-tight sm:text-4xl">Mūsų paslaugos</h1>
             </div>
-            <a href={bookingUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 py-2 text-sm underline underline-offset-4 hover:text-[#766653]">
-              Visos paslaugos ir kainos <ArrowUpRight aria-hidden="true" className="size-4" />
-              <span className="sr-only">Treatwell, naujame skirtuke</span>
-            </a>
           </div>
           <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {services.map(({ title, detail, icon: Icon }) => (
@@ -109,19 +103,6 @@ export function Services() {
         </figure>
       </section>
 
-      <section className="mx-auto max-w-[1480px] px-5 py-10 sm:px-8 lg:px-12 lg:py-14">
-        <div className="flex flex-col gap-8 rounded-3xl bg-[#28251f] p-7 text-[#f3eee5] sm:p-10 lg:flex-row lg:items-center lg:justify-between">
-          <div className="flex items-start gap-5">
-            <CalendarDays aria-hidden="true" className="mt-1 hidden size-7 shrink-0 text-[#c6b69e] sm:block" strokeWidth={1.5} />
-            <div>
-              <h2 className="font-display text-3xl tracking-tight">Laikas pasirūpinti savimi.</h2>
-            </div>
-          </div>
-          <div className="shrink-0">
-            <BookingLink light />
-          </div>
-        </div>
-      </section>
     </div>
   );
 }
