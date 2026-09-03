@@ -1,9 +1,10 @@
-import { INSTRUCTIONS, knowledgeFor } from './knowledge';
+import { INSTRUCTIONS, STRUCTURED_INSTRUCTIONS, isProductQuestion, knowledgeFor, productCandidates } from './knowledge';
+import { ANSWER_SCHEMA, verifiedAnswer } from './product-answer';
 
 type ChatMessage = { role: 'user' | 'assistant'; content: string };
 type Env = {
   AI_ENABLED: string;
-  AI: { run(model: string, input: { messages: { role: string; content: string }[]; max_tokens: number; temperature: number }): Promise<{ response?: string }> };
+  AI: { run(model: string, input: { messages: { role: string; content: string }[]; max_tokens: number; temperature: number; response_format: { type: string; json_schema: unknown } }): Promise<{ response?: unknown }> };
   CHAT_LIMIT: { limit(options: { key: string }): Promise<{ success: boolean }> };
 };
 const ORIGIN = 'https://albertborkovski-cmd.github.io';
@@ -63,12 +64,13 @@ export default {
         return reply({ error: 'Per daug žinučių. Pabandykite po minutės.' }, 429);
       }
       const query = messages.filter(m => m.role === 'user').slice(-2).map(m => m.content).join(' ');
+      const candidates = productCandidates(query);
       const result = await env.AI.run('@cf/meta/llama-3.3-70b-instruct-fp8-fast', {
-        messages: [{ role: 'system', content: `${INSTRUCTIONS}\n\nSALONO DUOMENYS (JSON):\n${knowledgeFor(query)}` }, ...messages],
+        messages: [{ role: 'system', content: `${INSTRUCTIONS}\n${STRUCTURED_INSTRUCTIONS}\n\nSALONO DUOMENYS (JSON):\n${knowledgeFor(query, candidates)}` }, ...messages],
+        response_format: { type: 'json_schema', json_schema: ANSWER_SCHEMA },
         max_tokens: 450, temperature: 0.3,
       });
-      if (typeof result.response !== 'string' || !result.response.trim()) throw new Error('empty');
-      return reply({ text: result.response.trim().slice(0, 3000) });
+      return reply(verifiedAnswer(result.response, candidates, isProductQuestion(messages.at(-1)!.content)));
     } catch {
       // Never expose or log prompts, visitor messages, credentials or upstream error details.
       return reply({ error: 'Asistentas šiuo metu nepasiekiamas arba išnaudotas dienos limitas. Pabandykite vėliau; registracija „Treatwell“ veikia įprastai.' }, 503);

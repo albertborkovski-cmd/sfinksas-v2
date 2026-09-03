@@ -1,15 +1,17 @@
 'use client';
 
 import { lazy, Suspense, useEffect, useRef, useState, type FormEvent } from 'react';
-import { LoaderCircle, Scissors, Send, UserRound, X } from 'lucide-react';
+import { ArrowRight, LoaderCircle, Scissors, Send, UserRound, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Message, MessageContent, MessageGroup } from '@/components/ui/message';
 import { Popover, PopoverContent, PopoverDescription, PopoverTitle, PopoverTrigger } from '@/components/ui/popover';
 import { askAssistant, safeAssistantUrl, type ConversationMessage } from '@/lib/assistant-client';
 import { sitePath } from '@/lib/demo';
+import { productSelectionUrl } from '@/lib/product-selection';
+import { formatPrice, type Product } from '@/lib/types';
 
-type ChatMessage = ConversationMessage & { id: number };
+type ChatMessage = ConversationMessage & { id: number; productIds?: string[] };
 const welcome: ChatMessage = {
   id: 0, role: 'assistant',
   text: 'Sveiki! Esu „Sfinkso“ AI asistentas. Padėsiu rasti produktus, paslaugas ar meistrą. Kuo galiu padėti?',
@@ -30,7 +32,7 @@ function StylistIcon() {
   );
 }
 
-export function AssistantChat() {
+export function AssistantChat({ products = [] }: { products?: Product[] }) {
   const [open, setOpen] = useState(false);
   const [draft, setDraft] = useState('');
   const [messages, setMessages] = useState<ChatMessage[]>([welcome]);
@@ -56,8 +58,9 @@ export function AssistantChat() {
     setError('');
     const timeout = window.setTimeout(() => controller.abort(), 45000);
     try {
-      const text = await askAssistant(conversation.filter(m => m.id !== 0), controller.signal);
-      const answer: ChatMessage = { id: sequence.current++, role: 'assistant', text };
+      const result = await askAssistant(conversation.filter(m => m.id !== 0), controller.signal);
+      if (result.productIds.some(id => !products.some(p => p.id === id && p.status === 'active'))) throw new Error('Katalogas pasikeitė. Atnaujinkite puslapį ir pakartokite klausimą.');
+      const answer: ChatMessage = { id: sequence.current++, role: 'assistant', ...result };
       setMessages(current => [...current, answer]);
       setRetryMessages(null);
     } catch (cause) {
@@ -120,7 +123,19 @@ export function AssistantChat() {
                 <Message key={message.id} align={message.role === 'user' ? 'end' : 'start'}>
                   <MessageContent className={`max-w-[90%] rounded-2xl px-3.5 py-3 text-[13px] leading-6 ${message.role === 'user' ? 'rounded-br-sm bg-[#302c26] text-[#faf6ed]' : 'rounded-bl-sm border border-black/5 bg-white/80'}`}>
                     <span className="sr-only">{message.role === 'user' ? 'Jūs: ' : 'Asistentas: '}</span>
-                    {message.role === 'user' ? <p className="whitespace-pre-wrap break-words">{message.text}</p> : <Suspense fallback={<span className="text-xs">Kraunamas atsakymas…</span>}><MessageResponse
+                    {message.productIds?.length ? <>
+                      <p className="text-xs font-medium">Atrinktos prekės iš mūsų katalogo</p>
+                      <ul className="flex flex-col gap-2" aria-label="AI atrinktos prekės">
+                        {message.productIds.map(id => {
+                          const product = products.find(p => p.id === id);
+                          return product ? <li key={id} className="rounded-xl border border-[#d8cbb9] bg-[#f7f3ec] p-3">
+                            <a href={productSelectionUrl([id])} className="block text-[12px] leading-5 font-medium underline-offset-4 hover:underline">{product.name}</a>
+                            <div className="mt-1 flex flex-wrap justify-between gap-2 text-[11px] text-[#766653]"><span>{product.size}</span><strong className="text-[#302c26]">{formatPrice(product.priceCents)}</strong></div>
+                          </li> : null;
+                        })}
+                      </ul>
+                      <Button render={<a href={productSelectionUrl(message.productIds)} />} nativeButton={false} className="h-auto min-h-10 whitespace-normal rounded-full bg-[#302c26] px-3 py-2 text-xs text-white">Rodyti atrinktus produktus <ArrowRight className="size-3.5" /></Button>
+                    </> : message.role === 'user' ? <p className="whitespace-pre-wrap break-words">{message.text}</p> : <Suspense fallback={<span className="text-xs">Kraunamas atsakymas…</span>}><MessageResponse
                       mode="static" controls={false} skipHtml
                       allowedElements={markdownElements}
                       urlTransform={safeAssistantUrl}

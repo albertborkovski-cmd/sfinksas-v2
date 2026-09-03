@@ -16,7 +16,13 @@ Apatiniame dešiniajame kampe esanti žmogeliuko su žirklėmis ikona atidaro ti
 
 Siunčiama dabartinė žinutė ir ribota pokalbio istorija „Cloudflare“ AI atsakymui parengti. Nesiųskite jautrių ar mokėjimo duomenų. Programa neturi pokalbių duomenų bazės, nelaiko jų localStorage ir neregistruoja žinučių serverio žurnaluose; perkrovus puslapį istorija dingsta. Paslaugos teikėjo duomenų tvarkymui taikomos [„Cloudflare“ sąlygos](https://developers.cloudflare.com/workers-ai/platform/data-usage/). AI atsakymai gali būti netikslūs.
 
-### AI serveris ir nemokamo naudojimo ribos
+### Produktų atranka pokalbyje
+
+AI renkasi iki 6 produktų ID iš serverio pateiktos katalogo atrankos. Serveris tikrina ID pagal šią atranką, o prekių pavadinimus ir kainas pateikia iš katalogo, ne iš modelio teksto. Nežinomas ID atmetamas; neradus tinkamų prekių rodomas patikslinimo prašymas. Modelio parinkimo tikslumas vis tiek priklauso nuo klausimo ir katalogo aprašymų.
+
+Pokalbyje rodomos prekių kortelės ir „Rodyti atrinktus produktus“. Nuoroda atidaro `/produktai/?ai=sf-...#atrinkti-produktai`, kuriame lieka tik pasirinkti ID. „Rodyti visus produktus“ pašalina atranką. Tuščia, netinkama ar pasenusi atranka nerodo viso katalogo kaip tariamų rezultatų. Nuorodą galima atidaryti tiesiogiai ar perkrauti. Pradinis bendras produkto puslapis be `ai` parametro nesikeičia.
+
+### AI serverio paleidimas
 
 AI serveris skelbiamas atskirai iš `workers/assistant/wrangler.jsonc`. Jame naudojamas AI binding, todėl jokio API rakto nėra naršyklėje ar „GitHub“. Viešas adresas: `https://sfinksas-assistant.albertborkovski-sfinksas.workers.dev/chat`. Publikavimas: `WRANGLER_SEND_METRICS=false npx wrangler deploy --config workers/assistant/wrangler.jsonc`; būtinas prisijungimas prie tinkamos „Cloudflare“ paskyros.
 

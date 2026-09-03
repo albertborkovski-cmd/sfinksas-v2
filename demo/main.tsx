@@ -3,6 +3,7 @@ import { Storefront } from '@/components/store/storefront';
 import { AssistantChat } from '@/components/store/assistant-chat';
 import type { Product } from '@/lib/types';
 import { sitePath } from '@/lib/demo';
+import { parseProductSelection } from '@/lib/product-selection';
 import products from './products.json';
 import '@/app/globals.css';
 import './style.css';
@@ -21,13 +22,13 @@ createRoot(document.getElementById('root')!).render(
     <aside className="demo-notice" aria-label="Demonstracinė versija">
       <strong>DEMONSTRACIJA</strong> · Produktų užsakymai ir administravimas išjungti. „Treatwell“ nuorodos atidaro tikrą registraciją.
     </aside>
-    {view ? <Storefront products={products as Product[]} view={view} /> : (
+    {view ? <Storefront products={products as Product[]} view={view} initialProductIds={view === 'catalog' ? parseProductSelection(window.location.search) : null} /> : (
       <main className="demo-unavailable">
         <h1>{route === 'admin' ? 'Administravimas demonstracijoje išjungtas' : 'Puslapis nerastas'}</h1>
         <p>Galite peržiūrėti produktus, jų aprašymus ir svetainės dizainą.</p>
         <a href={sitePath('/produktai')}>Atidaryti produktus →</a>
       </main>
     )}
-    <AssistantChat />
+    <AssistantChat products={products as Product[]} />
   </>,
 );

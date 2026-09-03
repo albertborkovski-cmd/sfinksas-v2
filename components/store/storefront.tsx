@@ -45,6 +45,7 @@ import { Team } from '@/components/store/team';
 import type { CartLine, Product } from '@/lib/types';
 import { formatPrice, productImageUrl } from '@/lib/types';
 import { isDemo, sitePath } from '@/lib/demo';
+import { selectCatalogProducts } from '@/lib/product-selection';
 
 const navigationItems = [
   { label: 'Naujienos', href: '/', view: 'home' },
@@ -130,15 +131,24 @@ function ProductVisual({
 export function Storefront({
   products,
   view = 'home',
+  initialProductIds = null,
 }: {
   products: Product[];
   view?: (typeof navigationItems)[number]['view'];
+  initialProductIds?: string[] | null;
 }) {
   const informationPage =
     view === 'contact'
       ? informationPages[view]
       : null;
   const [query, setQuery] = useState('');
+  const [aiProductIds, setAiProductIds] = useState<string[] | null>(initialProductIds);
+  function clearAiSelection() {
+    setAiProductIds(null);
+    const url = new URL(window.location.href);
+    url.searchParams.delete('ai');
+    window.history.replaceState(null, '', url.pathname + url.search + url.hash);
+  }
   const [category, setCategory] = useState('Visi');
   const [brand, setBrand] = useState('Visi');
   const [sort, setSort] = useState('recommended');
@@ -153,6 +163,10 @@ export function Storefront({
   } | null>(null);
   const [orderError, setOrderError] = useState('');
   const [submittingOrder, setSubmittingOrder] = useState(false);
+
+  useEffect(() => {
+    if (initialProductIds !== null) document.getElementById('atrinkti-produktai')?.scrollIntoView({ block: 'start' });
+  }, [initialProductIds]);
 
   useEffect(() => {
     try {
@@ -191,7 +205,7 @@ export function Storefront({
   );
   const filtered = useMemo(() => {
     const normalizedQuery = query.trim().toLocaleLowerCase('lt-LT');
-    const result = products.filter((product) => {
+    const result = selectCatalogProducts(products, aiProductIds).filter((product) => {
       const matchesQuery =
         !normalizedQuery ||
         [product.name, product.brand, product.productType, product.hairNeed]
@@ -213,7 +227,7 @@ export function Storefront({
         a.name.localeCompare(b.name, 'lt')
       );
     });
-  }, [brand, category, products, query, sort]);
+  }, [aiProductIds, brand, category, products, query, sort]);
 
   const cartLines: CartLine[] = Object.entries(cart)
     .map(([id, quantity]) => ({
@@ -572,6 +586,12 @@ export function Storefront({
               </div>
             </div>
 
+            <div id="atrinkti-produktai" className="scroll-mt-28">
+              {aiProductIds !== null && <div role="status" className="mb-5 flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-[#d8cbb9] bg-[#eee6d8] px-4 py-3 text-sm">
+                <span>Rodoma tik AI atranka · {selectCatalogProducts(products, aiProductIds).length} prekės</span>
+                <Button variant="link" className="h-auto p-0 text-xs" onClick={() => { clearAiSelection(); setQuery(''); setCategory('Visi'); setBrand('Visi'); }}>Rodyti visus produktus</Button>
+              </div>}
+            </div>
             <div className="mb-6 flex flex-wrap items-center justify-between gap-4 text-sm">
               <div className="flex flex-wrap items-center gap-3">
                 <span className="text-black/52">
@@ -586,13 +606,14 @@ export function Storefront({
                   {brand === 'Visi' ? 'Visi partneriai' : brand}
                 </span>
               </div>
-              {(category !== 'Visi' || brand !== 'Visi' || query) && (
+              {(category !== 'Visi' || brand !== 'Visi' || query || aiProductIds !== null) && (
                 <button
                   className="font-medium underline underline-offset-4"
                   onClick={() => {
                     setQuery('');
                     setCategory('Visi');
                     setBrand('Visi');
+                    clearAiSelection();
                   }}
                 >
                   Išvalyti filtrus
