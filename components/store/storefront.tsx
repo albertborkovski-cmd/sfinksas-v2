@@ -406,7 +406,7 @@ export function Storefront({
           className="scroll-mt-28 border-b border-black/10 bg-[#eee9df] py-5 sm:py-6"
         >
           <div className="mx-auto max-w-[1480px] px-5 sm:px-8 lg:px-12">
-            <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+            <div className="flex min-w-0 flex-col gap-4">
               <div className="flex shrink-0 items-center">
                 <div>
                   <p className="text-[9px] font-semibold uppercase tracking-[0.18em] text-black/42">
@@ -417,7 +417,11 @@ export function Storefront({
                   </h1>
                 </div>
               </div>
-              <div className="-mx-1 flex gap-2 overflow-x-auto px-1 pb-1 lg:mx-0 lg:flex-wrap lg:justify-end lg:px-0">
+              <div
+                role="group"
+                aria-label="Produktų kategorijos"
+                className="flex w-full min-w-0 flex-nowrap items-center gap-1.5 overflow-x-auto overscroll-x-contain px-1 py-1 [scrollbar-width:thin] 2xl:justify-between"
+              >
                 {['Visi', ...categoryOrder].map((item) => {
                   const isAll = item === 'Visi';
                   const isActive = category === item;
@@ -432,13 +436,13 @@ export function Storefront({
                           .querySelector('#zenklai')
                           ?.scrollIntoView({ behavior: 'smooth' });
                       }}
-                      className={`flex shrink-0 items-center gap-2 rounded-full border px-3.5 py-2 text-xs font-semibold transition-colors sm:text-sm ${isActive ? 'border-[#28251f] bg-[#28251f] text-white' : 'border-black/15 bg-white/45 text-black/65 hover:border-black/35 hover:bg-white/80 hover:text-black'}`}
+                      className={`flex min-h-11 shrink-0 items-center gap-1.5 whitespace-nowrap rounded-full border px-2.5 py-2 text-xs font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#28251f] ${isActive ? 'border-[#28251f] bg-[#28251f] text-white' : 'border-black/15 bg-white/45 text-black/65 hover:border-black/35 hover:bg-white/80 hover:text-black'}`}
                     >
                       {isActive && <Check className="size-3.5 shrink-0" />}
                       <span>
                         {isAll ? 'Visi produktai' : displayCategory(item)}
                       </span>
-                      <span className="text-[10px] opacity-50">
+                      <span className={`inline-flex min-w-6 shrink-0 items-center justify-center rounded-full px-1.5 py-0.5 text-[10px] font-medium tabular-nums ${isActive ? 'bg-white/15 text-white/85' : 'bg-black/5 text-black/50'}`}>
                         {isAll ? products.length : categoryCounts[item]}
                       </span>
                     </button>
