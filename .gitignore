@@ -36,5 +36,6 @@ tsconfig.tsbuildinfo
 /dist/
 /dist-demo/
 /.wrangler/
+**/.wrangler/
 /outputs/
 /work/

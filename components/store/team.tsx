@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ArrowRight, ArrowUpRight, X } from 'lucide-react';
 import { Button, buttonVariants } from '@/components/ui/button';
 import {
@@ -11,6 +11,7 @@ import team from '@/lib/team.json';
 import { cn } from '@/lib/utils';
 import { treatwellCalendarUrl } from '@/lib/treatwell';
 import { sitePath } from '@/lib/demo';
+import { parseMemberSelection } from '@/lib/assistant-actions';
 
 type Member = (typeof team.members)[number];
 const filters = ['Visi', 'Plaukai', 'Nagai', 'Veidas', 'Kūnas'];
@@ -23,11 +24,11 @@ function Portrait({ member }: { member: Member }) {
   );
 }
 
-function MemberCard({ member }: { member: Member }) {
+function MemberCard({ member, open, onOpenChange }: { member: Member; open: boolean; onOpenChange: (open: boolean) => void }) {
   const groups = [...new Set(member.services.map((service) => service.category))];
   return (
     <article id={`meistras-${member.id}`} className="flex scroll-mt-28 flex-col rounded-2xl border border-black/10 bg-white/35">
-      <Dialog>
+      <Dialog open={open} onOpenChange={onOpenChange}>
         <DialogTrigger render={<button type="button" />} className="group flex flex-1 flex-col items-start rounded-2xl p-6 text-left transition-colors hover:bg-white/60 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#766653]">
           <Portrait member={member} />
           <h2 className="font-display mt-5 text-2xl leading-tight tracking-tight">{member.name}</h2>
@@ -109,6 +110,20 @@ function MemberCard({ member }: { member: Member }) {
 
 export function Team() {
   const [filter, setFilter] = useState('Visi');
+  const [selected, setSelected] = useState<number | null>(null);
+  useEffect(() => {
+    const sync = () => { setSelected(parseMemberSelection(window.location.search)); setFilter('Visi'); };
+    sync();
+    window.addEventListener('popstate', sync);
+    return () => window.removeEventListener('popstate', sync);
+  }, []);
+  function selectMember(id: number | null) {
+    setSelected(id);
+    const url = new URL(window.location.href);
+    if (id) { url.searchParams.set('meistras', String(id)); url.hash = `meistras-${id}`; }
+    else { url.searchParams.delete('meistras'); if (url.hash.startsWith('#meistras-')) url.hash = ''; }
+    window.history.replaceState(null, '', `${url.pathname}${url.search}${url.hash}`);
+  }
   const members = team.members.filter((member) => filter === 'Visi' || member.categories.includes(filter));
   return (
     <section className="mx-auto max-w-[1480px] px-5 py-10 sm:px-8 lg:px-12 lg:py-14">
@@ -125,7 +140,7 @@ export function Team() {
         ))}
       </div>
       <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-        {members.map((member) => <MemberCard key={member.id} member={member} />)}
+        {members.map((member) => <MemberCard key={member.id} member={member} open={selected === member.id} onOpenChange={open => selectMember(open ? member.id : null)} />)}
       </div>
     </section>
   );

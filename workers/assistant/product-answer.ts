@@ -1,4 +1,5 @@
 import { MAX_SELECTED_PRODUCTS } from '../../lib/product-selection';
+import { MAX_ACTIONS, verifiedActions } from '../../lib/assistant-actions';
 
 type Candidate = { id: string; name: string; priceCents: number; size: string };
 export const ANSWER_SCHEMA = {
@@ -7,7 +8,8 @@ export const ANSWER_SCHEMA = {
     kind: { type: 'string', enum: ['products', 'answer'] },
     text: { type: 'string' },
     productIds: { type: 'array', items: { type: 'string' }, maxItems: MAX_SELECTED_PRODUCTS },
-  }, required: ['kind', 'text', 'productIds'],
+    actions: { type: 'array', maxItems: MAX_ACTIONS, items: { type: 'object', additionalProperties: false, properties: { type: { type: 'string', enum: ['member', 'booking', 'page'] }, target: { type: 'string' } }, required: ['type', 'target'] } },
+  }, required: ['kind', 'text', 'productIds', 'actions'],
 };
 
 export function verifiedAnswer(raw: unknown, candidates: Candidate[], forceProducts = false) {
@@ -19,6 +21,7 @@ export function verifiedAnswer(raw: unknown, candidates: Candidate[], forceProdu
     // Fail closed for any invented or out-of-candidate ID; never display model prose.
     const selected = ids.some(id => !allowed.has(id)) ? [] : ids.map(id => allowed.get(id)!);
     return {
+      actions: [],
       productIds: selected.map(p => p.id),
       text: selected.length
         ? `Atrinktos prekės iš „Sfinkso“ katalogo:\n\n${selected.map(p => `• ${p.name} (${p.size}) – ${(p.priceCents / 100).toFixed(2).replace('.', ',')} €`).join('\n')}`
@@ -26,5 +29,5 @@ export function verifiedAnswer(raw: unknown, candidates: Candidate[], forceProdu
     };
   }
   if (!data.text.trim() || data.text.length > 3000) throw new Error('Invalid AI text');
-  return { text: data.text.trim(), productIds: [] as string[] };
+  return { text: data.text.trim(), productIds: [] as string[], actions: verifiedActions('actions' in data ? data.actions : []) };
 }

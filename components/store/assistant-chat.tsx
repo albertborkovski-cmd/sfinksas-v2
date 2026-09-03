@@ -10,8 +10,9 @@ import { askAssistant, safeAssistantUrl, type ConversationMessage } from '@/lib/
 import { sitePath } from '@/lib/demo';
 import { productSelectionUrl } from '@/lib/product-selection';
 import { formatPrice, type Product } from '@/lib/types';
+import { resolveAssistantAction, type AssistantAction } from '@/lib/assistant-actions';
 
-type ChatMessage = ConversationMessage & { id: number; productIds?: string[] };
+type ChatMessage = ConversationMessage & { id: number; productIds?: string[]; actions?: AssistantAction[] };
 const welcome: ChatMessage = {
   id: 0, role: 'assistant',
   text: 'Sveiki! Esu „Sfinkso“ AI asistentas. Padėsiu rasti produktus, paslaugas ar meistrą. Kuo galiu padėti?',
@@ -142,6 +143,18 @@ export function AssistantChat({ products = [] }: { products?: Product[] }) {
                       components={markdownComponents}
                       className="break-words text-[13px] leading-6 [&_h1]:text-sm [&_h2]:text-sm [&_h3]:text-sm [&_p]:my-2 [&_li]:my-1 [&_ul]:pl-4 [&_ol]:pl-4"
                     >{message.text}</MessageResponse></Suspense>}
+                    {!!message.actions?.length && <ul aria-label="Asistento siūlomi veiksmai" className="mt-3 flex flex-col gap-2">
+                      {message.actions.map(action => {
+                        const link = resolveAssistantAction(action);
+                        return link ? <li key={`${action.type}:${action.target}`}>
+                          <a href={link.href} target={link.external ? '_blank' : undefined} rel={link.external ? 'noopener noreferrer' : undefined} className="block rounded-xl border border-[#d8cbb9] bg-[#f7f3ec] p-3 text-xs leading-5 hover:bg-[#e8dfd1] focus-visible:outline-2 focus-visible:outline-[#766653]">
+                            <span className="flex items-center justify-between gap-2 font-medium">{link.label}<ArrowRight aria-hidden="true" className="size-3.5 shrink-0" /></span>
+                            {link.detail && <span className="mt-1 block text-[11px] text-[#766653]">{link.detail}</span>}
+                            {link.external && <span className="sr-only">Atidaroma naujame skirtuke</span>}
+                          </a>
+                        </li> : null;
+                      })}
+                    </ul>}
                   </MessageContent>
                 </Message>
               ))}

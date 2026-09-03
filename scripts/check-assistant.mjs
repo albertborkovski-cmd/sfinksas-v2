@@ -11,6 +11,30 @@ try {
   const { verifiedAnswer } = await server.ssrLoadModule('/../workers/assistant/product-answer.ts');
   const { parseProductSelection, productSelectionUrl, selectCatalogProducts } = await server.ssrLoadModule('/../lib/product-selection.ts');
   const { safeAssistantUrl, askAssistant } = await server.ssrLoadModule('/../lib/assistant-client.ts');
+  const { namedMembers, directMemberAnswer } = await server.ssrLoadModule('/../workers/assistant/member-answer.ts');
+  const { resolveAssistantAction, verifiedActions, parseMemberSelection, memberProfileUrl } = await server.ssrLoadModule('/../lib/assistant-actions.ts');
+  for (const name of ['Styvenas', 'Styveną', 'Styveno', 'Styvenui', 'styvena', 'Stivena']) assert.equal(namedMembers(name)[0].id, 339535);
+  assert.equal(namedMembers('pas Simoną').length, 3);
+  assert.equal(namedMembers('Simona Brazauskaite')[0].id, 720015);
+  assert.equal(namedMembers('Neegzistuojantis vardas').length, 0);
+  const stylist = directMemberAnswer('Pateik nuoroda pas styvena');
+  assert.deepEqual(stylist.actions, [{ type: 'member', target: '339535' }]);
+  assert.equal(directMemberAnswer('Atidaryk jo kortele', 'Kas yra Styvenas?').actions[0].target, '339535');
+  assert.equal(directMemberAnswer('Parodyk Simonos kortelę').actions.length, 3);
+  assert.equal(directMemberAnswer('Atidaryk neegzistuojancio meistro kortele'), null);
+  assert.equal(memberProfileUrl(339535), '/sfinksas-v2/musu-meistrai/?meistras=339535#meistras-339535');
+  assert.equal(parseMemberSelection('?meistras=339535'), 339535);
+  assert.equal(parseMemberSelection('?meistras=999999'), null);
+  assert.equal(parseMemberSelection('?meistras=339535evil'), null);
+  const calendar = { type: 'booking', target: '339535:TR3427472:13581816' };
+  const calendarLink = resolveAssistantAction(calendar);
+  assert.equal(calendarLink.external, true);
+  assert.equal(JSON.parse(new URL(calendarLink.href).searchParams.get('proposedServices'))[0].employeeId, 339535);
+  assert(calendarLink.label.includes('Moterų kirpimas'));
+  for (const bad of [{ type: 'admin', target: 'delete' }, { type: 'page', target: 'admin' }, { type: 'page', target: '__proto__' }, { type: 'member', target: '999999' }, { type: 'booking', target: '470900:TR3427472:13581816' }, { type: 'booking', target: `${calendar.target}:extra` }, { type: 'page', target: 'https://evil.test' }]) assert.deepEqual(verifiedActions([bad]), []);
+  assert.deepEqual(verifiedActions([calendar, calendar]), [calendar]);
+  assert.equal(resolveAssistantAction({ type: 'page', target: 'contacts' }).href, '/sfinksas-v2/kontaktai/');
+  assert.deepEqual(verifiedAnswer({ kind: 'answer', text: 'Rinktis laiką', productIds: [], actions: [calendar] }, []).actions, [calendar]);
   let calls = 0;
   let modelInput;
   const env = { AI_ENABLED: 'true', CHAT_LIMIT: { limit: async () => ({ success: true }) }, AI: { run: async (model, input) => { calls++; modelInput = input; assert.equal(model, '@cf/meta/llama-3.3-70b-instruct-fp8-fast'); return { response: { kind: 'answer', text: 'Sveiki! **Padėsiu.**', productIds: [] } }; } } };
@@ -32,6 +56,10 @@ try {
   assert.equal(blocked.status, 429);
   assert.equal(blocked.headers.get('Retry-After'), '60');
   assert.equal(calls, 0, 'Rejected requests must never invoke AI');
+  const direct = await worker.fetch(request({ messages: [{ role: 'user', content: 'Pateik nuorodą pas Styveną' }] }), env);
+  assert.equal(direct.status, 200);
+  assert.deepEqual((await direct.json()).actions, stylist.actions);
+  assert.equal(calls, 0, 'Known named navigation does not spend model quota');
   const success = await worker.fetch(request(), env);
   assert.equal(success.status, 200);
   assert.equal(success.headers.get('Access-Control-Allow-Origin'), origin);
@@ -90,7 +118,7 @@ try {
 
   let sent;
   globalThis.fetch = async (_url, options) => { sent = JSON.parse(options.body); assert.equal(options.credentials, 'omit'); return Response.json({ text: 'Atsakymas' }); };
-  assert.deepEqual(await askAssistant([{ role: 'user', text: 'Labas' }], new AbortController().signal), { text: 'Atsakymas', productIds: [] });
+  assert.deepEqual(await askAssistant([{ role: 'user', text: 'Labas' }], new AbortController().signal), { text: 'Atsakymas', productIds: [], actions: [] });
   assert.deepEqual(sent.messages, [{ role: 'user', content: 'Labas' }]);
   const history = Array.from({ length: 21 }, (_, i) => ({ role: i % 2 ? 'assistant' : 'user', text: 'x'.repeat(i % 2 ? 3000 : 600) }));
   await askAssistant(history, new AbortController().signal);
@@ -105,6 +133,11 @@ try {
   await assert.rejects(() => askAssistant([], new AbortController().signal), /prekių/);
   globalThis.fetch = async () => Response.json({ text: good.text, productIds: good.productIds });
   assert.deepEqual(await askAssistant([], new AbortController().signal), good);
+  globalThis.fetch = async () => Response.json(stylist);
+  assert.deepEqual(await askAssistant([], new AbortController().signal), stylist);
+  globalThis.fetch = async () => Response.json({ text: 'Test', actions: [{ type: 'admin', target: 'delete' }] });
+  assert.deepEqual((await askAssistant([], new AbortController().signal)).actions, []);
+  console.log('PASS: inflected names, ambiguous names, follow-ups, direct profile links, verified booking actions, privileged action rejection');
   console.log('PASS: client sends bounded conversation, handles failure and uses no credentials');
 } finally {
   globalThis.fetch = originalFetch;

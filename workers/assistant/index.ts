@@ -1,5 +1,6 @@
 import { INSTRUCTIONS, STRUCTURED_INSTRUCTIONS, isProductQuestion, knowledgeFor, productCandidates } from './knowledge';
 import { ANSWER_SCHEMA, verifiedAnswer } from './product-answer';
+import { directMemberAnswer } from './member-answer';
 
 type ChatMessage = { role: 'user' | 'assistant'; content: string };
 type Env = {
@@ -64,6 +65,9 @@ export default {
         return reply({ error: 'Per daug žinučių. Pabandykite po minutės.' }, 429);
       }
       const query = messages.filter(m => m.role === 'user').slice(-2).map(m => m.content).join(' ');
+      const latest = messages.at(-1)!.content;
+      const direct = directMemberAnswer(latest, messages.filter(m => m.role === 'user').at(-2)?.content);
+      if (direct && !isProductQuestion(latest)) return reply(direct);
       const candidates = productCandidates(query);
       const result = await env.AI.run('@cf/meta/llama-3.3-70b-instruct-fp8-fast', {
         messages: [{ role: 'system', content: `${INSTRUCTIONS}\n${STRUCTURED_INSTRUCTIONS}\n\nSALONO DUOMENYS (JSON):\n${knowledgeFor(query, candidates)}` }, ...messages],

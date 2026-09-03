@@ -22,6 +22,14 @@ AI renkasi iki 6 produktų ID iš serverio pateiktos katalogo atrankos. Serveris
 
 Pokalbyje rodomos prekių kortelės ir „Rodyti atrinktus produktus“. Nuoroda atidaro `/produktai/?ai=sf-...#atrinkti-produktai`, kuriame lieka tik pasirinkti ID. „Rodyti visus produktus“ pašalina atranką. Tuščia, netinkama ar pasenusi atranka nerodo viso katalogo kaip tariamų rezultatų. Nuorodą galima atidaryti tiesiogiai ar perkrauti. Pradinis bendras produkto puslapis be `ai` parametro nesikeičia.
 
+### Meistrų kortelės ir vieši veiksmai
+
+Prašymas „Pateik nuorodą pas Styveną“ pateikia konkrečią kortelę. Nuoroda `musu-meistrai/?meistras=339535#meistras-339535` automatiškai atidaro dialogą, veikia po perkrovimo ir gali būti bendrinama. Palaikomi vardų linksniai; dviprasmiškas vardas (pvz., Simona) pateikia pasirinkimus, ne atsitiktinį meistrą.
+
+AI gali siūlyti iki 3 patikrintų viešų veiksmų: atidaryti meistro kortelę, konkretaus meistro paslaugos „Treatwell“ kalendorių arba produktų, paslaugų, komandos ir kontaktų puslapį. Nuorodas iš vietinių duomenų kuria programa, ne modelis; darbuotojo, paslaugos ir varianto derinys tikrinamas serveryje ir naršyklėje. Veiksmas vykdomas tik lankytojui paspaudus. Tiesioginiai vardiniai nuorodų prašymai nereikalauja modelio užklausos, bet jiems galioja tas pats užklausų ribojimas.
+
+Tai nėra administratoriaus agentas: jis negali keisti katalogo, užsakyti, apmokėti, peržiūrėti klientų duomenų ar patvirtinti rezervacijos. Registracija užbaigiama „Treatwell“. Platesniems veiksmams reikėtų atskiros autentifikacijos, serverio integracijų ir patvirtinimų.
+
 ### AI serverio paleidimas
 
 AI serveris skelbiamas atskirai iš `workers/assistant/wrangler.jsonc`. Jame naudojamas AI binding, todėl jokio API rakto nėra naršyklėje ar „GitHub“. Viešas adresas: `https://sfinksas-assistant.albertborkovski-sfinksas.workers.dev/chat`. Publikavimas: `WRANGLER_SEND_METRICS=false npx wrangler deploy --config workers/assistant/wrangler.jsonc`; būtinas prisijungimas prie tinkamos „Cloudflare“ paskyros.
