@@ -120,10 +120,6 @@ export function Team() {
           <h1 className="font-display mt-4 text-4xl tracking-tight sm:text-5xl">Mūsų meistrai</h1>
           <p className="mt-4 max-w-xl text-sm leading-6 text-black/60">Susipažinkite su komanda. Pasirinkite meistrą ir peržiūrėkite jo siūlomas paslaugas.</p>
         </div>
-        <a href={`${team.source}#team`} target="_blank" rel="noopener noreferrer" className="inline-flex w-fit items-center gap-2 py-2 text-xs underline underline-offset-4">
-          Komanda „Treatwell“ <ArrowUpRight aria-hidden="true" className="size-4" />
-          <span className="sr-only">naujame skirtuke</span>
-        </a>
       </div>
       <div aria-label="Filtruoti meistrus pagal sritį" className="flex flex-wrap gap-2 py-6">
         {filters.map((category) => (
