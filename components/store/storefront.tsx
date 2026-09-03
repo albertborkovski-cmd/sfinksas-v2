@@ -44,6 +44,7 @@ import { Services } from '@/components/store/services';
 import { Team } from '@/components/store/team';
 import type { CartLine, Product } from '@/lib/types';
 import { formatPrice, productImageUrl } from '@/lib/types';
+import { isDemo, sitePath } from '@/lib/demo';
 
 const navigationItems = [
   { label: 'Naujienos', href: '/', view: 'home' },
@@ -155,7 +156,7 @@ export function Storefront({
 
   useEffect(() => {
     try {
-      const saved = window.localStorage.getItem('sfinksas-cart');
+      const saved = window.localStorage.getItem(isDemo ? 'sfinksas-demo-cart' : 'sfinksas-cart');
       if (saved) setCart(JSON.parse(saved) as Record<string, number>);
     } catch {
       // A blocked browser store should never block shopping.
@@ -164,7 +165,7 @@ export function Storefront({
 
   useEffect(() => {
     try {
-      window.localStorage.setItem('sfinksas-cart', JSON.stringify(cart));
+      window.localStorage.setItem(isDemo ? 'sfinksas-demo-cart' : 'sfinksas-cart', JSON.stringify(cart));
     } catch {
       // The cart still works for the current visit.
     }
@@ -249,6 +250,7 @@ export function Storefront({
 
   async function submitOrder(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (isDemo) return;
     setSubmittingOrder(true);
     setOrderError('');
     const form = new FormData(event.currentTarget);
@@ -286,9 +288,9 @@ export function Storefront({
     <main className="min-h-screen bg-background text-foreground">
       <header className="sticky top-0 z-40 border-b border-black/10 bg-background/95 backdrop-blur-xl">
         <div className="mx-auto flex h-[82px] max-w-[1480px] items-center justify-between gap-3 px-4 sm:h-[88px] sm:px-8 lg:px-12">
-          <a href="/" aria-label="Grožio namai Sfinksas – pradžia" className="block shrink-0 rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#28251f]">
+          <a href={sitePath('/')} aria-label="Grožio namai Sfinksas – pradžia" className="block shrink-0 rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#28251f]">
             <img
-              src="/sfinksas-logo.png"
+              src={sitePath('/sfinksas-logo.png')}
               alt="Grožio namai Sfinksas"
               width={700}
               height={210}
@@ -308,7 +310,7 @@ export function Storefront({
             {navigationItems.map((item) => (
               <a
                 key={item.href}
-                href={item.href}
+                href={sitePath(item.href)}
                 aria-current={view === item.view ? 'page' : undefined}
                 className={`nav-link py-3 transition-colors hover:text-ink ${view === item.view ? 'text-ink' : 'text-black/55'}`}
               >
@@ -317,13 +319,13 @@ export function Storefront({
             ))}
           </nav>
           <div className="flex shrink-0 items-center gap-1 sm:gap-2">
-            <a
-              href="/admin"
+            {!isDemo && <a
+              href={sitePath('/admin')}
               className="hidden size-9 items-center justify-center rounded-full transition-colors hover:bg-black/5 sm:flex"
               aria-label="Administravimas"
             >
               <CircleUserRound className="size-4" />
-            </a>
+            </a>}
             <Button
               variant="ghost"
               size="icon-lg"
@@ -349,7 +351,7 @@ export function Storefront({
           className="relative z-0 min-h-[calc(100svh-82px)] scroll-mt-32 overflow-hidden bg-[#d4ccbf] sm:min-h-[calc(100svh-88px)]"
         >
           <img
-            src="/hero-background.png"
+            src={sitePath('/hero-background.png')}
             alt="Sfinksas profesionalios plaukų priežiūros kolekcija"
             className="absolute inset-0 h-full w-full object-cover object-[68%_center]"
           />
@@ -648,7 +650,7 @@ export function Storefront({
           <p className="mt-6 max-w-lg border-t border-black/15 pt-6 text-base leading-7 text-black/55">
             {informationPage.description}
           </p>
-          <a href="/" className="mt-8 inline-flex w-fit items-center gap-3 text-sm font-medium underline-offset-4 hover:underline">
+          <a href={sitePath('/')} className="mt-8 inline-flex w-fit items-center gap-3 text-sm font-medium underline-offset-4 hover:underline">
             Grįžti į naujienas <ArrowRight className="size-4" />
           </a>
         </section>
@@ -695,16 +697,16 @@ export function Storefront({
             </div>
             <div className="text-sm leading-8">
               <p className="text-white/45">Parduotuvė</p>
-              <a href="/produktai" className="block">
+              <a href={sitePath('/produktai')} className="block">
                 Visi produktai
               </a>
-              <a href="/produktai#kategorijos" className="block">
+              <a href={sitePath('/produktai#kategorijos')} className="block">
                 Kategorijos
               </a>
             </div>
             <div className="text-sm leading-8">
               <p className="text-white/45">Valdymas</p>
-              <a href="/admin" className="block">
+              <a href={isDemo ? undefined : sitePath('/admin')} aria-disabled={isDemo || undefined} className="block">
                 Administratoriaus puslapis
               </a>
               <p>Vilnius · Lietuva</p>
@@ -735,11 +737,11 @@ export function Storefront({
           <nav aria-label="Mobilusis meniu" className="flex flex-col px-6 py-4 font-display text-2xl">
             {[
               ...navigationItems,
-              { label: 'Administravimas', href: '/admin', view: 'admin' },
+              ...(!isDemo ? [{ label: 'Administravimas', href: '/admin', view: 'admin' }] : []),
             ].map(({ label, href, view: itemView }) => (
               <a
                 key={label}
-                href={href}
+                href={sitePath(href)}
                 aria-current={view === itemView ? 'page' : undefined}
                 className="border-b border-black/10 py-4"
                 onClick={() => setMobileMenuOpen(false)}
@@ -790,7 +792,7 @@ export function Storefront({
                 Tęsti apsipirkimą
               </Button>
             </div>
-          ) : checkoutMode ? (
+          ) : checkoutMode && !isDemo ? (
             <form
               onSubmit={submitOrder}
               className="flex min-h-0 flex-1 flex-col"
@@ -919,13 +921,13 @@ export function Storefront({
                 </div>
                 <Button
                   className="h-12 w-full rounded-full text-sm"
-                  onClick={() => setCheckoutMode(true)}
+                  disabled={isDemo}
+                  onClick={() => { if (!isDemo) setCheckoutMode(true); }}
                 >
-                  Tęsti užsakymą <ArrowRight />
+                  {isDemo ? 'Užsakymai demonstracijoje išjungti' : 'Tęsti užsakymą'} <ArrowRight />
                 </Button>
                 <p className="mt-3 text-center text-[11px] leading-4 text-black/42">
-                  Apmokėjimo ir pristatymo detales patvirtinsime susisiekę su
-                  jumis.
+                  {isDemo ? 'Krepšelis skirtas tik dizaino testavimui. Duomenys salonui nesiunčiami.' : 'Apmokėjimo ir pristatymo detales patvirtinsime susisiekę su jumis.'}
                 </p>
               </div>
             </div>

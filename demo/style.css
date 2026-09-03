@@ -1,0 +1,8 @@
+:root { --font-geist-sans: Arial, Helvetica, sans-serif; --font-geist-mono: monospace; }
+.demo-notice { padding: 10px 20px; background: #302c26; color: #f6f2ea; text-align: center; font-size: 12px; line-height: 1.6; }
+.demo-notice strong { letter-spacing: .1em; }
+a[aria-disabled="true"] { cursor: default; }
+.demo-unavailable { max-width: 720px; margin: 12vh auto; padding: 24px; }
+.demo-unavailable h1 { font-size: 28px; }
+.demo-unavailable p { margin: 20px 0; }
+.demo-unavailable a { text-decoration: underline; }
