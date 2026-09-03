@@ -1,20 +1,25 @@
 'use client';
 
-import { useEffect, useRef, useState, type FormEvent } from 'react';
-import { ArrowUpRight, Scissors, Send, UserRound, X } from 'lucide-react';
+import { lazy, Suspense, useEffect, useRef, useState, type FormEvent } from 'react';
+import { LoaderCircle, Scissors, Send, UserRound, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Message, MessageContent, MessageGroup } from '@/components/ui/message';
 import { Popover, PopoverContent, PopoverDescription, PopoverTitle, PopoverTrigger } from '@/components/ui/popover';
-import { demoReply, type AssistantReply } from '@/lib/assistant-demo';
+import { askAssistant, safeAssistantUrl, type ConversationMessage } from '@/lib/assistant-client';
 import { sitePath } from '@/lib/demo';
 
-type ChatMessage = AssistantReply & { id: number; role: 'user' | 'assistant' };
+type ChatMessage = ConversationMessage & { id: number };
 const welcome: ChatMessage = {
   id: 0, role: 'assistant',
-  text: 'Sveiki! Esu „Sfinkso“ asistento demonstracija. Padėsiu rasti produktus, paslaugas ar meistrą. Nuo ko pradėsime?',
+  text: 'Sveiki! Esu „Sfinkso“ AI asistentas. Padėsiu rasti produktus, paslaugas ar meistrą. Kuo galiu padėti?',
 };
 const suggestions = ['Produktai', 'Paslaugos', 'Registracija'];
+const MessageResponse = lazy(() => import('@/components/ai-elements/message').then(module => ({ default: module.MessageResponse })));
+const markdownElements = ['p', 'strong', 'em', 'a', 'ul', 'ol', 'li', 'br', 'h1', 'h2', 'h3', 'blockquote'];
+const markdownComponents = {
+  a: ({ href, children }: { href?: string; children?: React.ReactNode }) => safeAssistantUrl(href ?? '') ? <a href={href} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4">{children}</a> : <span>{children}</span>,
+};
 
 function StylistIcon() {
   return (
@@ -29,21 +34,53 @@ export function AssistantChat() {
   const [open, setOpen] = useState(false);
   const [draft, setDraft] = useState('');
   const [messages, setMessages] = useState<ChatMessage[]>([welcome]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+  const [retryMessages, setRetryMessages] = useState<ChatMessage[] | null>(null);
+  const pending = useRef<AbortController | null>(null);
   const sequence = useRef(1);
   const log = useRef<HTMLDivElement>(null);
   const input = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     if (log.current) log.current.scrollTop = log.current.scrollHeight;
-  }, [messages.length, open]);
+  }, [messages.length, open, loading, error]);
+
+  useEffect(() => () => pending.current?.abort(), []);
+
+  async function requestAnswer(conversation: ChatMessage[]) {
+    if (pending.current) return;
+    const controller = new AbortController();
+    pending.current = controller;
+    setLoading(true);
+    setError('');
+    const timeout = window.setTimeout(() => controller.abort(), 45000);
+    try {
+      const text = await askAssistant(conversation.filter(m => m.id !== 0), controller.signal);
+      const answer: ChatMessage = { id: sequence.current++, role: 'assistant', text };
+      setMessages(current => [...current, answer]);
+      setRetryMessages(null);
+    } catch (cause) {
+      setError(controller.signal.aborted ? 'Atsakymas užtruko. Pabandykite dar kartą.' : cause instanceof Error ? cause.message : 'Ryšio klaida. Pabandykite dar kartą.');
+      setRetryMessages(conversation);
+    } finally {
+      window.clearTimeout(timeout);
+      pending.current = null;
+      setLoading(false);
+    }
+  }
 
   function sendMessage(text: string) {
     const clean = text.trim().slice(0, 600);
-    if (!clean) return;
+    if (!clean || pending.current) return;
     const question: ChatMessage = { id: sequence.current++, role: 'user', text: clean };
-    const answer: ChatMessage = { id: sequence.current++, role: 'assistant', ...demoReply(clean) };
-    setMessages(current => [...current.slice(-58), question, answer]);
+    // Replace an unanswered turn after a failure, keeping alternating history.
+    const previous = messages.at(-1)?.role === 'user' ? messages.slice(0, -1) : messages;
+    const conversation = [...previous.slice(-18), question];
+    setMessages(conversation);
     setDraft('');
+    setRetryMessages(null);
+    void requestAnswer(conversation);
     input.current?.focus();
   }
 
@@ -58,7 +95,7 @@ export function AssistantChat() {
         <PopoverTrigger
           render={<Button />}
           aria-label="Atidaryti AI asistento pokalbį"
-          title="Sfinkso asistentas · pokalbio demonstracija"
+          title="Sfinkso AI asistentas"
           className="relative size-12 rounded-full border border-[#deccb0]/50 bg-[#302c26] p-0 text-[#faf6ed] shadow-[0_4px_20px_#302c2630] hover:bg-[#423b32] focus-visible:ring-[#a38d6c] motion-safe:transition-transform motion-safe:hover:-translate-y-0.5"
         >
           <StylistIcon />
@@ -73,7 +110,7 @@ export function AssistantChat() {
             <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-[#302c26] text-[#faf6ed]"><StylistIcon /></span>
             <div className="min-w-0 flex-1">
               <PopoverTitle className="text-sm font-semibold">Sfinkso asistentas</PopoverTitle>
-              <PopoverDescription className="mt-1 text-[11px] text-[#766653]">AI pokalbio demonstracija</PopoverDescription>
+              <PopoverDescription className="mt-1 text-[11px] text-[#766653]">Jūsų grožio gidas · AI</PopoverDescription>
             </div>
             <Button variant="ghost" aria-label="Uždaryti pokalbį" className="size-9 rounded-full p-0" onClick={() => setOpen(false)}><X className="size-4" /></Button>
           </header>
@@ -83,22 +120,29 @@ export function AssistantChat() {
                 <Message key={message.id} align={message.role === 'user' ? 'end' : 'start'}>
                   <MessageContent className={`max-w-[90%] rounded-2xl px-3.5 py-3 text-[13px] leading-6 ${message.role === 'user' ? 'rounded-br-sm bg-[#302c26] text-[#faf6ed]' : 'rounded-bl-sm border border-black/5 bg-white/80'}`}>
                     <span className="sr-only">{message.role === 'user' ? 'Jūs: ' : 'Asistentas: '}</span>
-                    <p className="whitespace-pre-wrap break-words">{message.text}</p>
-                    {message.link && <a href={sitePath(message.link.href)} className="inline-flex items-center gap-1.5 text-xs font-semibold underline underline-offset-4">{message.link.label}<ArrowUpRight className="size-3.5 shrink-0" aria-hidden="true" /></a>}
+                    {message.role === 'user' ? <p className="whitespace-pre-wrap break-words">{message.text}</p> : <Suspense fallback={<span className="text-xs">Kraunamas atsakymas…</span>}><MessageResponse
+                      mode="static" controls={false} skipHtml
+                      allowedElements={markdownElements}
+                      urlTransform={safeAssistantUrl}
+                      components={markdownComponents}
+                      className="break-words text-[13px] leading-6 [&_h1]:text-sm [&_h2]:text-sm [&_h3]:text-sm [&_p]:my-2 [&_li]:my-1 [&_ul]:pl-4 [&_ol]:pl-4"
+                    >{message.text}</MessageResponse></Suspense>}
                   </MessageContent>
                 </Message>
               ))}
             </MessageGroup>
+            {loading && <p role="status" className="mt-3 flex items-center gap-2 text-xs text-[#766653]"><LoaderCircle className="size-3.5 motion-safe:animate-spin" />Asistentas rašo…</p>}
+            {error && <div role="alert" className="mt-3 rounded-xl border border-[#d8cbb9] bg-white p-3 text-xs leading-5"><p>{error}</p>{retryMessages && <Button variant="link" className="mt-1 h-auto p-0 text-xs" onClick={() => void requestAnswer(retryMessages)} disabled={loading}>Bandyti dar kartą</Button>}<a className="mt-2 block underline" href={sitePath('/musu-meistrai')}>Registruotis pas meistrą</a></div>}
           </div>
           <div className="flex shrink-0 flex-wrap gap-1.5 px-4 pb-3">
-            {suggestions.map(text => <Button key={text} variant="outline" className="h-8 rounded-full border-[#d8cbb9] bg-transparent px-3 text-[11px] font-medium" onClick={() => sendMessage(text)}>{text}</Button>)}
+            {suggestions.map(text => <Button key={text} disabled={loading} variant="outline" className="h-8 rounded-full border-[#d8cbb9] bg-transparent px-3 text-[11px] font-medium" onClick={() => sendMessage(text)}>{text}</Button>)}
           </div>
           <form onSubmit={submit} className="shrink-0 border-t border-black/10 bg-white/40 p-3">
             <div className="flex items-center gap-2">
               <Input ref={input} aria-label="Jūsų žinutė asistentui" value={draft} onChange={event => setDraft(event.target.value)} maxLength={600} placeholder="Parašykite žinutę…" autoComplete="off" className="h-11 rounded-full border-black/10 bg-white px-4 text-base sm:text-sm" />
-              <Button type="submit" disabled={!draft.trim()} aria-label="Siųsti žinutę" className="size-11 rounded-full bg-[#302c26] p-0"><Send className="size-4" /></Button>
+              <Button type="submit" disabled={loading || !draft.trim()} aria-label="Siųsti žinutę" className="size-11 rounded-full bg-[#302c26] p-0"><Send className="size-4" /></Button>
             </div>
-            <p className="mt-2 text-center text-[10px] leading-4 text-[#766653]">AI dar neprijungtas · paruošti atsakymai · žinutės nesaugomos</p>
+            <p className="mt-2 text-center text-[10px] leading-4 text-[#766653]">Žinutės siunčiamos „Cloudflare“ AI. Nerašykite jautrių duomenų. AI gali klysti.</p>
           </form>
         </PopoverContent>
       </Popover>

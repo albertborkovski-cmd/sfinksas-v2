@@ -1,0 +1,17 @@
+{
+  "$schema": "../../node_modules/wrangler/config-schema.json",
+  "name": "sfinksas-assistant",
+  "account_id": "8e8b6b378cbca674dd34cbea2dc92cb6",
+  "main": "index.ts",
+  "compatibility_date": "2026-05-15",
+  "workers_dev": true,
+  "preview_urls": false,
+  "ai": { "binding": "AI" },
+  "vars": { "AI_ENABLED": "true" },
+  "ratelimits": [{
+    "name": "CHAT_LIMIT",
+    "namespace_id": "26090301",
+    "simple": { "limit": 5, "period": 60 }
+  }],
+  "observability": { "enabled": false }
+}

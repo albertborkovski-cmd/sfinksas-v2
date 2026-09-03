@@ -13,17 +13,12 @@ try {
   assert.equal(sitePath('/sfinksas-logo.png'), '/sfinksas-v2/sfinksas-logo.png');
   assert.equal(sitePath('https://example.com'), 'https://example.com');
   const { AssistantChat } = await server.ssrLoadModule('/../components/store/assistant-chat.tsx');
-  const { demoReply } = await server.ssrLoadModule('/../lib/assistant-demo.ts');
   const launcher = renderToStaticMarkup(React.createElement(AssistantChat));
   assert(launcher.includes('Atidaryti AI asistento pokalbį'));
   assert(launcher.includes('aria-expanded="false"'));
   assert(launcher.includes('size-12'));
-  assert.equal(demoReply('PRODUKTAI').link.href, '/produktai');
-  assert.equal(demoReply('Registracija').link.href, '/musu-meistrai');
-  assert.equal(demoReply('paslaugos').link.href, '/paslaugos');
-  assert(demoReply('klausimas').text.includes('AI modelis dar neprijungtas'));
   assert(!launcher.includes('<form'));
-  console.log('PASS: small chat launcher, local demo replies and booking navigation');
+  console.log('PASS: small AI chat launcher remains closed initially');
   const { treatwellCalendarUrl } = await server.ssrLoadModule('/../lib/treatwell.ts');
   const team = JSON.parse(await readFile('lib/team.json', 'utf8'));
   let bookingCount = 0;
