@@ -133,7 +133,6 @@ export function Team() {
       <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
         {members.map((member) => <MemberCard key={member.id} member={member} />)}
       </div>
-      <p className="mt-8 text-xs leading-5 text-black/55">Informacijos ir nuotraukų šaltinis – „Treatwell“ salono profiliai. Atnaujinta 2026-09-03. Registracija vyksta „Treatwell“ platformoje.</p>
     </section>
   );
 }
