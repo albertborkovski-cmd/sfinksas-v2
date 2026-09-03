@@ -105,10 +105,6 @@ function MemberCard({ member }: { member: Member }) {
           </div>
         </DialogContent>
       </Dialog>
-      <a href={member.profileUrl} target="_blank" rel="noopener noreferrer" className="mx-6 flex items-center justify-between gap-3 border-t border-black/10 py-4 text-xs text-black/60 underline-offset-4 hover:underline">
-        Meistro profilis „Treatwell“ <ArrowUpRight aria-hidden="true" className="size-3.5" />
-        <span className="sr-only">{member.name}, naujame skirtuke</span>
-      </a>
     </article>
   );
 }
