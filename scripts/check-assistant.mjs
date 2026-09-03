@@ -11,7 +11,7 @@ try {
   const { verifiedAnswer } = await server.ssrLoadModule('/../workers/assistant/product-answer.ts');
   const { parseProductSelection, productSelectionUrl, selectCatalogProducts } = await server.ssrLoadModule('/../lib/product-selection.ts');
   const { safeAssistantUrl, askAssistant } = await server.ssrLoadModule('/../lib/assistant-client.ts');
-  const { namedMembers, directMemberAnswer } = await server.ssrLoadModule('/../workers/assistant/member-answer.ts');
+  const { namedMembers, directMemberAnswer, directPageAnswer } = await server.ssrLoadModule('/../workers/assistant/member-answer.ts');
   const { resolveAssistantAction, verifiedActions, parseMemberSelection, memberProfileUrl } = await server.ssrLoadModule('/../lib/assistant-actions.ts');
   for (const name of ['Styvenas', 'Styveną', 'Styveno', 'Styvenui', 'styvena', 'Stivena']) assert.equal(namedMembers(name)[0].id, 339535);
   assert.equal(namedMembers('pas Simoną').length, 3);
@@ -22,6 +22,9 @@ try {
   assert.equal(directMemberAnswer('Atidaryk jo kortele', 'Kas yra Styvenas?').actions[0].target, '339535');
   assert.equal(directMemberAnswer('Parodyk Simonos kortelę').actions.length, 3);
   assert.equal(directMemberAnswer('Atidaryk neegzistuojancio meistro kortele'), null);
+  assert.equal(directPageAnswer('Kur rasti kontaktus? Pateik veiksmą.').actions[0].target, 'contacts');
+  assert.equal(directPageAnswer('Atidaryk paslaugų puslapį').actions[0].target, 'services');
+  assert.equal(directPageAnswer('Parodyk Kerastase šampūnus iki 40 eurų'), null);
   assert.equal(memberProfileUrl(339535), '/sfinksas-v2/musu-meistrai/?meistras=339535#meistras-339535');
   assert.equal(parseMemberSelection('?meistras=339535'), 339535);
   assert.equal(parseMemberSelection('?meistras=999999'), null);

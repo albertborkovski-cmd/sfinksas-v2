@@ -29,3 +29,19 @@ export function directMemberAnswer(query: string, previousUserQuery = '') {
       : 'Šiuo vardu turime kelis meistrus. Pasirinkite, kurio kortelę norite atidaryti:',
   };
 }
+
+export function directPageAnswer(query: string) {
+  const text = normalize(query).trim().replace(/[.!?]+$/, '');
+  let target = '';
+  if (/kontakt|adresas|telefono numer/.test(text)) target = 'contacts';
+  else if (/^(?:musu meistrai|meistrai|komanda|registracija)$/.test(text)) target = 'team';
+  else if (/^(?:paslaugos|musu paslaugos)$/.test(text)) target = 'services';
+  else if (/^(?:produktai|visi produktai)$/.test(text)) target = 'products';
+  else if (/atidary|nuorod/.test(text) && /puslap|skilt|meniu/.test(text)) {
+    if (/meistr|komand/.test(text)) target = 'team';
+    else if (/paslaug/.test(text)) target = 'services';
+    else if (/produkt|parduotuv/.test(text)) target = 'products';
+  }
+  if (!target) return null;
+  return { text: 'Paspauskite žemiau — atsidarys pasirinktas svetainės puslapis.', productIds: [] as string[], actions: [{ type: 'page' as const, target }] };
+}
