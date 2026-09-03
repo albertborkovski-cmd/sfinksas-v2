@@ -37,6 +37,30 @@ import { Textarea } from '@/components/ui/textarea';
 import type { CartLine, Product } from '@/lib/types';
 import { formatPrice, productImageUrl } from '@/lib/types';
 
+const navigationItems = [
+  { label: 'Naujienos', href: '/', view: 'home' },
+  { label: 'Produktai', href: '/produktai', view: 'catalog' },
+  { label: 'Paslaugos', href: '/paslaugos', view: 'services' },
+  { label: 'Mūsų meistrai', href: '/musu-meistrai', view: 'team' },
+  { label: 'Apie mus', href: '/apie-mus', view: 'about' },
+  { label: 'Kontaktai', href: '/kontaktai', view: 'contact' },
+] as const;
+
+const informationPages = {
+  services: {
+    title: 'Paslaugos',
+    description: 'Paslaugų aprašymai ir kainos ruošiami.',
+  },
+  team: {
+    title: 'Mūsų meistrai',
+    description: 'Meistrų pristatymai ruošiami.',
+  },
+  contact: {
+    title: 'Kontaktai',
+    description: 'Kontaktiniai duomenys ir darbo laikas ruošiami.',
+  },
+} as const;
+
 const categoryOrder = [
   'Plaukų priežiūra',
   'Stiliaus formavimas',
@@ -107,8 +131,12 @@ export function Storefront({
   view = 'home',
 }: {
   products: Product[];
-  view?: 'home' | 'catalog' | 'about';
+  view?: (typeof navigationItems)[number]['view'];
 }) {
+  const informationPage =
+    view === 'services' || view === 'team' || view === 'contact'
+      ? informationPages[view]
+      : null;
   const [query, setQuery] = useState('');
   const [category, setCategory] = useState('Visi');
   const [brand, setBrand] = useState('Visi');
@@ -257,35 +285,37 @@ export function Storefront({
   return (
     <main className="min-h-screen bg-background text-foreground">
       <header className="sticky top-0 z-40 border-b border-black/10 bg-background/95 backdrop-blur-xl">
-        <div className="mx-auto flex h-[82px] max-w-[1480px] items-center justify-between px-4 sm:h-[88px] sm:px-8 lg:px-12">
+        <div className="mx-auto flex h-[82px] max-w-[1480px] items-center justify-between gap-3 px-4 sm:h-[88px] sm:px-8 lg:px-12">
           <Button
             variant="ghost"
             size="icon-lg"
-            className="rounded-full lg:hidden"
+            className="shrink-0 rounded-full xl:hidden"
             aria-label="Atverti meniu"
             onClick={() => setMobileMenuOpen(true)}
           >
             <Menu />
           </Button>
-          <a href="/" aria-label="Sfinksas pradžia" className="shrink-0">
-            <img
-              src="/sfinksas-logo.png"
-              alt="Sfinksas grožio namai"
-              className="h-[50px] w-auto mix-blend-multiply sm:h-[60px]"
-            />
+          <a href="/" aria-label="Grožio namai Sfinksas – pradžia" className="flex shrink-0 flex-col items-center gap-1 text-ink">
+            <span className="text-[9px] font-medium uppercase tracking-[0.23em] sm:text-[10px]">
+              Grožio namai
+            </span>
+            <span className="font-display text-[27px] leading-none tracking-[0.03em] sm:text-[34px]">
+              Sfinksas
+            </span>
           </a>
-          <nav className="hidden items-center gap-8 text-[12px] font-medium uppercase tracking-[0.12em] lg:flex">
-            <a href="/" className="nav-link">
-              Naujienos
-            </a>
-            <a href="/produktai" className="nav-link">
-              Produktai
-            </a>
-            <a href="/apie-mus" className="nav-link">
-              Apie mus
-            </a>
+          <nav aria-label="Pagrindinis meniu" className="hidden items-center gap-6 whitespace-nowrap text-[11px] font-medium uppercase tracking-[0.1em] xl:flex 2xl:gap-8 2xl:text-xs">
+            {navigationItems.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                aria-current={view === item.view ? 'page' : undefined}
+                className={`nav-link py-3 transition-colors hover:text-ink ${view === item.view ? 'text-ink' : 'text-black/55'}`}
+              >
+                {item.label}
+              </a>
+            ))}
           </nav>
-          <div className="flex items-center gap-1 sm:gap-2">
+          <div className="flex shrink-0 items-center gap-1 sm:gap-2">
             <a
               href="/admin"
               className="hidden size-9 items-center justify-center rounded-full transition-colors hover:bg-black/5 sm:flex"
@@ -610,6 +640,21 @@ export function Storefront({
         </>
       )}
 
+      {informationPage && (
+        <section className="mx-auto flex min-h-[520px] max-w-[1480px] flex-col justify-center px-5 py-20 sm:px-8 lg:px-12 lg:py-28">
+          <p className="eyebrow">Grožio namai Sfinksas</p>
+          <h1 className="font-display mt-4 text-4xl leading-tight tracking-tight sm:text-6xl">
+            {informationPage.title}
+          </h1>
+          <p className="mt-6 max-w-lg border-t border-black/15 pt-6 text-base leading-7 text-black/55">
+            {informationPage.description}
+          </p>
+          <a href="/" className="mt-8 inline-flex w-fit items-center gap-3 text-sm font-medium underline-offset-4 hover:underline">
+            Grįžti į naujienas <ArrowRight className="size-4" />
+          </a>
+        </section>
+      )}
+
       {view === 'about' && (
         <section
           id="apie"
@@ -682,22 +727,21 @@ export function Storefront({
       <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
         <SheetContent
           side="left"
-          className="w-[88%] bg-[#f4f0e8] p-0 sm:max-w-md"
+          className="w-[88%] overflow-y-auto bg-[#f4f0e8] p-0 sm:max-w-md"
         >
           <SheetHeader className="border-b border-black/10 p-6">
-            <SheetTitle className="font-display text-2xl">SFINKSAS</SheetTitle>
-            <SheetDescription>Profesionali plaukų priežiūra</SheetDescription>
+            <SheetTitle className="font-display pr-6 text-2xl">Grožio namai Sfinksas</SheetTitle>
+            <SheetDescription>Pagrindinis meniu</SheetDescription>
           </SheetHeader>
-          <nav className="flex flex-col px-6 py-8 font-display text-3xl">
+          <nav aria-label="Mobilusis meniu" className="flex flex-col px-6 py-4 font-display text-2xl">
             {[
-              ['Naujienos', '/'],
-              ['Produktai', '/produktai'],
-              ['Apie mus', '/apie-mus'],
-              ['Administravimas', '/admin'],
-            ].map(([label, href]) => (
+              ...navigationItems,
+              { label: 'Administravimas', href: '/admin', view: 'admin' },
+            ].map(({ label, href, view: itemView }) => (
               <a
                 key={label}
                 href={href}
+                aria-current={view === itemView ? 'page' : undefined}
                 className="border-b border-black/10 py-4"
                 onClick={() => setMobileMenuOpen(false)}
               >
