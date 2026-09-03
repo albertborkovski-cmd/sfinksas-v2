@@ -282,23 +282,24 @@ export function Storefront({
     <main className="min-h-screen bg-background text-foreground">
       <header className="sticky top-0 z-40 border-b border-black/10 bg-background/95 backdrop-blur-xl">
         <div className="mx-auto flex h-[82px] max-w-[1480px] items-center justify-between gap-3 px-4 sm:h-[88px] sm:px-8 lg:px-12">
+          <a href="/" aria-label="Grožio namai Sfinksas – pradžia" className="block shrink-0 rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#28251f]">
+            <img
+              src="/sfinksas-logo.png"
+              alt="Grožio namai Sfinksas"
+              width={700}
+              height={210}
+              className="h-auto w-[170px] object-contain mix-blend-multiply sm:w-[210px]"
+            />
+          </a>
           <Button
             variant="ghost"
             size="icon-lg"
-            className="shrink-0 rounded-full xl:hidden"
+            className="ml-auto shrink-0 rounded-full xl:hidden"
             aria-label="Atverti meniu"
             onClick={() => setMobileMenuOpen(true)}
           >
             <Menu />
           </Button>
-          <a href="/" aria-label="Grožio namai Sfinksas – pradžia" className="flex shrink-0 flex-col items-center gap-1 text-ink">
-            <span className="text-[9px] font-medium uppercase tracking-[0.23em] sm:text-[10px]">
-              Grožio namai
-            </span>
-            <span className="font-display text-[27px] leading-none tracking-[0.03em] sm:text-[34px]">
-              Sfinksas
-            </span>
-          </a>
           <nav aria-label="Pagrindinis meniu" className="hidden items-center gap-6 whitespace-nowrap text-[11px] font-medium uppercase tracking-[0.1em] xl:flex 2xl:gap-8 2xl:text-xs">
             {navigationItems.map((item) => (
               <a
