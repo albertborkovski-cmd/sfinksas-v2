@@ -30,142 +30,433 @@
         {
           "id": "TR3427472",
           "name": "Moterų kirpimas",
-          "category": "Kirpimas"
+          "category": "Kirpimas",
+          "bookingOptions": [
+            {
+              "id": "13581817",
+              "label": "Brigita",
+              "durationMinutes": 60
+            }
+          ]
         },
         {
           "id": "TR5979077",
           "name": "Moterų kirpimas + galvos odos pilingas",
-          "category": "Kirpimas"
+          "category": "Kirpimas",
+          "bookingOptions": [
+            {
+              "id": "11414567",
+              "label": "Brigita",
+              "durationMinutes": 70
+            }
+          ]
         },
         {
           "id": "TR3427475",
           "name": "Vyrų kirpimas",
-          "category": "Kirpimas"
+          "category": "Kirpimas",
+          "bookingOptions": [
+            {
+              "id": "11364348",
+              "label": "Brigita",
+              "durationMinutes": 60
+            }
+          ]
         },
         {
           "id": "TR5979136",
           "name": "Vyrų kirpimas + 30 min. galvos masažas",
-          "category": "Kirpimas"
+          "category": "Kirpimas",
+          "bookingOptions": [
+            {
+              "id": "11414650",
+              "label": "Brigita",
+              "durationMinutes": 90
+            }
+          ]
         },
         {
           "id": "TR5716051",
           "name": "Kirpčiukų kirpimas",
-          "category": "Kirpimas"
+          "category": "Kirpimas",
+          "bookingOptions": [
+            {
+              "id": "10908898",
+              "label": "Kirpčiukų kirpimas",
+              "durationMinutes": 15
+            }
+          ]
         },
         {
           "id": "TR5716066",
           "name": "Vaikų kirpimas",
-          "category": "Kirpimas"
+          "category": "Kirpimas",
+          "bookingOptions": [
+            {
+              "id": "14143745",
+              "label": "Brigita",
+              "durationMinutes": 60
+            }
+          ]
         },
         {
           "id": "TR3730638",
           "name": "Kirpimas karštomis žirklėmis",
-          "category": "Kirpimas Karštomis Žirklėmis"
+          "category": "Kirpimas Karštomis Žirklėmis",
+          "bookingOptions": [
+            {
+              "id": "8934240",
+              "label": "Brigita",
+              "durationMinutes": 60
+            }
+          ]
         },
         {
           "id": "TR5979069",
           "name": "Kirpimas karštomis žirklėmis + galvos odos pilingas",
-          "category": "Kirpimas Karštomis Žirklėmis"
+          "category": "Kirpimas Karštomis Žirklėmis",
+          "bookingOptions": [
+            {
+              "id": "11414546",
+              "label": "Brigita",
+              "durationMinutes": 70
+            }
+          ]
         },
         {
           "id": "TR6243509",
           "name": "Plaukų dažymo KONSULTACIJA",
-          "category": "Plaukų Dažymas"
+          "category": "Plaukų Dažymas",
+          "bookingOptions": [
+            {
+              "id": "11908920",
+              "label": "Plaukų dažymo KONSULTACIJA",
+              "durationMinutes": 20
+            }
+          ]
         },
         {
           "id": "TR3427476",
           "name": "Plaukų tonavimas",
-          "category": "Plaukų Dažymas"
+          "category": "Plaukų Dažymas",
+          "bookingOptions": [
+            {
+              "id": "9648085",
+              "label": "Trumpi plaukai",
+              "durationMinutes": 60
+            },
+            {
+              "id": "9648086",
+              "label": "Vidutinio ilgio plaukai",
+              "durationMinutes": 60
+            },
+            {
+              "id": "9648087",
+              "label": "Ilgi plaukai",
+              "durationMinutes": 90
+            }
+          ]
         },
         {
           "id": "TR3427477",
           "name": "Plaukų šaknų dažymas ir kirpimas",
-          "category": "Plaukų Dažymas"
+          "category": "Plaukų Dažymas",
+          "bookingOptions": [
+            {
+              "id": "11426246",
+              "label": "Brigita",
+              "durationMinutes": 150
+            }
+          ]
         },
         {
           "id": "TR3427485",
           "name": "Plaukų šaknų dažymas",
-          "category": "Plaukų Dažymas"
+          "category": "Plaukų Dažymas",
+          "bookingOptions": [
+            {
+              "id": "11426253",
+              "label": "Brigita",
+              "durationMinutes": 120
+            }
+          ]
         },
         {
           "id": "TR3427486",
           "name": "Plaukų šaknų dažymas ir tonavimas",
-          "category": "Plaukų Dažymas"
+          "category": "Plaukų Dažymas",
+          "bookingOptions": [
+            {
+              "id": "9929023",
+              "label": "Plaukų šaknų dažymas ir tonavimas",
+              "durationMinutes": 150
+            }
+          ]
         },
         {
           "id": "TR3427492",
           "name": "Visų plaukų dažymas viena spalva",
-          "category": "Plaukų Dažymas"
+          "category": "Plaukų Dažymas",
+          "bookingOptions": [
+            {
+              "id": "9648088",
+              "label": "Trumpi plaukai (iki pečių)",
+              "durationMinutes": 120
+            },
+            {
+              "id": "9648089",
+              "label": "Vidutinio ilgio plaukai",
+              "durationMinutes": 150
+            },
+            {
+              "id": "11655685",
+              "label": "Ilgi plaukai",
+              "durationMinutes": 180
+            }
+          ]
         },
         {
           "id": "TR3427515",
           "name": "Plaukų dažymas su folija sruogelėmis",
-          "category": "Plaukų Dažymas"
+          "category": "Plaukų Dažymas",
+          "bookingOptions": [
+            {
+              "id": "5994513",
+              "label": "Puse galvos",
+              "durationMinutes": 180
+            },
+            {
+              "id": "5994514",
+              "label": "Visa galva",
+              "durationMinutes": 210
+            },
+            {
+              "id": "10647283",
+              "label": "Visa galva labai ilgi plaukai",
+              "durationMinutes": 240
+            }
+          ]
         },
         {
           "id": "TR3427521",
           "name": "Balayage dažymas + Olaplex apsauga",
-          "category": "Plaukų Dažymas"
+          "category": "Plaukų Dažymas",
+          "bookingOptions": [
+            {
+              "id": "5994525",
+              "label": "Trumpi plaukai (iki pečių)",
+              "durationMinutes": 180
+            },
+            {
+              "id": "5994526",
+              "label": "Ilgi plaukai",
+              "durationMinutes": 240
+            },
+            {
+              "id": "5994527",
+              "label": "Labai ilgi plaukai",
+              "durationMinutes": 300
+            }
+          ]
         },
         {
           "id": "TR3427536",
           "name": "OLAPLEX priedas į dažus",
-          "category": "Plaukų Dažymas"
+          "category": "Plaukų Dažymas",
+          "bookingOptions": [
+            {
+              "id": "9648093",
+              "label": "OLAPLEX priedas į dažus",
+              "durationMinutes": 60
+            }
+          ]
         },
         {
           "id": "TR4245926",
           "name": "Visų plaukų šviesinimas +tonavimas",
-          "category": "Plaukų Dažymas"
+          "category": "Plaukų Dažymas",
+          "bookingOptions": [
+            {
+              "id": "7898341",
+              "label": "Trumpi plaukai",
+              "durationMinutes": 150
+            },
+            {
+              "id": "7898342",
+              "label": "lgi plaukai",
+              "durationMinutes": 180
+            }
+          ]
         },
         {
           "id": "TR6544071",
           "name": "Plaukų spalvos išėmimas - korekcija",
-          "category": "Plaukų Dažymas"
+          "category": "Plaukų Dažymas",
+          "bookingOptions": [
+            {
+              "id": "12440962",
+              "label": "Trumi plaukai",
+              "durationMinutes": 120
+            },
+            {
+              "id": "12440963",
+              "label": "Vidutiniai plaukai",
+              "durationMinutes": 150
+            },
+            {
+              "id": "12440961",
+              "label": "Ilgi plaukai",
+              "durationMinutes": 180
+            }
+          ]
         },
         {
           "id": "TR7150971",
           "name": "Milbon japoniškas plaukų SPA",
-          "category": "Milbon Plaukų SPA"
+          "category": "Milbon Plaukų SPA",
+          "bookingOptions": [
+            {
+              "id": "13581785",
+              "label": "Brigita",
+              "durationMinutes": 60
+            }
+          ]
         },
         {
           "id": "TR7150972",
           "name": "Milbon mini SPA",
-          "category": "Milbon Plaukų SPA"
+          "category": "Milbon Plaukų SPA",
+          "bookingOptions": [
+            {
+              "id": "13581789",
+              "label": "Brigita",
+              "durationMinutes": 15
+            }
+          ]
         },
         {
           "id": "TR3427534",
           "name": "Olaplex procedūra",
-          "category": "Plaukų Procedūros"
+          "category": "Plaukų Procedūros",
+          "bookingOptions": [
+            {
+              "id": "5994555",
+              "label": "Olaplex procedūra",
+              "durationMinutes": 60
+            }
+          ]
         },
         {
           "id": "TR7150973",
           "name": "Kerastase Caviar ritualas",
-          "category": "Plaukų Procedūros"
+          "category": "Plaukų Procedūros",
+          "bookingOptions": [
+            {
+              "id": "13581794",
+              "label": "Brigita",
+              "durationMinutes": 60
+            }
+          ]
         },
         {
           "id": "TR6124539",
           "name": "KERASTASE Fusio-Dose ritualas + plaukų Sušukavimas",
-          "category": "Plaukų Procedūros"
+          "category": "Plaukų Procedūros",
+          "bookingOptions": [
+            {
+              "id": "11686683",
+              "label": "+ prie kitos paslaugos (kirpimo, dažymo)",
+              "durationMinutes": 15
+            },
+            {
+              "id": "11685139",
+              "label": "Vidutinio ilgio plaukai",
+              "durationMinutes": 50
+            },
+            {
+              "id": "11685140",
+              "label": "Ilgi plaukai",
+              "durationMinutes": 60
+            }
+          ]
         },
         {
           "id": "TR6145476",
           "name": "Kérastase Première- intensyvi plaukų atkūrimo procedūra",
-          "category": "Plaukų Procedūros"
+          "category": "Plaukų Procedūros",
+          "bookingOptions": [
+            {
+              "id": "11724366",
+              "label": "+ prie paslaugos (kirpimo,dažymo)",
+              "durationMinutes": 40
+            },
+            {
+              "id": "11724282",
+              "label": "Vidutinio ilgio plaukai",
+              "durationMinutes": 75
+            },
+            {
+              "id": "11724281",
+              "label": "Ilgi plaukai",
+              "durationMinutes": 90
+            }
+          ]
         },
         {
           "id": "TR3427530",
           "name": "BTX - botoksas plaukams",
-          "category": "Plaukų Procedūros"
+          "category": "Plaukų Procedūros",
+          "bookingOptions": [
+            {
+              "id": "5994545",
+              "label": "Trumpi plaukai",
+              "durationMinutes": 120
+            },
+            {
+              "id": "5994546",
+              "label": "Vidutinio ilgio plaukai",
+              "durationMinutes": 150
+            },
+            {
+              "id": "5994547",
+              "label": "Ilgi plaukai",
+              "durationMinutes": 180
+            }
+          ]
         },
         {
           "id": "TR3478342",
           "name": "Plaukų tiesinimas keratinu ENCANTO",
-          "category": "Plaukų Procedūros"
+          "category": "Plaukų Procedūros",
+          "bookingOptions": [
+            {
+              "id": "14063590",
+              "label": "Brigita",
+              "durationMinutes": 240
+            },
+            {
+              "id": "14063580",
+              "label": "Brigita",
+              "durationMinutes": 180
+            },
+            {
+              "id": "14063585",
+              "label": "Brigita",
+              "durationMinutes": 210
+            }
+          ]
         },
         {
           "id": "TR3459141",
           "name": "Kasdieninis sušukavimas",
-          "category": "Šukuosenos Ir Sušukavimas"
+          "category": "Šukuosenos Ir Sušukavimas",
+          "bookingOptions": [
+            {
+              "id": "6071595",
+              "label": "1 valanda",
+              "durationMinutes": 60
+            }
+          ]
         }
       ]
     },
@@ -184,152 +475,452 @@
         {
           "id": "TR3427472",
           "name": "Moterų kirpimas",
-          "category": "Kirpimas"
+          "category": "Kirpimas",
+          "bookingOptions": [
+            {
+              "id": "13581818",
+              "label": "Veslava",
+              "durationMinutes": 60
+            }
+          ]
         },
         {
           "id": "TR5979077",
           "name": "Moterų kirpimas + galvos odos pilingas",
-          "category": "Kirpimas"
+          "category": "Kirpimas",
+          "bookingOptions": [
+            {
+              "id": "11414568",
+              "label": "Veslava",
+              "durationMinutes": 70
+            }
+          ]
         },
         {
           "id": "TR3427475",
           "name": "Vyrų kirpimas",
-          "category": "Kirpimas"
+          "category": "Kirpimas",
+          "bookingOptions": [
+            {
+              "id": "11364349",
+              "label": "Veslava",
+              "durationMinutes": 60
+            }
+          ]
         },
         {
           "id": "TR5979136",
           "name": "Vyrų kirpimas + 30 min. galvos masažas",
-          "category": "Kirpimas"
+          "category": "Kirpimas",
+          "bookingOptions": [
+            {
+              "id": "11414651",
+              "label": "Veslava",
+              "durationMinutes": 90
+            }
+          ]
         },
         {
           "id": "TR5716051",
           "name": "Kirpčiukų kirpimas",
-          "category": "Kirpimas"
+          "category": "Kirpimas",
+          "bookingOptions": [
+            {
+              "id": "10908898",
+              "label": "Kirpčiukų kirpimas",
+              "durationMinutes": 15
+            }
+          ]
         },
         {
           "id": "TR5716066",
           "name": "Vaikų kirpimas",
-          "category": "Kirpimas"
+          "category": "Kirpimas",
+          "bookingOptions": [
+            {
+              "id": "14143746",
+              "label": "Veslava",
+              "durationMinutes": 60
+            }
+          ]
         },
         {
           "id": "TR3730638",
           "name": "Kirpimas karštomis žirklėmis",
-          "category": "Kirpimas Karštomis Žirklėmis"
+          "category": "Kirpimas Karštomis Žirklėmis",
+          "bookingOptions": [
+            {
+              "id": "8934237",
+              "label": "Veslava",
+              "durationMinutes": 60
+            }
+          ]
         },
         {
           "id": "TR5979069",
           "name": "Kirpimas karštomis žirklėmis + galvos odos pilingas",
-          "category": "Kirpimas Karštomis Žirklėmis"
+          "category": "Kirpimas Karštomis Žirklėmis",
+          "bookingOptions": [
+            {
+              "id": "11414547",
+              "label": "Veslava",
+              "durationMinutes": 70
+            }
+          ]
         },
         {
           "id": "TR6243509",
           "name": "Plaukų dažymo KONSULTACIJA",
-          "category": "Plaukų Dažymas"
+          "category": "Plaukų Dažymas",
+          "bookingOptions": [
+            {
+              "id": "11908920",
+              "label": "Plaukų dažymo KONSULTACIJA",
+              "durationMinutes": 20
+            }
+          ]
         },
         {
           "id": "TR3427476",
           "name": "Plaukų tonavimas",
-          "category": "Plaukų Dažymas"
+          "category": "Plaukų Dažymas",
+          "bookingOptions": [
+            {
+              "id": "9648085",
+              "label": "Trumpi plaukai",
+              "durationMinutes": 60
+            },
+            {
+              "id": "9648086",
+              "label": "Vidutinio ilgio plaukai",
+              "durationMinutes": 60
+            },
+            {
+              "id": "9648087",
+              "label": "Ilgi plaukai",
+              "durationMinutes": 90
+            }
+          ]
         },
         {
           "id": "TR3427477",
           "name": "Plaukų šaknų dažymas ir kirpimas",
-          "category": "Plaukų Dažymas"
+          "category": "Plaukų Dažymas",
+          "bookingOptions": [
+            {
+              "id": "11426247",
+              "label": "Veslava",
+              "durationMinutes": 150
+            }
+          ]
         },
         {
           "id": "TR3427485",
           "name": "Plaukų šaknų dažymas",
-          "category": "Plaukų Dažymas"
+          "category": "Plaukų Dažymas",
+          "bookingOptions": [
+            {
+              "id": "11426254",
+              "label": "Veslava",
+              "durationMinutes": 120
+            }
+          ]
         },
         {
           "id": "TR3427486",
           "name": "Plaukų šaknų dažymas ir tonavimas",
-          "category": "Plaukų Dažymas"
+          "category": "Plaukų Dažymas",
+          "bookingOptions": [
+            {
+              "id": "9929023",
+              "label": "Plaukų šaknų dažymas ir tonavimas",
+              "durationMinutes": 150
+            }
+          ]
         },
         {
           "id": "TR3427492",
           "name": "Visų plaukų dažymas viena spalva",
-          "category": "Plaukų Dažymas"
+          "category": "Plaukų Dažymas",
+          "bookingOptions": [
+            {
+              "id": "9648088",
+              "label": "Trumpi plaukai (iki pečių)",
+              "durationMinutes": 120
+            },
+            {
+              "id": "9648089",
+              "label": "Vidutinio ilgio plaukai",
+              "durationMinutes": 150
+            },
+            {
+              "id": "11655685",
+              "label": "Ilgi plaukai",
+              "durationMinutes": 180
+            }
+          ]
         },
         {
           "id": "TR3427515",
           "name": "Plaukų dažymas su folija sruogelėmis",
-          "category": "Plaukų Dažymas"
+          "category": "Plaukų Dažymas",
+          "bookingOptions": [
+            {
+              "id": "5994513",
+              "label": "Puse galvos",
+              "durationMinutes": 180
+            },
+            {
+              "id": "5994514",
+              "label": "Visa galva",
+              "durationMinutes": 210
+            },
+            {
+              "id": "10647283",
+              "label": "Visa galva labai ilgi plaukai",
+              "durationMinutes": 240
+            }
+          ]
         },
         {
           "id": "TR3427521",
           "name": "Balayage dažymas + Olaplex apsauga",
-          "category": "Plaukų Dažymas"
+          "category": "Plaukų Dažymas",
+          "bookingOptions": [
+            {
+              "id": "5994525",
+              "label": "Trumpi plaukai (iki pečių)",
+              "durationMinutes": 180
+            },
+            {
+              "id": "5994526",
+              "label": "Ilgi plaukai",
+              "durationMinutes": 240
+            },
+            {
+              "id": "5994527",
+              "label": "Labai ilgi plaukai",
+              "durationMinutes": 300
+            }
+          ]
         },
         {
           "id": "TR3836828",
           "name": "Air Touch dažymas + Olaplex apsauga",
-          "category": "Plaukų Dažymas"
+          "category": "Plaukų Dažymas",
+          "bookingOptions": [
+            {
+              "id": "6874701",
+              "label": "Vidutinio ilgio plaukai",
+              "durationMinutes": 240
+            },
+            {
+              "id": "6874700",
+              "label": "Ilgi plaukai",
+              "durationMinutes": 300
+            }
+          ]
         },
         {
           "id": "TR3427536",
           "name": "OLAPLEX priedas į dažus",
-          "category": "Plaukų Dažymas"
+          "category": "Plaukų Dažymas",
+          "bookingOptions": [
+            {
+              "id": "9648093",
+              "label": "OLAPLEX priedas į dažus",
+              "durationMinutes": 60
+            }
+          ]
         },
         {
           "id": "TR4245926",
           "name": "Visų plaukų šviesinimas +tonavimas",
-          "category": "Plaukų Dažymas"
+          "category": "Plaukų Dažymas",
+          "bookingOptions": [
+            {
+              "id": "7898341",
+              "label": "Trumpi plaukai",
+              "durationMinutes": 150
+            },
+            {
+              "id": "7898342",
+              "label": "lgi plaukai",
+              "durationMinutes": 180
+            }
+          ]
         },
         {
           "id": "TR7150971",
           "name": "Milbon japoniškas plaukų SPA",
-          "category": "Milbon Plaukų SPA"
+          "category": "Milbon Plaukų SPA",
+          "bookingOptions": [
+            {
+              "id": "13581786",
+              "label": "Veslava",
+              "durationMinutes": 60
+            }
+          ]
         },
         {
           "id": "TR7150972",
           "name": "Milbon mini SPA",
-          "category": "Milbon Plaukų SPA"
+          "category": "Milbon Plaukų SPA",
+          "bookingOptions": [
+            {
+              "id": "13581790",
+              "label": "Veslava",
+              "durationMinutes": 15
+            }
+          ]
         },
         {
           "id": "TR3427534",
           "name": "Olaplex procedūra",
-          "category": "Plaukų Procedūros"
+          "category": "Plaukų Procedūros",
+          "bookingOptions": [
+            {
+              "id": "5994555",
+              "label": "Olaplex procedūra",
+              "durationMinutes": 60
+            }
+          ]
         },
         {
           "id": "TR7150973",
           "name": "Kerastase Caviar ritualas",
-          "category": "Plaukų Procedūros"
+          "category": "Plaukų Procedūros",
+          "bookingOptions": [
+            {
+              "id": "13581795",
+              "label": "Veslava",
+              "durationMinutes": 60
+            }
+          ]
         },
         {
           "id": "TR6124539",
           "name": "KERASTASE Fusio-Dose ritualas + plaukų Sušukavimas",
-          "category": "Plaukų Procedūros"
+          "category": "Plaukų Procedūros",
+          "bookingOptions": [
+            {
+              "id": "11686683",
+              "label": "+ prie kitos paslaugos (kirpimo, dažymo)",
+              "durationMinutes": 15
+            },
+            {
+              "id": "11685139",
+              "label": "Vidutinio ilgio plaukai",
+              "durationMinutes": 50
+            },
+            {
+              "id": "11685140",
+              "label": "Ilgi plaukai",
+              "durationMinutes": 60
+            }
+          ]
         },
         {
           "id": "TR6145476",
           "name": "Kérastase Première- intensyvi plaukų atkūrimo procedūra",
-          "category": "Plaukų Procedūros"
+          "category": "Plaukų Procedūros",
+          "bookingOptions": [
+            {
+              "id": "11724366",
+              "label": "+ prie paslaugos (kirpimo,dažymo)",
+              "durationMinutes": 40
+            },
+            {
+              "id": "11724282",
+              "label": "Vidutinio ilgio plaukai",
+              "durationMinutes": 75
+            },
+            {
+              "id": "11724281",
+              "label": "Ilgi plaukai",
+              "durationMinutes": 90
+            }
+          ]
         },
         {
           "id": "TR3427530",
           "name": "BTX - botoksas plaukams",
-          "category": "Plaukų Procedūros"
+          "category": "Plaukų Procedūros",
+          "bookingOptions": [
+            {
+              "id": "5994545",
+              "label": "Trumpi plaukai",
+              "durationMinutes": 120
+            },
+            {
+              "id": "5994546",
+              "label": "Vidutinio ilgio plaukai",
+              "durationMinutes": 150
+            },
+            {
+              "id": "5994547",
+              "label": "Ilgi plaukai",
+              "durationMinutes": 180
+            }
+          ]
         },
         {
           "id": "TR3478342",
           "name": "Plaukų tiesinimas keratinu ENCANTO",
-          "category": "Plaukų Procedūros"
+          "category": "Plaukų Procedūros",
+          "bookingOptions": [
+            {
+              "id": "14063591",
+              "label": "Veslava",
+              "durationMinutes": 240
+            },
+            {
+              "id": "14063581",
+              "label": "Veslava",
+              "durationMinutes": 180
+            },
+            {
+              "id": "14063586",
+              "label": "Veslava",
+              "durationMinutes": 210
+            }
+          ]
         },
         {
           "id": "TR3459141",
           "name": "Kasdieninis sušukavimas",
-          "category": "Šukuosenos Ir Sušukavimas"
+          "category": "Šukuosenos Ir Sušukavimas",
+          "bookingOptions": [
+            {
+              "id": "6071595",
+              "label": "1 valanda",
+              "durationMinutes": 60
+            }
+          ]
         },
         {
           "id": "TR3459143",
           "name": "Proginė šukuosena",
-          "category": "Šukuosenos Ir Sušukavimas"
+          "category": "Šukuosenos Ir Sušukavimas",
+          "bookingOptions": [
+            {
+              "id": "6071594",
+              "label": "Proginė šukuosena",
+              "durationMinutes": 60
+            }
+          ]
         },
         {
           "id": "TR3459142",
           "name": "Vestuvinė šukuosena",
-          "category": "Šukuosenos Ir Sušukavimas"
+          "category": "Šukuosenos Ir Sušukavimas",
+          "bookingOptions": [
+            {
+              "id": "6071596",
+              "label": "Vestuvinė šukuosena",
+              "durationMinutes": 60
+            }
+          ]
         }
       ]
     },
@@ -348,107 +939,324 @@
         {
           "id": "TR3427472",
           "name": "Moterų kirpimas",
-          "category": "Kirpimas"
+          "category": "Kirpimas",
+          "bookingOptions": [
+            {
+              "id": "13581816",
+              "label": "Styvenas",
+              "durationMinutes": 60
+            }
+          ]
         },
         {
           "id": "TR5979077",
           "name": "Moterų kirpimas + galvos odos pilingas",
-          "category": "Kirpimas"
+          "category": "Kirpimas",
+          "bookingOptions": [
+            {
+              "id": "11414566",
+              "label": "Styvenas",
+              "durationMinutes": 70
+            }
+          ]
         },
         {
           "id": "TR3730638",
           "name": "Kirpimas karštomis žirklėmis",
-          "category": "Kirpimas Karštomis Žirklėmis"
+          "category": "Kirpimas Karštomis Žirklėmis",
+          "bookingOptions": [
+            {
+              "id": "8934236",
+              "label": "Styvenas",
+              "durationMinutes": 60
+            }
+          ]
         },
         {
           "id": "TR5979069",
           "name": "Kirpimas karštomis žirklėmis + galvos odos pilingas",
-          "category": "Kirpimas Karštomis Žirklėmis"
+          "category": "Kirpimas Karštomis Žirklėmis",
+          "bookingOptions": [
+            {
+              "id": "11414545",
+              "label": "Styvenas",
+              "durationMinutes": 70
+            }
+          ]
         },
         {
           "id": "TR6243509",
           "name": "Plaukų dažymo KONSULTACIJA",
-          "category": "Plaukų Dažymas"
+          "category": "Plaukų Dažymas",
+          "bookingOptions": [
+            {
+              "id": "11908920",
+              "label": "Plaukų dažymo KONSULTACIJA",
+              "durationMinutes": 20
+            }
+          ]
         },
         {
           "id": "TR3427476",
           "name": "Plaukų tonavimas",
-          "category": "Plaukų Dažymas"
+          "category": "Plaukų Dažymas",
+          "bookingOptions": [
+            {
+              "id": "9648085",
+              "label": "Trumpi plaukai",
+              "durationMinutes": 60
+            },
+            {
+              "id": "9648086",
+              "label": "Vidutinio ilgio plaukai",
+              "durationMinutes": 60
+            },
+            {
+              "id": "9648087",
+              "label": "Ilgi plaukai",
+              "durationMinutes": 90
+            }
+          ]
         },
         {
           "id": "TR3427477",
           "name": "Plaukų šaknų dažymas ir kirpimas",
-          "category": "Plaukų Dažymas"
+          "category": "Plaukų Dažymas",
+          "bookingOptions": [
+            {
+              "id": "11426245",
+              "label": "Styvenas",
+              "durationMinutes": 150
+            }
+          ]
         },
         {
           "id": "TR3427485",
           "name": "Plaukų šaknų dažymas",
-          "category": "Plaukų Dažymas"
+          "category": "Plaukų Dažymas",
+          "bookingOptions": [
+            {
+              "id": "11426252",
+              "label": "Styvenas",
+              "durationMinutes": 120
+            }
+          ]
         },
         {
           "id": "TR3427486",
           "name": "Plaukų šaknų dažymas ir tonavimas",
-          "category": "Plaukų Dažymas"
+          "category": "Plaukų Dažymas",
+          "bookingOptions": [
+            {
+              "id": "9929023",
+              "label": "Plaukų šaknų dažymas ir tonavimas",
+              "durationMinutes": 150
+            }
+          ]
         },
         {
           "id": "TR3427492",
           "name": "Visų plaukų dažymas viena spalva",
-          "category": "Plaukų Dažymas"
+          "category": "Plaukų Dažymas",
+          "bookingOptions": [
+            {
+              "id": "9648088",
+              "label": "Trumpi plaukai (iki pečių)",
+              "durationMinutes": 120
+            },
+            {
+              "id": "9648089",
+              "label": "Vidutinio ilgio plaukai",
+              "durationMinutes": 150
+            },
+            {
+              "id": "11655685",
+              "label": "Ilgi plaukai",
+              "durationMinutes": 180
+            }
+          ]
         },
         {
           "id": "TR3427515",
           "name": "Plaukų dažymas su folija sruogelėmis",
-          "category": "Plaukų Dažymas"
+          "category": "Plaukų Dažymas",
+          "bookingOptions": [
+            {
+              "id": "5994513",
+              "label": "Puse galvos",
+              "durationMinutes": 180
+            },
+            {
+              "id": "5994514",
+              "label": "Visa galva",
+              "durationMinutes": 210
+            },
+            {
+              "id": "10647283",
+              "label": "Visa galva labai ilgi plaukai",
+              "durationMinutes": 240
+            }
+          ]
         },
         {
           "id": "TR3427521",
           "name": "Balayage dažymas + Olaplex apsauga",
-          "category": "Plaukų Dažymas"
+          "category": "Plaukų Dažymas",
+          "bookingOptions": [
+            {
+              "id": "5994525",
+              "label": "Trumpi plaukai (iki pečių)",
+              "durationMinutes": 180
+            },
+            {
+              "id": "5994526",
+              "label": "Ilgi plaukai",
+              "durationMinutes": 240
+            },
+            {
+              "id": "5994527",
+              "label": "Labai ilgi plaukai",
+              "durationMinutes": 300
+            }
+          ]
         },
         {
           "id": "TR3836828",
           "name": "Air Touch dažymas + Olaplex apsauga",
-          "category": "Plaukų Dažymas"
+          "category": "Plaukų Dažymas",
+          "bookingOptions": [
+            {
+              "id": "6874701",
+              "label": "Vidutinio ilgio plaukai",
+              "durationMinutes": 240
+            },
+            {
+              "id": "6874700",
+              "label": "Ilgi plaukai",
+              "durationMinutes": 300
+            }
+          ]
         },
         {
           "id": "TR3427536",
           "name": "OLAPLEX priedas į dažus",
-          "category": "Plaukų Dažymas"
+          "category": "Plaukų Dažymas",
+          "bookingOptions": [
+            {
+              "id": "9648093",
+              "label": "OLAPLEX priedas į dažus",
+              "durationMinutes": 60
+            }
+          ]
         },
         {
           "id": "TR4245926",
           "name": "Visų plaukų šviesinimas +tonavimas",
-          "category": "Plaukų Dažymas"
+          "category": "Plaukų Dažymas",
+          "bookingOptions": [
+            {
+              "id": "7898341",
+              "label": "Trumpi plaukai",
+              "durationMinutes": 150
+            },
+            {
+              "id": "7898342",
+              "label": "lgi plaukai",
+              "durationMinutes": 180
+            }
+          ]
         },
         {
           "id": "TR7150971",
           "name": "Milbon japoniškas plaukų SPA",
-          "category": "Milbon Plaukų SPA"
+          "category": "Milbon Plaukų SPA",
+          "bookingOptions": [
+            {
+              "id": "13581784",
+              "label": "Styvenas",
+              "durationMinutes": 60
+            }
+          ]
         },
         {
           "id": "TR7150972",
           "name": "Milbon mini SPA",
-          "category": "Milbon Plaukų SPA"
+          "category": "Milbon Plaukų SPA",
+          "bookingOptions": [
+            {
+              "id": "13581788",
+              "label": "Styvenas",
+              "durationMinutes": 15
+            }
+          ]
         },
         {
           "id": "TR3427534",
           "name": "Olaplex procedūra",
-          "category": "Plaukų Procedūros"
+          "category": "Plaukų Procedūros",
+          "bookingOptions": [
+            {
+              "id": "5994555",
+              "label": "Olaplex procedūra",
+              "durationMinutes": 60
+            }
+          ]
         },
         {
           "id": "TR7150973",
           "name": "Kerastase Caviar ritualas",
-          "category": "Plaukų Procedūros"
+          "category": "Plaukų Procedūros",
+          "bookingOptions": [
+            {
+              "id": "13581793",
+              "label": "Styvenas",
+              "durationMinutes": 60
+            }
+          ]
         },
         {
           "id": "TR3427530",
           "name": "BTX - botoksas plaukams",
-          "category": "Plaukų Procedūros"
+          "category": "Plaukų Procedūros",
+          "bookingOptions": [
+            {
+              "id": "5994545",
+              "label": "Trumpi plaukai",
+              "durationMinutes": 120
+            },
+            {
+              "id": "5994546",
+              "label": "Vidutinio ilgio plaukai",
+              "durationMinutes": 150
+            },
+            {
+              "id": "5994547",
+              "label": "Ilgi plaukai",
+              "durationMinutes": 180
+            }
+          ]
         },
         {
           "id": "TR3478342",
           "name": "Plaukų tiesinimas keratinu ENCANTO",
-          "category": "Plaukų Procedūros"
+          "category": "Plaukų Procedūros",
+          "bookingOptions": [
+            {
+              "id": "14063589",
+              "label": "Styvenas",
+              "durationMinutes": 240
+            },
+            {
+              "id": "14063579",
+              "label": "Styvenas",
+              "durationMinutes": 180
+            },
+            {
+              "id": "14063584",
+              "label": "Styvenas",
+              "durationMinutes": 210
+            }
+          ]
         }
       ]
     },
@@ -467,62 +1275,146 @@
         {
           "id": "TR3427542",
           "name": "Manikiūras (Be Lakavimo)",
-          "category": "Manikiūras"
+          "category": "Manikiūras",
+          "bookingOptions": [
+            {
+              "id": "11707975",
+              "label": "Aleksandra",
+              "durationMinutes": 60
+            }
+          ]
         },
         {
           "id": "TR3427550",
           "name": "Manikiūras + Nuėmimas (Gelinio lakavimo)",
-          "category": "Manikiūras"
+          "category": "Manikiūras",
+          "bookingOptions": [
+            {
+              "id": "11708044",
+              "label": "Aleksandra",
+              "durationMinutes": 60
+            }
+          ]
         },
         {
           "id": "TR3427544",
           "name": "Manikiūras su geliniu lakavimu",
-          "category": "Manikiūras"
+          "category": "Manikiūras",
+          "bookingOptions": [
+            {
+              "id": "11708020",
+              "label": "Aleksandra",
+              "durationMinutes": 90
+            }
+          ]
         },
         {
           "id": "TR3427546",
           "name": "Manikiūras su geliniu lakavimu + nuėmimas",
-          "category": "Manikiūras"
+          "category": "Manikiūras",
+          "bookingOptions": [
+            {
+              "id": "11708031",
+              "label": "Aleksandra",
+              "durationMinutes": 105
+            }
+          ]
         },
         {
           "id": "TR3878047",
           "name": "Gelinis lakavimas",
-          "category": "Manikiūras"
+          "category": "Manikiūras",
+          "bookingOptions": [
+            {
+              "id": "11708164",
+              "label": "Aleksandra",
+              "durationMinutes": 60
+            }
+          ]
         },
         {
           "id": "TR5874313",
           "name": "Higieninis pedikiūras (be lakavimo) tvarkomos pėdos ir nagai",
-          "category": "Pedikiūras"
+          "category": "Pedikiūras",
+          "bookingOptions": [
+            {
+              "id": "11218706",
+              "label": "1 valanda",
+              "durationMinutes": 60
+            }
+          ]
         },
         {
           "id": "TR5874316",
           "name": "Aparatinis pedikiūras (be lakavimo)",
-          "category": "Pedikiūras"
+          "category": "Pedikiūras",
+          "bookingOptions": [
+            {
+              "id": "11218710",
+              "label": "1 valanda",
+              "durationMinutes": 60
+            }
+          ]
         },
         {
           "id": "TR5874317",
           "name": "Aparatinis pedikiūras su paprastu lakavimu",
-          "category": "Pedikiūras"
+          "category": "Pedikiūras",
+          "bookingOptions": [
+            {
+              "id": "11218712",
+              "label": "Paprastas lakavimas",
+              "durationMinutes": 90
+            }
+          ]
         },
         {
           "id": "TR5874311",
           "name": "Aparatinis pedikiūras su ilgalaikiu lakavimu",
-          "category": "Pedikiūras"
+          "category": "Pedikiūras",
+          "bookingOptions": [
+            {
+              "id": "11690531",
+              "label": "Aparatinis pedikiūras su ilgalaikiu lakavimu",
+              "durationMinutes": 100
+            }
+          ]
         },
         {
           "id": "TR5874318",
           "name": "Express pedikiūras su ilgalaikiu lakavimu(tvarkomi tik kojų nagai)",
-          "category": "Pedikiūras"
+          "category": "Pedikiūras",
+          "bookingOptions": [
+            {
+              "id": "11218716",
+              "label": "Prancūziškas lakavimas su lako nuėmimu",
+              "durationMinutes": 90
+            }
+          ]
         },
         {
           "id": "TR5874312",
           "name": "Ilgalaikio lako nuėmimas (kojų nagų) +pėdų tvarkymas",
-          "category": "Pedikiūras"
+          "category": "Pedikiūras",
+          "bookingOptions": [
+            {
+              "id": "11218705",
+              "label": "1 valanda",
+              "durationMinutes": 60
+            }
+          ]
         },
         {
           "id": "TR5874314",
           "name": "Vyriškas pedikiūras",
-          "category": "Pedikiūras"
+          "category": "Pedikiūras",
+          "bookingOptions": [
+            {
+              "id": "11218707",
+              "label": "1 valanda",
+              "durationMinutes": 60
+            }
+          ]
         }
       ]
     },
@@ -541,52 +1433,122 @@
         {
           "id": "TR3655640",
           "name": "HDbrows ( antakių dizainas, dažymas, korekcija vašku, masažas)",
-          "category": "Antakiai, Veidas, Kūnas Pas  SimonaŠo"
+          "category": "Antakiai, Veidas, Kūnas Pas  SimonaŠo",
+          "bookingOptions": [
+            {
+              "id": "6524972",
+              "label": "HDbrows ( antakių dizainas, dažymas, korekcija vašku, masažas)",
+              "durationMinutes": 40
+            }
+          ]
         },
         {
           "id": "TR3954944",
           "name": "HD Brows (tik antakių Dažymas )",
-          "category": "Antakiai, Veidas, Kūnas Pas  SimonaŠo"
+          "category": "Antakiai, Veidas, Kūnas Pas  SimonaŠo",
+          "bookingOptions": [
+            {
+              "id": "7144309",
+              "label": "HD Brows (tik antakių Dažymas )",
+              "durationMinutes": 30
+            }
+          ]
         },
         {
           "id": "TR3655658",
           "name": "Blakstienų laminavimas + dažymas",
-          "category": "Antakiai, Veidas, Kūnas Pas  SimonaŠo"
+          "category": "Antakiai, Veidas, Kūnas Pas  SimonaŠo",
+          "bookingOptions": [
+            {
+              "id": "6524991",
+              "label": "Blakstienų laminavimas + dažymas",
+              "durationMinutes": 60
+            }
+          ]
         },
         {
           "id": "TR3655662",
           "name": "Antakių laminavimas + dažymas",
-          "category": "Antakiai, Veidas, Kūnas Pas  SimonaŠo"
+          "category": "Antakiai, Veidas, Kūnas Pas  SimonaŠo",
+          "bookingOptions": [
+            {
+              "id": "6524996",
+              "label": "Antakių laminavimas + dažymas",
+              "durationMinutes": 50
+            }
+          ]
         },
         {
           "id": "TR4260557",
           "name": "Antakių + blakstienų dažymas ir korekcija vienu metu",
-          "category": "Antakiai, Veidas, Kūnas Pas  SimonaŠo"
+          "category": "Antakiai, Veidas, Kūnas Pas  SimonaŠo",
+          "bookingOptions": [
+            {
+              "id": "7941724",
+              "label": "Antakių + blakstienų dažymas ir korekcija vienu metu",
+              "durationMinutes": 45
+            }
+          ]
         },
         {
           "id": "TR6507821",
           "name": "Stangrinamoji veido procedūra",
-          "category": "Antakiai, Veidas, Kūnas Pas  SimonaŠo"
+          "category": "Antakiai, Veidas, Kūnas Pas  SimonaŠo",
+          "bookingOptions": [
+            {
+              "id": "12376589",
+              "label": "Stangrinamoji veido procedūra",
+              "durationMinutes": 90
+            }
+          ]
         },
         {
           "id": "TR6507823",
           "name": "Drėkinamoji veido procedūra",
-          "category": "Antakiai, Veidas, Kūnas Pas  SimonaŠo"
+          "category": "Antakiai, Veidas, Kūnas Pas  SimonaŠo",
+          "bookingOptions": [
+            {
+              "id": "12376594",
+              "label": "Drėkinamoji veido procedūra",
+              "durationMinutes": 90
+            }
+          ]
         },
         {
           "id": "TR6507831",
           "name": "Celiulito gydymas + konsultacija",
-          "category": "Antakiai, Veidas, Kūnas Pas  SimonaŠo"
+          "category": "Antakiai, Veidas, Kūnas Pas  SimonaŠo",
+          "bookingOptions": [
+            {
+              "id": "12376608",
+              "label": "Celiulito gydymas + konsultacija",
+              "durationMinutes": 90
+            }
+          ]
         },
         {
           "id": "TR6507873",
           "name": "Antakių laminavimas + blakstienų laminavimas vienu metu",
-          "category": "Antakiai, Veidas, Kūnas Pas  SimonaŠo"
+          "category": "Antakiai, Veidas, Kūnas Pas  SimonaŠo",
+          "bookingOptions": [
+            {
+              "id": "12376691",
+              "label": "Antakių laminavimas + blakstienų laminavimas vienu metu",
+              "durationMinutes": 90
+            }
+          ]
         },
         {
           "id": "TR6554684",
           "name": "Antakių dažymas cheminiais dažais",
-          "category": "Antakiai, Veidas, Kūnas Pas  SimonaŠo"
+          "category": "Antakiai, Veidas, Kūnas Pas  SimonaŠo",
+          "bookingOptions": [
+            {
+              "id": "12459972",
+              "label": "Antakių dažymas cheminiais dažais",
+              "durationMinutes": 30
+            }
+          ]
         }
       ]
     },
@@ -605,92 +1567,278 @@
         {
           "id": "TR3427472",
           "name": "Moterų kirpimas",
-          "category": "Kirpimas"
+          "category": "Kirpimas",
+          "bookingOptions": [
+            {
+              "id": "13581819",
+              "label": "Berta",
+              "durationMinutes": 60
+            }
+          ]
         },
         {
           "id": "TR5979077",
           "name": "Moterų kirpimas + galvos odos pilingas",
-          "category": "Kirpimas"
+          "category": "Kirpimas",
+          "bookingOptions": [
+            {
+              "id": "11595031",
+              "label": "Berta",
+              "durationMinutes": 70
+            }
+          ]
         },
         {
           "id": "TR3427475",
           "name": "Vyrų kirpimas",
-          "category": "Kirpimas"
+          "category": "Kirpimas",
+          "bookingOptions": [
+            {
+              "id": "11595035",
+              "label": "Berta",
+              "durationMinutes": 60
+            }
+          ]
         },
         {
           "id": "TR5979136",
           "name": "Vyrų kirpimas + 30 min. galvos masažas",
-          "category": "Kirpimas"
+          "category": "Kirpimas",
+          "bookingOptions": [
+            {
+              "id": "11595041",
+              "label": "Berta",
+              "durationMinutes": 90
+            }
+          ]
         },
         {
           "id": "TR5716051",
           "name": "Kirpčiukų kirpimas",
-          "category": "Kirpimas"
+          "category": "Kirpimas",
+          "bookingOptions": [
+            {
+              "id": "10908898",
+              "label": "Kirpčiukų kirpimas",
+              "durationMinutes": 15
+            }
+          ]
         },
         {
           "id": "TR5716066",
           "name": "Vaikų kirpimas",
-          "category": "Kirpimas"
+          "category": "Kirpimas",
+          "bookingOptions": [
+            {
+              "id": "14143747",
+              "label": "Berta",
+              "durationMinutes": 60
+            }
+          ]
         },
         {
           "id": "TR3427476",
           "name": "Plaukų tonavimas",
-          "category": "Plaukų Dažymas"
+          "category": "Plaukų Dažymas",
+          "bookingOptions": [
+            {
+              "id": "9648085",
+              "label": "Trumpi plaukai",
+              "durationMinutes": 60
+            },
+            {
+              "id": "9648086",
+              "label": "Vidutinio ilgio plaukai",
+              "durationMinutes": 60
+            },
+            {
+              "id": "9648087",
+              "label": "Ilgi plaukai",
+              "durationMinutes": 90
+            }
+          ]
         },
         {
           "id": "TR3427477",
           "name": "Plaukų šaknų dažymas ir kirpimas",
-          "category": "Plaukų Dažymas"
+          "category": "Plaukų Dažymas",
+          "bookingOptions": [
+            {
+              "id": "11595061",
+              "label": "Berta",
+              "durationMinutes": 150
+            }
+          ]
         },
         {
           "id": "TR3427485",
           "name": "Plaukų šaknų dažymas",
-          "category": "Plaukų Dažymas"
+          "category": "Plaukų Dažymas",
+          "bookingOptions": [
+            {
+              "id": "11595064",
+              "label": "Berta",
+              "durationMinutes": 120
+            }
+          ]
         },
         {
           "id": "TR3427486",
           "name": "Plaukų šaknų dažymas ir tonavimas",
-          "category": "Plaukų Dažymas"
+          "category": "Plaukų Dažymas",
+          "bookingOptions": [
+            {
+              "id": "9929023",
+              "label": "Plaukų šaknų dažymas ir tonavimas",
+              "durationMinutes": 150
+            }
+          ]
         },
         {
           "id": "TR3427492",
           "name": "Visų plaukų dažymas viena spalva",
-          "category": "Plaukų Dažymas"
+          "category": "Plaukų Dažymas",
+          "bookingOptions": [
+            {
+              "id": "9648088",
+              "label": "Trumpi plaukai (iki pečių)",
+              "durationMinutes": 120
+            },
+            {
+              "id": "9648089",
+              "label": "Vidutinio ilgio plaukai",
+              "durationMinutes": 150
+            },
+            {
+              "id": "11655685",
+              "label": "Ilgi plaukai",
+              "durationMinutes": 180
+            }
+          ]
         },
         {
           "id": "TR3427515",
           "name": "Plaukų dažymas su folija sruogelėmis",
-          "category": "Plaukų Dažymas"
+          "category": "Plaukų Dažymas",
+          "bookingOptions": [
+            {
+              "id": "5994513",
+              "label": "Puse galvos",
+              "durationMinutes": 180
+            },
+            {
+              "id": "5994514",
+              "label": "Visa galva",
+              "durationMinutes": 210
+            },
+            {
+              "id": "10647283",
+              "label": "Visa galva labai ilgi plaukai",
+              "durationMinutes": 240
+            }
+          ]
         },
         {
           "id": "TR3427521",
           "name": "Balayage dažymas + Olaplex apsauga",
-          "category": "Plaukų Dažymas"
+          "category": "Plaukų Dažymas",
+          "bookingOptions": [
+            {
+              "id": "5994525",
+              "label": "Trumpi plaukai (iki pečių)",
+              "durationMinutes": 180
+            },
+            {
+              "id": "5994526",
+              "label": "Ilgi plaukai",
+              "durationMinutes": 240
+            },
+            {
+              "id": "5994527",
+              "label": "Labai ilgi plaukai",
+              "durationMinutes": 300
+            }
+          ]
         },
         {
           "id": "TR3836828",
           "name": "Air Touch dažymas + Olaplex apsauga",
-          "category": "Plaukų Dažymas"
+          "category": "Plaukų Dažymas",
+          "bookingOptions": [
+            {
+              "id": "6874701",
+              "label": "Vidutinio ilgio plaukai",
+              "durationMinutes": 240
+            },
+            {
+              "id": "6874700",
+              "label": "Ilgi plaukai",
+              "durationMinutes": 300
+            }
+          ]
         },
         {
           "id": "TR3427536",
           "name": "OLAPLEX priedas į dažus",
-          "category": "Plaukų Dažymas"
+          "category": "Plaukų Dažymas",
+          "bookingOptions": [
+            {
+              "id": "9648093",
+              "label": "OLAPLEX priedas į dažus",
+              "durationMinutes": 60
+            }
+          ]
         },
         {
           "id": "TR4245926",
           "name": "Visų plaukų šviesinimas +tonavimas",
-          "category": "Plaukų Dažymas"
+          "category": "Plaukų Dažymas",
+          "bookingOptions": [
+            {
+              "id": "7898341",
+              "label": "Trumpi plaukai",
+              "durationMinutes": 150
+            },
+            {
+              "id": "7898342",
+              "label": "lgi plaukai",
+              "durationMinutes": 180
+            }
+          ]
         },
         {
           "id": "TR3478342",
           "name": "Plaukų tiesinimas keratinu ENCANTO",
-          "category": "Plaukų Procedūros"
+          "category": "Plaukų Procedūros",
+          "bookingOptions": [
+            {
+              "id": "14063592",
+              "label": "Berta",
+              "durationMinutes": 240
+            },
+            {
+              "id": "14063582",
+              "label": "Berta",
+              "durationMinutes": 180
+            },
+            {
+              "id": "14063587",
+              "label": "Berta",
+              "durationMinutes": 210
+            }
+          ]
         },
         {
           "id": "TR3459141",
           "name": "Kasdieninis sušukavimas",
-          "category": "Šukuosenos Ir Sušukavimas"
+          "category": "Šukuosenos Ir Sušukavimas",
+          "bookingOptions": [
+            {
+              "id": "6071595",
+              "label": "1 valanda",
+              "durationMinutes": 60
+            }
+          ]
         }
       ]
     },
@@ -709,7 +1857,14 @@
         {
           "id": "TR6076669",
           "name": "Vieno nago priauginimas geliu",
-          "category": "Nagų Priauginimas"
+          "category": "Nagų Priauginimas",
+          "bookingOptions": [
+            {
+              "id": "11598610",
+              "label": "Vieno nago priauginimas geliu",
+              "durationMinutes": 20
+            }
+          ]
         }
       ]
     },
@@ -753,7 +1908,14 @@
         {
           "id": "TR7261783",
           "name": "Bandomoji vestuvinė šukuosena",
-          "category": "Šukuosenos Ir Sušukavimas"
+          "category": "Šukuosenos Ir Sušukavimas",
+          "bookingOptions": [
+            {
+              "id": "13788436",
+              "label": "Bandomoji vestuvinė šukuosena",
+              "durationMinutes": 60
+            }
+          ]
         }
       ]
     },
@@ -771,67 +1933,163 @@
         {
           "id": "TR6127241",
           "name": "Express makiažas (be klijuojamų blakstienų bei akių šešėliavimo, lengvai išformuotas veidas)",
-          "category": "Makiažas"
+          "category": "Makiažas",
+          "bookingOptions": [
+            {
+              "id": "13332508",
+              "label": "Ugnė ",
+              "durationMinutes": 40
+            }
+          ]
         },
         {
           "id": "TR6127242",
           "name": "Vakarinis/proginis/fotosesijų makiažas",
-          "category": "Makiažas"
+          "category": "Makiažas",
+          "bookingOptions": [
+            {
+              "id": "13332463",
+              "label": "Ugnė ",
+              "durationMinutes": 90
+            }
+          ]
         },
         {
           "id": "TR3645649",
           "name": "Nuotakos makiažas",
-          "category": "Makiažas"
+          "category": "Makiažas",
+          "bookingOptions": [
+            {
+              "id": "13332472",
+              "label": "Ugnė ",
+              "durationMinutes": 90
+            },
+            {
+              "id": "13332473",
+              "label": "Ugnė ",
+              "durationMinutes": 120
+            }
+          ]
         },
         {
           "id": "TR6127243",
           "name": "Vyrų makiažas",
-          "category": "Makiažas"
+          "category": "Makiažas",
+          "bookingOptions": [
+            {
+              "id": "13704046",
+              "label": "Ugnė ",
+              "durationMinutes": 60
+            }
+          ]
         },
         {
           "id": "TR6213230",
           "name": "Antakių laminavimas + dažymas +korekcija",
-          "category": "Antakių Bei Blakstienų Procedūros Pas Ugnė"
+          "category": "Antakių Bei Blakstienų Procedūros Pas Ugnė",
+          "bookingOptions": [
+            {
+              "id": "11851384",
+              "label": "Antakių laminavimas + dažymas +korekcija",
+              "durationMinutes": 60
+            }
+          ]
         },
         {
           "id": "TR6213228",
           "name": "Antakių laminavimas + korekcija",
-          "category": "Antakių Bei Blakstienų Procedūros Pas Ugnė"
+          "category": "Antakių Bei Blakstienų Procedūros Pas Ugnė",
+          "bookingOptions": [
+            {
+              "id": "11851382",
+              "label": "Antakių laminavimas + korekcija",
+              "durationMinutes": 60
+            }
+          ]
         },
         {
           "id": "TR6213332",
           "name": "Antakiu laminavimas + dazymas (be korekcijos)",
-          "category": "Antakių Bei Blakstienų Procedūros Pas Ugnė"
+          "category": "Antakių Bei Blakstienų Procedūros Pas Ugnė",
+          "bookingOptions": [
+            {
+              "id": "11851573",
+              "label": "Antakiu laminavimas + dazymas (be korekcijos)",
+              "durationMinutes": 60
+            }
+          ]
         },
         {
           "id": "TR6213227",
           "name": "Antakių korekcija (be dažymo)",
-          "category": "Antakių Bei Blakstienų Procedūros Pas Ugnė"
+          "category": "Antakių Bei Blakstienų Procedūros Pas Ugnė",
+          "bookingOptions": [
+            {
+              "id": "11851381",
+              "label": "Antakių korekcija (be dažymo)",
+              "durationMinutes": 30
+            }
+          ]
         },
         {
           "id": "TR6213229",
           "name": "Antakių dažymas + korekcija",
-          "category": "Antakių Bei Blakstienų Procedūros Pas Ugnė"
+          "category": "Antakių Bei Blakstienų Procedūros Pas Ugnė",
+          "bookingOptions": [
+            {
+              "id": "11851383",
+              "label": "Antakių dažymas + korekcija",
+              "durationMinutes": 60
+            }
+          ]
         },
         {
           "id": "TR6213333",
           "name": "Blakstienų dažymas",
-          "category": "Antakių Bei Blakstienų Procedūros Pas Ugnė"
+          "category": "Antakių Bei Blakstienų Procedūros Pas Ugnė",
+          "bookingOptions": [
+            {
+              "id": "11851574",
+              "label": "Blakstienų dažymas",
+              "durationMinutes": 30
+            }
+          ]
         },
         {
           "id": "TR6213331",
           "name": "Blakstienų laminavimas + dažymas",
-          "category": "Antakių Bei Blakstienų Procedūros Pas Ugnė"
+          "category": "Antakių Bei Blakstienų Procedūros Pas Ugnė",
+          "bookingOptions": [
+            {
+              "id": "11851572",
+              "label": "Blakstienų laminavimas + dažymas",
+              "durationMinutes": 60
+            }
+          ]
         },
         {
           "id": "TR6213225",
           "name": "Antakių + blakstienų laminavimas ir dazymas",
-          "category": "Antakių Bei Blakstienų Procedūros Pas Ugnė"
+          "category": "Antakių Bei Blakstienų Procedūros Pas Ugnė",
+          "bookingOptions": [
+            {
+              "id": "11851379",
+              "label": "Antakių + blakstienų laminavimas ir dazymas",
+              "durationMinutes": 110
+            }
+          ]
         },
         {
           "id": "TR6213226",
           "name": "Ūselių depiliacija",
-          "category": "Antakių Bei Blakstienų Procedūros Pas Ugnė"
+          "category": "Antakių Bei Blakstienų Procedūros Pas Ugnė",
+          "bookingOptions": [
+            {
+              "id": "13704340",
+              "label": "Ugnė ",
+              "durationMinutes": 60
+            }
+          ]
         }
       ]
     },
@@ -862,32 +2120,89 @@
         {
           "id": "TR5860385",
           "name": "Gelinis nagų lakavimas",
-          "category": "Manikiūras"
+          "category": "Manikiūras",
+          "bookingOptions": [
+            {
+              "id": "11191052",
+              "label": "Fast",
+              "durationMinutes": 60
+            },
+            {
+              "id": "11191047",
+              "label": "Paprastas",
+              "durationMinutes": 90
+            },
+            {
+              "id": "11218735",
+              "label": "Su minimalia daile/prancūzas",
+              "durationMinutes": 90
+            },
+            {
+              "id": "11218736",
+              "label": "Dailė ant visų nagų",
+              "durationMinutes": 120
+            }
+          ]
         },
         {
           "id": "TR6483079",
           "name": "Kombinuotas manikiūras (be lakavimo)",
-          "category": "Manikiūras"
+          "category": "Manikiūras",
+          "bookingOptions": [
+            {
+              "id": "12334408",
+              "label": "Kombinuotas manikiūras (be lakavimo)",
+              "durationMinutes": 60
+            }
+          ]
         },
         {
           "id": "TR5874316",
           "name": "Aparatinis pedikiūras (be lakavimo)",
-          "category": "Pedikiūras"
+          "category": "Pedikiūras",
+          "bookingOptions": [
+            {
+              "id": "11218710",
+              "label": "1 valanda",
+              "durationMinutes": 60
+            }
+          ]
         },
         {
           "id": "TR5874311",
           "name": "Aparatinis pedikiūras su ilgalaikiu lakavimu",
-          "category": "Pedikiūras"
+          "category": "Pedikiūras",
+          "bookingOptions": [
+            {
+              "id": "11690531",
+              "label": "Aparatinis pedikiūras su ilgalaikiu lakavimu",
+              "durationMinutes": 100
+            }
+          ]
         },
         {
           "id": "TR5874318",
           "name": "Express pedikiūras su ilgalaikiu lakavimu(tvarkomi tik kojų nagai)",
-          "category": "Pedikiūras"
+          "category": "Pedikiūras",
+          "bookingOptions": [
+            {
+              "id": "11218716",
+              "label": "Prancūziškas lakavimas su lako nuėmimu",
+              "durationMinutes": 90
+            }
+          ]
         },
         {
           "id": "TR5874312",
           "name": "Ilgalaikio lako nuėmimas (kojų nagų) +pėdų tvarkymas",
-          "category": "Pedikiūras"
+          "category": "Pedikiūras",
+          "bookingOptions": [
+            {
+              "id": "11218705",
+              "label": "1 valanda",
+              "durationMinutes": 60
+            }
+          ]
         }
       ]
     },
@@ -917,32 +2232,84 @@
         {
           "id": "TR7339067",
           "name": "Express makiažas",
-          "category": "Makiažo, Antakių Ir Blakstienų Procedūros Pas Olia"
+          "category": "Makiažo, Antakių Ir Blakstienų Procedūros Pas Olia",
+          "bookingOptions": [
+            {
+              "id": "13929823",
+              "label": "Express makiažas",
+              "durationMinutes": 45
+            }
+          ]
         },
         {
           "id": "TR7339080",
           "name": "Vakarinis makiažas",
-          "category": "Makiažo, Antakių Ir Blakstienų Procedūros Pas Olia"
+          "category": "Makiažo, Antakių Ir Blakstienų Procedūros Pas Olia",
+          "bookingOptions": [
+            {
+              "id": "13929839",
+              "label": "Vakarinis makiažas",
+              "durationMinutes": 90
+            }
+          ]
         },
         {
           "id": "TR7339083",
           "name": "Foto makiažas / video makiažas",
-          "category": "Makiažo, Antakių Ir Blakstienų Procedūros Pas Olia"
+          "category": "Makiažo, Antakių Ir Blakstienų Procedūros Pas Olia",
+          "bookingOptions": [
+            {
+              "id": "13929843",
+              "label": "Foto makiažas / video makiažas",
+              "durationMinutes": 90
+            }
+          ]
         },
         {
           "id": "TR7339106",
           "name": "Antakių laminavimas",
-          "category": "Makiažo, Antakių Ir Blakstienų Procedūros Pas Olia"
+          "category": "Makiažo, Antakių Ir Blakstienų Procedūros Pas Olia",
+          "bookingOptions": [
+            {
+              "id": "13930112",
+              "label": "Antakių laminavimas + tik dažymas",
+              "durationMinutes": 40
+            },
+            {
+              "id": "13930113",
+              "label": "Antakių laminavimas + tik korekcija",
+              "durationMinutes": 40
+            },
+            {
+              "id": "13930111",
+              "label": "Antakių laminavimas (dažymas + korekcija)",
+              "durationMinutes": 60
+            }
+          ]
         },
         {
           "id": "TR7339272",
           "name": "Antakių korekcija ir dažymas (Elan)",
-          "category": "Makiažo, Antakių Ir Blakstienų Procedūros Pas Olia"
+          "category": "Makiažo, Antakių Ir Blakstienų Procedūros Pas Olia",
+          "bookingOptions": [
+            {
+              "id": "13930210",
+              "label": "Antakių korekcija ir dažymas (Elan)",
+              "durationMinutes": 30
+            }
+          ]
         },
         {
           "id": "TR7339273",
           "name": "Antakių + blakstienų dažymas ir korekcija",
-          "category": "Makiažo, Antakių Ir Blakstienų Procedūros Pas Olia"
+          "category": "Makiažo, Antakių Ir Blakstienų Procedūros Pas Olia",
+          "bookingOptions": [
+            {
+              "id": "13930211",
+              "label": "Antakių + blakstienų dažymas ir korekcija",
+              "durationMinutes": 45
+            }
+          ]
         }
       ]
     },
@@ -961,87 +2328,216 @@
         {
           "id": "TR3459143",
           "name": "Proginė šukuosena",
-          "category": "Šukuosenos Ir Sušukavimas"
+          "category": "Šukuosenos Ir Sušukavimas",
+          "bookingOptions": [
+            {
+              "id": "6071594",
+              "label": "Proginė šukuosena",
+              "durationMinutes": 60
+            }
+          ]
         },
         {
           "id": "TR3459142",
           "name": "Vestuvinė šukuosena",
-          "category": "Šukuosenos Ir Sušukavimas"
+          "category": "Šukuosenos Ir Sušukavimas",
+          "bookingOptions": [
+            {
+              "id": "6071596",
+              "label": "Vestuvinė šukuosena",
+              "durationMinutes": 60
+            }
+          ]
         },
         {
           "id": "TR6127241",
           "name": "Express makiažas (be klijuojamų blakstienų bei akių šešėliavimo, lengvai išformuotas veidas)",
-          "category": "Makiažas"
+          "category": "Makiažas",
+          "bookingOptions": [
+            {
+              "id": "13332507",
+              "label": "Ana",
+              "durationMinutes": 30
+            }
+          ]
         },
         {
           "id": "TR6127240",
           "name": "Dieninis makiažas",
-          "category": "Makiažas"
+          "category": "Makiažas",
+          "bookingOptions": [
+            {
+              "id": "13332412",
+              "label": "Dieninis makiažas",
+              "durationMinutes": 60
+            }
+          ]
         },
         {
           "id": "TR6127242",
           "name": "Vakarinis/proginis/fotosesijų makiažas",
-          "category": "Makiažas"
+          "category": "Makiažas",
+          "bookingOptions": [
+            {
+              "id": "13332462",
+              "label": "Ana",
+              "durationMinutes": 75
+            }
+          ]
         },
         {
           "id": "TR3645649",
           "name": "Nuotakos makiažas",
-          "category": "Makiažas"
+          "category": "Makiažas",
+          "bookingOptions": [
+            {
+              "id": "11946649",
+              "label": "Ana",
+              "durationMinutes": 90
+            },
+            {
+              "id": "11946651",
+              "label": "Ana",
+              "durationMinutes": 120
+            }
+          ]
         },
         {
           "id": "TR6127245",
           "name": "Proginis makiažas ir šukuosena",
-          "category": "Makiažas"
+          "category": "Makiažas",
+          "bookingOptions": [
+            {
+              "id": "11690172",
+              "label": "Proginis makiažas ir šukuosena",
+              "durationMinutes": 120
+            }
+          ]
         },
         {
           "id": "TR6127238",
           "name": "Express makiažas su express šukuosena",
-          "category": "Makiažas"
+          "category": "Makiažas",
+          "bookingOptions": [
+            {
+              "id": "11690163",
+              "label": "Express makiažas su express šukuosena",
+              "durationMinutes": 60
+            }
+          ]
         },
         {
           "id": "TR6127239",
           "name": "Makiažas + šukuosena",
-          "category": "Makiažas"
+          "category": "Makiažas",
+          "bookingOptions": [
+            {
+              "id": "11690166",
+              "label": "Su plaukų tiesinimu",
+              "durationMinutes": 90
+            },
+            {
+              "id": "11690165",
+              "label": "Su plaukų garbanojimu",
+              "durationMinutes": 120
+            }
+          ]
         },
         {
           "id": "TR6127244",
           "name": "Makiažo pamoka sau",
-          "category": "Makiažas"
+          "category": "Makiažas",
+          "bookingOptions": [
+            {
+              "id": "11690171",
+              "label": "Makiažo pamoka sau",
+              "durationMinutes": 120
+            }
+          ]
         },
         {
           "id": "TR6127243",
           "name": "Vyrų makiažas",
-          "category": "Makiažas"
+          "category": "Makiažas",
+          "bookingOptions": [
+            {
+              "id": "13704045",
+              "label": "Ana",
+              "durationMinutes": 60
+            }
+          ]
         },
         {
           "id": "TR6213226",
           "name": "Ūselių depiliacija",
-          "category": "Antakių Bei Blakstienų Procedūros Pas Ugnė"
+          "category": "Antakių Bei Blakstienų Procedūros Pas Ugnė",
+          "bookingOptions": [
+            {
+              "id": "13704339",
+              "label": "Ana",
+              "durationMinutes": 10
+            }
+          ]
         },
         {
           "id": "TR3470776",
           "name": "Antakių dažymas ir korekcija",
-          "category": "Antakių Ir Blakstienų Procedūros Pas Aną"
+          "category": "Antakių Ir Blakstienų Procedūros Pas Aną",
+          "bookingOptions": [
+            {
+              "id": "11824146",
+              "label": "Antakių dažymas ir korekcija",
+              "durationMinutes": 20
+            }
+          ]
         },
         {
           "id": "TR6135238",
           "name": "Blakstienų dažymas",
-          "category": "Antakių Ir Blakstienų Procedūros Pas Aną"
+          "category": "Antakių Ir Blakstienų Procedūros Pas Aną",
+          "bookingOptions": [
+            {
+              "id": "11824147",
+              "label": "Blakstienų dažymas",
+              "durationMinutes": 15
+            }
+          ]
         },
         {
           "id": "TR3470778",
           "name": "Antakių + blakstienų dažymas ir korekcija",
-          "category": "Antakių Ir Blakstienų Procedūros Pas Aną"
+          "category": "Antakių Ir Blakstienų Procedūros Pas Aną",
+          "bookingOptions": [
+            {
+              "id": "11824149",
+              "label": "Antakių + blakstienų dažymas ir korekcija",
+              "durationMinutes": 40
+            }
+          ]
         },
         {
           "id": "TR6132064",
           "name": "Antakių laminavimas su dažymu",
-          "category": "Antakių Ir Blakstienų Procedūros Pas Aną"
+          "category": "Antakių Ir Blakstienų Procedūros Pas Aną",
+          "bookingOptions": [
+            {
+              "id": "11700000",
+              "label": "Antakių laminavimas  su dažymu",
+              "durationMinutes": 50
+            }
+          ]
         },
         {
           "id": "TR7216627",
           "name": "Blakstienų laminavimas su dažymu",
-          "category": "Antakių Ir Blakstienų Procedūros Pas Aną"
+          "category": "Antakių Ir Blakstienų Procedūros Pas Aną",
+          "bookingOptions": [
+            {
+              "id": "13704239",
+              "label": "Blakstienų laminavimas su dažymu",
+              "durationMinutes": 60
+            }
+          ]
         }
       ]
     },
@@ -1060,62 +2556,216 @@
         {
           "id": "TR3427472",
           "name": "Moterų kirpimas",
-          "category": "Kirpimas"
+          "category": "Kirpimas",
+          "bookingOptions": [
+            {
+              "id": "13581820",
+              "label": "Marija",
+              "durationMinutes": 60
+            }
+          ]
         },
         {
           "id": "TR5716051",
           "name": "Kirpčiukų kirpimas",
-          "category": "Kirpimas"
+          "category": "Kirpimas",
+          "bookingOptions": [
+            {
+              "id": "10908898",
+              "label": "Kirpčiukų kirpimas",
+              "durationMinutes": 15
+            }
+          ]
         },
         {
           "id": "TR3427476",
           "name": "Plaukų tonavimas",
-          "category": "Plaukų Dažymas"
+          "category": "Plaukų Dažymas",
+          "bookingOptions": [
+            {
+              "id": "9648085",
+              "label": "Trumpi plaukai",
+              "durationMinutes": 60
+            },
+            {
+              "id": "9648086",
+              "label": "Vidutinio ilgio plaukai",
+              "durationMinutes": 60
+            },
+            {
+              "id": "9648087",
+              "label": "Ilgi plaukai",
+              "durationMinutes": 90
+            }
+          ]
         },
         {
           "id": "TR3427486",
           "name": "Plaukų šaknų dažymas ir tonavimas",
-          "category": "Plaukų Dažymas"
+          "category": "Plaukų Dažymas",
+          "bookingOptions": [
+            {
+              "id": "9929023",
+              "label": "Plaukų šaknų dažymas ir tonavimas",
+              "durationMinutes": 150
+            }
+          ]
         },
         {
           "id": "TR3427492",
           "name": "Visų plaukų dažymas viena spalva",
-          "category": "Plaukų Dažymas"
+          "category": "Plaukų Dažymas",
+          "bookingOptions": [
+            {
+              "id": "9648088",
+              "label": "Trumpi plaukai (iki pečių)",
+              "durationMinutes": 120
+            },
+            {
+              "id": "9648089",
+              "label": "Vidutinio ilgio plaukai",
+              "durationMinutes": 150
+            },
+            {
+              "id": "11655685",
+              "label": "Ilgi plaukai",
+              "durationMinutes": 180
+            }
+          ]
         },
         {
           "id": "TR3427515",
           "name": "Plaukų dažymas su folija sruogelėmis",
-          "category": "Plaukų Dažymas"
+          "category": "Plaukų Dažymas",
+          "bookingOptions": [
+            {
+              "id": "5994513",
+              "label": "Puse galvos",
+              "durationMinutes": 180
+            },
+            {
+              "id": "5994514",
+              "label": "Visa galva",
+              "durationMinutes": 210
+            },
+            {
+              "id": "10647283",
+              "label": "Visa galva labai ilgi plaukai",
+              "durationMinutes": 240
+            }
+          ]
         },
         {
           "id": "TR3427521",
           "name": "Balayage dažymas + Olaplex apsauga",
-          "category": "Plaukų Dažymas"
+          "category": "Plaukų Dažymas",
+          "bookingOptions": [
+            {
+              "id": "5994525",
+              "label": "Trumpi plaukai (iki pečių)",
+              "durationMinutes": 180
+            },
+            {
+              "id": "5994526",
+              "label": "Ilgi plaukai",
+              "durationMinutes": 240
+            },
+            {
+              "id": "5994527",
+              "label": "Labai ilgi plaukai",
+              "durationMinutes": 300
+            }
+          ]
         },
         {
           "id": "TR3836828",
           "name": "Air Touch dažymas + Olaplex apsauga",
-          "category": "Plaukų Dažymas"
+          "category": "Plaukų Dažymas",
+          "bookingOptions": [
+            {
+              "id": "6874701",
+              "label": "Vidutinio ilgio plaukai",
+              "durationMinutes": 240
+            },
+            {
+              "id": "6874700",
+              "label": "Ilgi plaukai",
+              "durationMinutes": 300
+            }
+          ]
         },
         {
           "id": "TR3427536",
           "name": "OLAPLEX priedas į dažus",
-          "category": "Plaukų Dažymas"
+          "category": "Plaukų Dažymas",
+          "bookingOptions": [
+            {
+              "id": "9648093",
+              "label": "OLAPLEX priedas į dažus",
+              "durationMinutes": 60
+            }
+          ]
         },
         {
           "id": "TR4245926",
           "name": "Visų plaukų šviesinimas +tonavimas",
-          "category": "Plaukų Dažymas"
+          "category": "Plaukų Dažymas",
+          "bookingOptions": [
+            {
+              "id": "7898341",
+              "label": "Trumpi plaukai",
+              "durationMinutes": 150
+            },
+            {
+              "id": "7898342",
+              "label": "lgi plaukai",
+              "durationMinutes": 180
+            }
+          ]
         },
         {
           "id": "TR6544071",
           "name": "Plaukų spalvos išėmimas - korekcija",
-          "category": "Plaukų Dažymas"
+          "category": "Plaukų Dažymas",
+          "bookingOptions": [
+            {
+              "id": "12440962",
+              "label": "Trumi plaukai",
+              "durationMinutes": 120
+            },
+            {
+              "id": "12440963",
+              "label": "Vidutiniai plaukai",
+              "durationMinutes": 150
+            },
+            {
+              "id": "12440961",
+              "label": "Ilgi plaukai",
+              "durationMinutes": 180
+            }
+          ]
         },
         {
           "id": "TR7260943",
           "name": "\"Nashi filler therapy\" maitinanti procedura",
-          "category": "Plaukų Procedūros"
+          "category": "Plaukų Procedūros",
+          "bookingOptions": [
+            {
+              "id": "13786861",
+              "label": "Trumpi plaukai",
+              "durationMinutes": 90
+            },
+            {
+              "id": "13786860",
+              "label": "Vidutinio ilgio plaukai",
+              "durationMinutes": 90
+            },
+            {
+              "id": "13786859",
+              "label": "Ilgi plaukai",
+              "durationMinutes": 90
+            }
+          ]
         }
       ]
     },
@@ -1133,47 +2783,135 @@
         {
           "id": "TR3427472",
           "name": "Moterų kirpimas",
-          "category": "Kirpimas"
+          "category": "Kirpimas",
+          "bookingOptions": [
+            {
+              "id": "13920827",
+              "label": "Ernestas Junior meistras",
+              "durationMinutes": 60
+            }
+          ]
         },
         {
           "id": "TR3427475",
           "name": "Vyrų kirpimas",
-          "category": "Kirpimas"
+          "category": "Kirpimas",
+          "bookingOptions": [
+            {
+              "id": "13917058",
+              "label": "Ernestas Junior meistras",
+              "durationMinutes": 75
+            }
+          ]
         },
         {
           "id": "TR5979136",
           "name": "Vyrų kirpimas + 30 min. galvos masažas",
-          "category": "Kirpimas"
+          "category": "Kirpimas",
+          "bookingOptions": [
+            {
+              "id": "13992104",
+              "label": "Ernestas Junior meistras",
+              "durationMinutes": 90
+            }
+          ]
         },
         {
           "id": "TR5716066",
           "name": "Vaikų kirpimas",
-          "category": "Kirpimas"
+          "category": "Kirpimas",
+          "bookingOptions": [
+            {
+              "id": "14143748",
+              "label": "Ernestas Junior meistras",
+              "durationMinutes": 60
+            }
+          ]
         },
         {
           "id": "TR3730638",
           "name": "Kirpimas karštomis žirklėmis",
-          "category": "Kirpimas Karštomis Žirklėmis"
+          "category": "Kirpimas Karštomis Žirklėmis",
+          "bookingOptions": [
+            {
+              "id": "13992105",
+              "label": "Ernestas Junior meistras",
+              "durationMinutes": 70
+            }
+          ]
         },
         {
           "id": "TR5979069",
           "name": "Kirpimas karštomis žirklėmis + galvos odos pilingas",
-          "category": "Kirpimas Karštomis Žirklėmis"
+          "category": "Kirpimas Karštomis Žirklėmis",
+          "bookingOptions": [
+            {
+              "id": "13992106",
+              "label": "Ernestas Junior meistras",
+              "durationMinutes": 70
+            }
+          ]
         },
         {
           "id": "TR3427515",
           "name": "Plaukų dažymas su folija sruogelėmis",
-          "category": "Plaukų Dažymas"
+          "category": "Plaukų Dažymas",
+          "bookingOptions": [
+            {
+              "id": "5994513",
+              "label": "Puse galvos",
+              "durationMinutes": 180
+            },
+            {
+              "id": "5994514",
+              "label": "Visa galva",
+              "durationMinutes": 210
+            },
+            {
+              "id": "10647283",
+              "label": "Visa galva labai ilgi plaukai",
+              "durationMinutes": 240
+            }
+          ]
         },
         {
           "id": "TR3836828",
           "name": "Air Touch dažymas + Olaplex apsauga",
-          "category": "Plaukų Dažymas"
+          "category": "Plaukų Dažymas",
+          "bookingOptions": [
+            {
+              "id": "6874701",
+              "label": "Vidutinio ilgio plaukai",
+              "durationMinutes": 240
+            },
+            {
+              "id": "6874700",
+              "label": "Ilgi plaukai",
+              "durationMinutes": 300
+            }
+          ]
         },
         {
           "id": "TR3478342",
           "name": "Plaukų tiesinimas keratinu ENCANTO",
-          "category": "Plaukų Procedūros"
+          "category": "Plaukų Procedūros",
+          "bookingOptions": [
+            {
+              "id": "14063593",
+              "label": "Ernestas Junior meistras",
+              "durationMinutes": 240
+            },
+            {
+              "id": "14063583",
+              "label": "Ernestas Junior meistras",
+              "durationMinutes": 180
+            },
+            {
+              "id": "14063588",
+              "label": "Ernestas Junior meistras",
+              "durationMinutes": 210
+            }
+          ]
         }
       ]
     }

@@ -9,6 +9,8 @@ import {
 } from '@/components/ui/dialog';
 import team from '@/lib/team.json';
 import { cn } from '@/lib/utils';
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+import { treatwellCalendarUrl } from '@/lib/treatwell';
 
 type Member = (typeof team.members)[number];
 const filters = ['Visi', 'Plaukai', 'Nagai', 'Veidas', 'Kūnas'];
@@ -22,6 +24,16 @@ function Portrait({ member }: { member: Member }) {
 }
 
 function MemberCard({ member }: { member: Member }) {
+  const [selectedOption, setSelectedOption] = useState('');
+  const selectedService = member.services.find((service) =>
+    service.bookingOptions.some((option) => `${service.id}:${option.id}` === selectedOption),
+  );
+  const bookingOption = selectedService?.bookingOptions.find((option) =>
+    `${selectedService.id}:${option.id}` === selectedOption,
+  );
+  const bookingUrl = selectedService && bookingOption
+    ? treatwellCalendarUrl(member.id, selectedService.id, bookingOption.id)
+    : null;
   const groups = [...new Set(member.services.map((service) => service.category))];
   return (
     <article id={`meistras-${member.id}`} className="flex scroll-mt-28 flex-col rounded-2xl border border-black/10 bg-white/35">
@@ -50,20 +62,36 @@ function MemberCard({ member }: { member: Member }) {
             <X aria-hidden="true" />
           </DialogClose>
           <div className="min-h-0 overflow-y-auto overscroll-contain px-5 py-5 sm:px-7">
-            <h3 className="text-base font-semibold">Siūlomos paslaugos</h3>
+            <h3 id={`services-${member.id}`} className="text-base font-semibold">Pasirinkite paslaugą</h3>
+            {groups.length > 0 && <p className="mt-2 text-xs leading-5 text-black/55">Pasirinkę paslaugą atversite šio meistro laisvų laikų kalendorių.</p>}
             {groups.length > 0 ? (
-              <div className="mt-5 space-y-6">
+              <RadioGroup aria-labelledby={`services-${member.id}`} value={selectedOption} onValueChange={(value) => setSelectedOption(String(value))} className="mt-5 gap-6">
                 {groups.map((group) => (
                   <section key={group}>
                     <h4 className="mb-2 text-xs font-semibold uppercase tracking-[0.08em] text-[#766653]">{group}</h4>
                     <ul className="divide-y divide-black/10">
                       {member.services.filter((service) => service.category === group).map((service) => (
-                        <li key={service.id} className="py-3 text-sm leading-6">{service.name}</li>
+                        <li key={service.id} className="py-2 text-sm leading-6">
+                          {service.bookingOptions.map((option) => {
+                            const value = `${service.id}:${option.id}`;
+                            const id = `booking-${member.id}-${service.id}-${option.id}`;
+                            return (
+                              <label key={option.id} htmlFor={id} className={cn('flex cursor-pointer items-start gap-3 rounded-lg p-3 transition-colors hover:bg-black/5', selectedOption === value && 'bg-[#e8dfd1]')}>
+                                <RadioGroupItem id={id} value={value} className="mt-1" />
+                                <span className="min-w-0 flex-1">
+                                  <span className="block font-medium">{service.name}</span>
+                                  {option.label !== member.name && option.label !== service.name && <span className="block text-xs text-black/60">{option.label}</span>}
+                                  <span className="block text-xs text-black/55">{option.durationMinutes} min.</span>
+                                </span>
+                              </label>
+                            );
+                          })}
+                        </li>
                       ))}
                     </ul>
                   </section>
                 ))}
-              </div>
+              </RadioGroup>
             ) : (
               <div className="mt-4 rounded-xl border border-black/10 bg-white/50 p-4 text-sm leading-6 text-black/65">
                 <p>Profilyje nurodytos sritys: {member.categories.join(', ')}.</p>
@@ -73,11 +101,22 @@ function MemberCard({ member }: { member: Member }) {
             <p className="mt-5 text-xs leading-5 text-black/55">Sąrašas parengtas pagal „Treatwell“ duomenis. Aktualias kainas, galimas paslaugas ir laisvus laikus patikrinkite registracijos metu.</p>
           </div>
           <div className="shrink-0 border-t border-black/10 bg-[#f7f3ec] p-4 sm:px-7">
-            <a href={member.profileUrl} target="_blank" rel="noopener noreferrer" className={cn(buttonVariants(), 'h-11 w-full gap-3 rounded-full px-5 sm:w-auto')}>
-              Profilis ir registracija <ArrowUpRight aria-hidden="true" className="size-4" />
-              <span className="sr-only">Treatwell, naujame skirtuke</span>
-            </a>
-            <p className="mt-2 text-[11px] leading-5 text-black/55">Atidarysime meistro profilį „Treatwell“. Paslaugą ir laiką pasirinksite ten.</p>
+            {bookingUrl ? (
+              <a href={bookingUrl} target="_blank" rel="noopener noreferrer" className={cn(buttonVariants(), 'h-11 w-full gap-3 rounded-full px-5 sm:w-auto')}>
+                Registruotis · Rinktis laiką <ArrowUpRight aria-hidden="true" className="size-4" />
+                <span className="sr-only">{member.name}, {selectedService?.name}, Treatwell kalendorius naujame skirtuke</span>
+              </a>
+            ) : groups.length > 0 ? (
+              <Button disabled className="h-11 w-full rounded-full px-5 sm:w-auto">Pasirinkite paslaugą registracijai</Button>
+            ) : (
+              <a href={member.profileUrl} target="_blank" rel="noopener noreferrer" className={cn(buttonVariants(), 'h-11 w-full gap-3 rounded-full px-5 sm:w-auto')}>
+                Pasitikslinti meistro profilyje <ArrowUpRight aria-hidden="true" className="size-4" />
+                <span className="sr-only">Treatwell, naujame skirtuke</span>
+              </a>
+            )}
+            <p className="mt-2 text-[11px] leading-5 text-black/55">{groups.length > 0
+              ? `Kalendorių atversime „Treatwell“ su pasirinktu meistru (${member.name}) ir paslauga. Ten pasirinksite laiką ir užbaigsite registraciją.`
+              : 'Šiam profiliui viešame meniu nėra individualių paslaugų, todėl tiesioginės kalendoriaus nuorodos pateikti negalime.'}</p>
           </div>
         </DialogContent>
       </Dialog>
