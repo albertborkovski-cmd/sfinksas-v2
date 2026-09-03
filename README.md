@@ -12,6 +12,8 @@ Tai atskira, vieša dizaino ir sąsajos demonstracija. Galite peržiūrėti 143 
 
 Produktų duomenys yra 2026-09-03 viešo katalogo kopija (`demo/products.json`). Jie automatiškai nesinchronizuojami su tikros parduotuvės duomenų baze. Demonstracijoje naudojami bendri svetainės komponentai, todėl dizainas atitinka šios saugyklos kodą.
 
+Apatiniame dešiniajame kampe esanti žmogeliuko su žirklėmis ikona atidaro pokalbio demonstraciją. Galima rašyti žinutes arba rinktis greitas temas. Atsakymai paruošti iš anksto ir veikia naršyklėje; tikras AI modelis neprijungtas. Žinutės nesiunčiamos į serverį ir neišsaugomos po puslapio perkrovimo. Šis valdiklis kol kas įjungtas tik „GitHub“ demonstracijoje.
+
 ## Ši versija
 
 Parengta pagal 2026-09-03 svetainės versiją. Įtraukta:

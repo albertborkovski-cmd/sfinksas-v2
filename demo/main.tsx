@@ -1,5 +1,6 @@
 import { createRoot } from 'react-dom/client';
 import { Storefront } from '@/components/store/storefront';
+import { AssistantChat } from '@/components/store/assistant-chat';
 import type { Product } from '@/lib/types';
 import { sitePath } from '@/lib/demo';
 import products from './products.json';
@@ -27,5 +28,6 @@ createRoot(document.getElementById('root')!).render(
         <a href={sitePath('/produktai')}>Atidaryti produktus →</a>
       </main>
     )}
+    <AssistantChat />
   </>,
 );
