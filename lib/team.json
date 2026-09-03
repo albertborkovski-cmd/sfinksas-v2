@@ -1,0 +1,1181 @@
+{
+  "source": "https://www.treatwell.lt/salonas/grozio-namai-sfinksas/",
+  "checkedAt": "2026-09-03",
+  "members": [
+    {
+      "id": 593911,
+      "name": "Simona",
+      "title": "Nagų ir veido priežiūra",
+      "description": "„Treatwell“ profilyje nurodomos nagų ir veido priežiūros sritys. Konkrečias paslaugas pasitikrinkite su salonu.",
+      "image": "/team/593911.jpg",
+      "categories": [
+        "Nagai",
+        "Veidas"
+      ],
+      "profileUrl": "https://www.treatwell.lt/salonas/grozio-namai-sfinksas/#team-member-593911",
+      "services": []
+    },
+    {
+      "id": 470900,
+      "name": "Brigita",
+      "title": "Kirpimas ir plaukų dažymas",
+      "description": "Moterų, vyrų ir vaikų kirpimas, plaukų dažymas bei plaukų priežiūros ritualai.",
+      "image": "/team/470900.jpg",
+      "categories": [
+        "Plaukai",
+        "Veidas"
+      ],
+      "profileUrl": "https://www.treatwell.lt/salonas/grozio-namai-sfinksas/#team-member-470900",
+      "services": [
+        {
+          "id": "TR3427472",
+          "name": "Moterų kirpimas",
+          "category": "Kirpimas"
+        },
+        {
+          "id": "TR5979077",
+          "name": "Moterų kirpimas + galvos odos pilingas",
+          "category": "Kirpimas"
+        },
+        {
+          "id": "TR3427475",
+          "name": "Vyrų kirpimas",
+          "category": "Kirpimas"
+        },
+        {
+          "id": "TR5979136",
+          "name": "Vyrų kirpimas + 30 min. galvos masažas",
+          "category": "Kirpimas"
+        },
+        {
+          "id": "TR5716051",
+          "name": "Kirpčiukų kirpimas",
+          "category": "Kirpimas"
+        },
+        {
+          "id": "TR5716066",
+          "name": "Vaikų kirpimas",
+          "category": "Kirpimas"
+        },
+        {
+          "id": "TR3730638",
+          "name": "Kirpimas karštomis žirklėmis",
+          "category": "Kirpimas Karštomis Žirklėmis"
+        },
+        {
+          "id": "TR5979069",
+          "name": "Kirpimas karštomis žirklėmis + galvos odos pilingas",
+          "category": "Kirpimas Karštomis Žirklėmis"
+        },
+        {
+          "id": "TR6243509",
+          "name": "Plaukų dažymo KONSULTACIJA",
+          "category": "Plaukų Dažymas"
+        },
+        {
+          "id": "TR3427476",
+          "name": "Plaukų tonavimas",
+          "category": "Plaukų Dažymas"
+        },
+        {
+          "id": "TR3427477",
+          "name": "Plaukų šaknų dažymas ir kirpimas",
+          "category": "Plaukų Dažymas"
+        },
+        {
+          "id": "TR3427485",
+          "name": "Plaukų šaknų dažymas",
+          "category": "Plaukų Dažymas"
+        },
+        {
+          "id": "TR3427486",
+          "name": "Plaukų šaknų dažymas ir tonavimas",
+          "category": "Plaukų Dažymas"
+        },
+        {
+          "id": "TR3427492",
+          "name": "Visų plaukų dažymas viena spalva",
+          "category": "Plaukų Dažymas"
+        },
+        {
+          "id": "TR3427515",
+          "name": "Plaukų dažymas su folija sruogelėmis",
+          "category": "Plaukų Dažymas"
+        },
+        {
+          "id": "TR3427521",
+          "name": "Balayage dažymas + Olaplex apsauga",
+          "category": "Plaukų Dažymas"
+        },
+        {
+          "id": "TR3427536",
+          "name": "OLAPLEX priedas į dažus",
+          "category": "Plaukų Dažymas"
+        },
+        {
+          "id": "TR4245926",
+          "name": "Visų plaukų šviesinimas +tonavimas",
+          "category": "Plaukų Dažymas"
+        },
+        {
+          "id": "TR6544071",
+          "name": "Plaukų spalvos išėmimas - korekcija",
+          "category": "Plaukų Dažymas"
+        },
+        {
+          "id": "TR7150971",
+          "name": "Milbon japoniškas plaukų SPA",
+          "category": "Milbon Plaukų SPA"
+        },
+        {
+          "id": "TR7150972",
+          "name": "Milbon mini SPA",
+          "category": "Milbon Plaukų SPA"
+        },
+        {
+          "id": "TR3427534",
+          "name": "Olaplex procedūra",
+          "category": "Plaukų Procedūros"
+        },
+        {
+          "id": "TR7150973",
+          "name": "Kerastase Caviar ritualas",
+          "category": "Plaukų Procedūros"
+        },
+        {
+          "id": "TR6124539",
+          "name": "KERASTASE Fusio-Dose ritualas + plaukų Sušukavimas",
+          "category": "Plaukų Procedūros"
+        },
+        {
+          "id": "TR6145476",
+          "name": "Kérastase Première- intensyvi plaukų atkūrimo procedūra",
+          "category": "Plaukų Procedūros"
+        },
+        {
+          "id": "TR3427530",
+          "name": "BTX - botoksas plaukams",
+          "category": "Plaukų Procedūros"
+        },
+        {
+          "id": "TR3478342",
+          "name": "Plaukų tiesinimas keratinu ENCANTO",
+          "category": "Plaukų Procedūros"
+        },
+        {
+          "id": "TR3459141",
+          "name": "Kasdieninis sušukavimas",
+          "category": "Šukuosenos Ir Sušukavimas"
+        }
+      ]
+    },
+    {
+      "id": 372723,
+      "name": "Veslava",
+      "title": "Kirpimo meistrė – koloristė",
+      "description": "Kirpimas, plaukų dažymas, priežiūros procedūros ir proginės bei vestuvinės šukuosenos.",
+      "image": "/team/372723.jpg",
+      "categories": [
+        "Plaukai",
+        "Veidas"
+      ],
+      "profileUrl": "https://www.treatwell.lt/salonas/grozio-namai-sfinksas/#team-member-372723",
+      "services": [
+        {
+          "id": "TR3427472",
+          "name": "Moterų kirpimas",
+          "category": "Kirpimas"
+        },
+        {
+          "id": "TR5979077",
+          "name": "Moterų kirpimas + galvos odos pilingas",
+          "category": "Kirpimas"
+        },
+        {
+          "id": "TR3427475",
+          "name": "Vyrų kirpimas",
+          "category": "Kirpimas"
+        },
+        {
+          "id": "TR5979136",
+          "name": "Vyrų kirpimas + 30 min. galvos masažas",
+          "category": "Kirpimas"
+        },
+        {
+          "id": "TR5716051",
+          "name": "Kirpčiukų kirpimas",
+          "category": "Kirpimas"
+        },
+        {
+          "id": "TR5716066",
+          "name": "Vaikų kirpimas",
+          "category": "Kirpimas"
+        },
+        {
+          "id": "TR3730638",
+          "name": "Kirpimas karštomis žirklėmis",
+          "category": "Kirpimas Karštomis Žirklėmis"
+        },
+        {
+          "id": "TR5979069",
+          "name": "Kirpimas karštomis žirklėmis + galvos odos pilingas",
+          "category": "Kirpimas Karštomis Žirklėmis"
+        },
+        {
+          "id": "TR6243509",
+          "name": "Plaukų dažymo KONSULTACIJA",
+          "category": "Plaukų Dažymas"
+        },
+        {
+          "id": "TR3427476",
+          "name": "Plaukų tonavimas",
+          "category": "Plaukų Dažymas"
+        },
+        {
+          "id": "TR3427477",
+          "name": "Plaukų šaknų dažymas ir kirpimas",
+          "category": "Plaukų Dažymas"
+        },
+        {
+          "id": "TR3427485",
+          "name": "Plaukų šaknų dažymas",
+          "category": "Plaukų Dažymas"
+        },
+        {
+          "id": "TR3427486",
+          "name": "Plaukų šaknų dažymas ir tonavimas",
+          "category": "Plaukų Dažymas"
+        },
+        {
+          "id": "TR3427492",
+          "name": "Visų plaukų dažymas viena spalva",
+          "category": "Plaukų Dažymas"
+        },
+        {
+          "id": "TR3427515",
+          "name": "Plaukų dažymas su folija sruogelėmis",
+          "category": "Plaukų Dažymas"
+        },
+        {
+          "id": "TR3427521",
+          "name": "Balayage dažymas + Olaplex apsauga",
+          "category": "Plaukų Dažymas"
+        },
+        {
+          "id": "TR3836828",
+          "name": "Air Touch dažymas + Olaplex apsauga",
+          "category": "Plaukų Dažymas"
+        },
+        {
+          "id": "TR3427536",
+          "name": "OLAPLEX priedas į dažus",
+          "category": "Plaukų Dažymas"
+        },
+        {
+          "id": "TR4245926",
+          "name": "Visų plaukų šviesinimas +tonavimas",
+          "category": "Plaukų Dažymas"
+        },
+        {
+          "id": "TR7150971",
+          "name": "Milbon japoniškas plaukų SPA",
+          "category": "Milbon Plaukų SPA"
+        },
+        {
+          "id": "TR7150972",
+          "name": "Milbon mini SPA",
+          "category": "Milbon Plaukų SPA"
+        },
+        {
+          "id": "TR3427534",
+          "name": "Olaplex procedūra",
+          "category": "Plaukų Procedūros"
+        },
+        {
+          "id": "TR7150973",
+          "name": "Kerastase Caviar ritualas",
+          "category": "Plaukų Procedūros"
+        },
+        {
+          "id": "TR6124539",
+          "name": "KERASTASE Fusio-Dose ritualas + plaukų Sušukavimas",
+          "category": "Plaukų Procedūros"
+        },
+        {
+          "id": "TR6145476",
+          "name": "Kérastase Première- intensyvi plaukų atkūrimo procedūra",
+          "category": "Plaukų Procedūros"
+        },
+        {
+          "id": "TR3427530",
+          "name": "BTX - botoksas plaukams",
+          "category": "Plaukų Procedūros"
+        },
+        {
+          "id": "TR3478342",
+          "name": "Plaukų tiesinimas keratinu ENCANTO",
+          "category": "Plaukų Procedūros"
+        },
+        {
+          "id": "TR3459141",
+          "name": "Kasdieninis sušukavimas",
+          "category": "Šukuosenos Ir Sušukavimas"
+        },
+        {
+          "id": "TR3459143",
+          "name": "Proginė šukuosena",
+          "category": "Šukuosenos Ir Sušukavimas"
+        },
+        {
+          "id": "TR3459142",
+          "name": "Vestuvinė šukuosena",
+          "category": "Šukuosenos Ir Sušukavimas"
+        }
+      ]
+    },
+    {
+      "id": 339535,
+      "name": "Styvenas",
+      "title": "Kirpimo meistras – koloristas",
+      "description": "Moterų kirpimas, kirpimas karštomis žirklėmis, dažymo technikos ir plaukų SPA.",
+      "image": "/team/339535.jpg",
+      "categories": [
+        "Plaukai",
+        "Veidas"
+      ],
+      "profileUrl": "https://www.treatwell.lt/salonas/grozio-namai-sfinksas/#team-member-339535",
+      "services": [
+        {
+          "id": "TR3427472",
+          "name": "Moterų kirpimas",
+          "category": "Kirpimas"
+        },
+        {
+          "id": "TR5979077",
+          "name": "Moterų kirpimas + galvos odos pilingas",
+          "category": "Kirpimas"
+        },
+        {
+          "id": "TR3730638",
+          "name": "Kirpimas karštomis žirklėmis",
+          "category": "Kirpimas Karštomis Žirklėmis"
+        },
+        {
+          "id": "TR5979069",
+          "name": "Kirpimas karštomis žirklėmis + galvos odos pilingas",
+          "category": "Kirpimas Karštomis Žirklėmis"
+        },
+        {
+          "id": "TR6243509",
+          "name": "Plaukų dažymo KONSULTACIJA",
+          "category": "Plaukų Dažymas"
+        },
+        {
+          "id": "TR3427476",
+          "name": "Plaukų tonavimas",
+          "category": "Plaukų Dažymas"
+        },
+        {
+          "id": "TR3427477",
+          "name": "Plaukų šaknų dažymas ir kirpimas",
+          "category": "Plaukų Dažymas"
+        },
+        {
+          "id": "TR3427485",
+          "name": "Plaukų šaknų dažymas",
+          "category": "Plaukų Dažymas"
+        },
+        {
+          "id": "TR3427486",
+          "name": "Plaukų šaknų dažymas ir tonavimas",
+          "category": "Plaukų Dažymas"
+        },
+        {
+          "id": "TR3427492",
+          "name": "Visų plaukų dažymas viena spalva",
+          "category": "Plaukų Dažymas"
+        },
+        {
+          "id": "TR3427515",
+          "name": "Plaukų dažymas su folija sruogelėmis",
+          "category": "Plaukų Dažymas"
+        },
+        {
+          "id": "TR3427521",
+          "name": "Balayage dažymas + Olaplex apsauga",
+          "category": "Plaukų Dažymas"
+        },
+        {
+          "id": "TR3836828",
+          "name": "Air Touch dažymas + Olaplex apsauga",
+          "category": "Plaukų Dažymas"
+        },
+        {
+          "id": "TR3427536",
+          "name": "OLAPLEX priedas į dažus",
+          "category": "Plaukų Dažymas"
+        },
+        {
+          "id": "TR4245926",
+          "name": "Visų plaukų šviesinimas +tonavimas",
+          "category": "Plaukų Dažymas"
+        },
+        {
+          "id": "TR7150971",
+          "name": "Milbon japoniškas plaukų SPA",
+          "category": "Milbon Plaukų SPA"
+        },
+        {
+          "id": "TR7150972",
+          "name": "Milbon mini SPA",
+          "category": "Milbon Plaukų SPA"
+        },
+        {
+          "id": "TR3427534",
+          "name": "Olaplex procedūra",
+          "category": "Plaukų Procedūros"
+        },
+        {
+          "id": "TR7150973",
+          "name": "Kerastase Caviar ritualas",
+          "category": "Plaukų Procedūros"
+        },
+        {
+          "id": "TR3427530",
+          "name": "BTX - botoksas plaukams",
+          "category": "Plaukų Procedūros"
+        },
+        {
+          "id": "TR3478342",
+          "name": "Plaukų tiesinimas keratinu ENCANTO",
+          "category": "Plaukų Procedūros"
+        }
+      ]
+    },
+    {
+      "id": 339543,
+      "name": "Aleksandra",
+      "title": "Manikiūro ir pedikiūro meistrė",
+      "description": "Manikiūras, gelinis lakavimas ir įvairios pedikiūro paslaugos.",
+      "image": "/team/339543.jpg",
+      "categories": [
+        "Nagai",
+        "Veidas"
+      ],
+      "profileUrl": "https://www.treatwell.lt/salonas/grozio-namai-sfinksas/#team-member-339543",
+      "services": [
+        {
+          "id": "TR3427542",
+          "name": "Manikiūras (Be Lakavimo)",
+          "category": "Manikiūras"
+        },
+        {
+          "id": "TR3427550",
+          "name": "Manikiūras + Nuėmimas (Gelinio lakavimo)",
+          "category": "Manikiūras"
+        },
+        {
+          "id": "TR3427544",
+          "name": "Manikiūras su geliniu lakavimu",
+          "category": "Manikiūras"
+        },
+        {
+          "id": "TR3427546",
+          "name": "Manikiūras su geliniu lakavimu + nuėmimas",
+          "category": "Manikiūras"
+        },
+        {
+          "id": "TR3878047",
+          "name": "Gelinis lakavimas",
+          "category": "Manikiūras"
+        },
+        {
+          "id": "TR5874313",
+          "name": "Higieninis pedikiūras (be lakavimo) tvarkomos pėdos ir nagai",
+          "category": "Pedikiūras"
+        },
+        {
+          "id": "TR5874316",
+          "name": "Aparatinis pedikiūras (be lakavimo)",
+          "category": "Pedikiūras"
+        },
+        {
+          "id": "TR5874317",
+          "name": "Aparatinis pedikiūras su paprastu lakavimu",
+          "category": "Pedikiūras"
+        },
+        {
+          "id": "TR5874311",
+          "name": "Aparatinis pedikiūras su ilgalaikiu lakavimu",
+          "category": "Pedikiūras"
+        },
+        {
+          "id": "TR5874318",
+          "name": "Express pedikiūras su ilgalaikiu lakavimu(tvarkomi tik kojų nagai)",
+          "category": "Pedikiūras"
+        },
+        {
+          "id": "TR5874312",
+          "name": "Ilgalaikio lako nuėmimas (kojų nagų) +pėdų tvarkymas",
+          "category": "Pedikiūras"
+        },
+        {
+          "id": "TR5874314",
+          "name": "Vyriškas pedikiūras",
+          "category": "Pedikiūras"
+        }
+      ]
+    },
+    {
+      "id": 362290,
+      "name": "Simona Š.",
+      "title": "Antakių, veido ir kūno priežiūra",
+      "description": "Antakių dizainas, laminavimas, blakstienų priežiūra, veido ir kūno procedūros.",
+      "image": "/team/362290.jpg",
+      "categories": [
+        "Kūnas",
+        "Veidas"
+      ],
+      "profileUrl": "https://www.treatwell.lt/salonas/grozio-namai-sfinksas/#team-member-362290",
+      "services": [
+        {
+          "id": "TR3655640",
+          "name": "HDbrows ( antakių dizainas, dažymas, korekcija vašku, masažas)",
+          "category": "Antakiai, Veidas, Kūnas Pas  SimonaŠo"
+        },
+        {
+          "id": "TR3954944",
+          "name": "HD Brows (tik antakių Dažymas )",
+          "category": "Antakiai, Veidas, Kūnas Pas  SimonaŠo"
+        },
+        {
+          "id": "TR3655658",
+          "name": "Blakstienų laminavimas + dažymas",
+          "category": "Antakiai, Veidas, Kūnas Pas  SimonaŠo"
+        },
+        {
+          "id": "TR3655662",
+          "name": "Antakių laminavimas + dažymas",
+          "category": "Antakiai, Veidas, Kūnas Pas  SimonaŠo"
+        },
+        {
+          "id": "TR4260557",
+          "name": "Antakių + blakstienų dažymas ir korekcija vienu metu",
+          "category": "Antakiai, Veidas, Kūnas Pas  SimonaŠo"
+        },
+        {
+          "id": "TR6507821",
+          "name": "Stangrinamoji veido procedūra",
+          "category": "Antakiai, Veidas, Kūnas Pas  SimonaŠo"
+        },
+        {
+          "id": "TR6507823",
+          "name": "Drėkinamoji veido procedūra",
+          "category": "Antakiai, Veidas, Kūnas Pas  SimonaŠo"
+        },
+        {
+          "id": "TR6507831",
+          "name": "Celiulito gydymas + konsultacija",
+          "category": "Antakiai, Veidas, Kūnas Pas  SimonaŠo"
+        },
+        {
+          "id": "TR6507873",
+          "name": "Antakių laminavimas + blakstienų laminavimas vienu metu",
+          "category": "Antakiai, Veidas, Kūnas Pas  SimonaŠo"
+        },
+        {
+          "id": "TR6554684",
+          "name": "Antakių dažymas cheminiais dažais",
+          "category": "Antakiai, Veidas, Kūnas Pas  SimonaŠo"
+        }
+      ]
+    },
+    {
+      "id": 589003,
+      "name": "Berta",
+      "title": "Kirpimas ir plaukų dažymas",
+      "description": "Moterų, vyrų ir vaikų kirpimas, plaukų dažymas, tiesinimas ir sušukavimas.",
+      "image": "/team/589003.jpg",
+      "categories": [
+        "Plaukai",
+        "Veidas"
+      ],
+      "profileUrl": "https://www.treatwell.lt/salonas/grozio-namai-sfinksas/#team-member-589003",
+      "services": [
+        {
+          "id": "TR3427472",
+          "name": "Moterų kirpimas",
+          "category": "Kirpimas"
+        },
+        {
+          "id": "TR5979077",
+          "name": "Moterų kirpimas + galvos odos pilingas",
+          "category": "Kirpimas"
+        },
+        {
+          "id": "TR3427475",
+          "name": "Vyrų kirpimas",
+          "category": "Kirpimas"
+        },
+        {
+          "id": "TR5979136",
+          "name": "Vyrų kirpimas + 30 min. galvos masažas",
+          "category": "Kirpimas"
+        },
+        {
+          "id": "TR5716051",
+          "name": "Kirpčiukų kirpimas",
+          "category": "Kirpimas"
+        },
+        {
+          "id": "TR5716066",
+          "name": "Vaikų kirpimas",
+          "category": "Kirpimas"
+        },
+        {
+          "id": "TR3427476",
+          "name": "Plaukų tonavimas",
+          "category": "Plaukų Dažymas"
+        },
+        {
+          "id": "TR3427477",
+          "name": "Plaukų šaknų dažymas ir kirpimas",
+          "category": "Plaukų Dažymas"
+        },
+        {
+          "id": "TR3427485",
+          "name": "Plaukų šaknų dažymas",
+          "category": "Plaukų Dažymas"
+        },
+        {
+          "id": "TR3427486",
+          "name": "Plaukų šaknų dažymas ir tonavimas",
+          "category": "Plaukų Dažymas"
+        },
+        {
+          "id": "TR3427492",
+          "name": "Visų plaukų dažymas viena spalva",
+          "category": "Plaukų Dažymas"
+        },
+        {
+          "id": "TR3427515",
+          "name": "Plaukų dažymas su folija sruogelėmis",
+          "category": "Plaukų Dažymas"
+        },
+        {
+          "id": "TR3427521",
+          "name": "Balayage dažymas + Olaplex apsauga",
+          "category": "Plaukų Dažymas"
+        },
+        {
+          "id": "TR3836828",
+          "name": "Air Touch dažymas + Olaplex apsauga",
+          "category": "Plaukų Dažymas"
+        },
+        {
+          "id": "TR3427536",
+          "name": "OLAPLEX priedas į dažus",
+          "category": "Plaukų Dažymas"
+        },
+        {
+          "id": "TR4245926",
+          "name": "Visų plaukų šviesinimas +tonavimas",
+          "category": "Plaukų Dažymas"
+        },
+        {
+          "id": "TR3478342",
+          "name": "Plaukų tiesinimas keratinu ENCANTO",
+          "category": "Plaukų Procedūros"
+        },
+        {
+          "id": "TR3459141",
+          "name": "Kasdieninis sušukavimas",
+          "category": "Šukuosenos Ir Sušukavimas"
+        }
+      ]
+    },
+    {
+      "id": 591303,
+      "name": "Silvija Panavaite",
+      "title": "Manikiūro meistrė",
+      "description": "Nagų priežiūra ir dailė. Profilyje registracijai nurodomas „Instagram“: s_panavaite.",
+      "image": "/team/591303.jpg",
+      "categories": [
+        "Nagai",
+        "Veidas"
+      ],
+      "profileUrl": "https://www.treatwell.lt/salonas/grozio-namai-sfinksas/#team-member-591303",
+      "services": [
+        {
+          "id": "TR6076669",
+          "name": "Vieno nago priauginimas geliu",
+          "category": "Nagų Priauginimas"
+        }
+      ]
+    },
+    {
+      "id": 591305,
+      "name": "Gintare Ivanauskaite",
+      "title": "Nagų ir veido priežiūra",
+      "description": "„Treatwell“ profilyje nurodomos nagų ir veido priežiūros sritys. Konkrečias paslaugas pasitikrinkite su salonu.",
+      "image": "/team/591305.jpg",
+      "categories": [
+        "Nagai",
+        "Veidas"
+      ],
+      "profileUrl": "https://www.treatwell.lt/salonas/grozio-namai-sfinksas/#team-member-591305",
+      "services": []
+    },
+    {
+      "id": 626026,
+      "name": "Paulina Rus",
+      "title": "Veido priežiūros sritis",
+      "description": "„Treatwell“ profilyje nurodoma veido priežiūros sritis. Individualus paslaugų sąrašas nepateiktas.",
+      "image": "/team/626026.jpg",
+      "categories": [
+        "Veidas"
+      ],
+      "profileUrl": "https://www.treatwell.lt/salonas/grozio-namai-sfinksas/#team-member-626026",
+      "services": []
+    },
+    {
+      "id": 648544,
+      "name": "Rugilė",
+      "title": "Šukuosenos",
+      "description": "„Treatwell“ meniu priskirta bandomoji vestuvinė šukuosena. Profilyje taip pat nurodoma veido sritis.",
+      "image": "/team/648544.jpg",
+      "categories": [
+        "Plaukai",
+        "Veidas"
+      ],
+      "profileUrl": "https://www.treatwell.lt/salonas/grozio-namai-sfinksas/#team-member-648544",
+      "services": [
+        {
+          "id": "TR7261783",
+          "name": "Bandomoji vestuvinė šukuosena",
+          "category": "Šukuosenos Ir Sušukavimas"
+        }
+      ]
+    },
+    {
+      "id": 710294,
+      "name": "Ugnė",
+      "title": "Makiažas, antakiai ir blakstienos",
+      "description": "Proginis ir nuotakos makiažas, antakių korekcija, dažymas bei laminavimo procedūros.",
+      "image": "/team/710294.jpg",
+      "categories": [
+        "Veidas"
+      ],
+      "profileUrl": "https://www.treatwell.lt/salonas/grozio-namai-sfinksas/#team-member-710294",
+      "services": [
+        {
+          "id": "TR6127241",
+          "name": "Express makiažas (be klijuojamų blakstienų bei akių šešėliavimo, lengvai išformuotas veidas)",
+          "category": "Makiažas"
+        },
+        {
+          "id": "TR6127242",
+          "name": "Vakarinis/proginis/fotosesijų makiažas",
+          "category": "Makiažas"
+        },
+        {
+          "id": "TR3645649",
+          "name": "Nuotakos makiažas",
+          "category": "Makiažas"
+        },
+        {
+          "id": "TR6127243",
+          "name": "Vyrų makiažas",
+          "category": "Makiažas"
+        },
+        {
+          "id": "TR6213230",
+          "name": "Antakių laminavimas + dažymas +korekcija",
+          "category": "Antakių Bei Blakstienų Procedūros Pas Ugnė"
+        },
+        {
+          "id": "TR6213228",
+          "name": "Antakių laminavimas + korekcija",
+          "category": "Antakių Bei Blakstienų Procedūros Pas Ugnė"
+        },
+        {
+          "id": "TR6213332",
+          "name": "Antakiu laminavimas + dazymas (be korekcijos)",
+          "category": "Antakių Bei Blakstienų Procedūros Pas Ugnė"
+        },
+        {
+          "id": "TR6213227",
+          "name": "Antakių korekcija (be dažymo)",
+          "category": "Antakių Bei Blakstienų Procedūros Pas Ugnė"
+        },
+        {
+          "id": "TR6213229",
+          "name": "Antakių dažymas + korekcija",
+          "category": "Antakių Bei Blakstienų Procedūros Pas Ugnė"
+        },
+        {
+          "id": "TR6213333",
+          "name": "Blakstienų dažymas",
+          "category": "Antakių Bei Blakstienų Procedūros Pas Ugnė"
+        },
+        {
+          "id": "TR6213331",
+          "name": "Blakstienų laminavimas + dažymas",
+          "category": "Antakių Bei Blakstienų Procedūros Pas Ugnė"
+        },
+        {
+          "id": "TR6213225",
+          "name": "Antakių + blakstienų laminavimas ir dazymas",
+          "category": "Antakių Bei Blakstienų Procedūros Pas Ugnė"
+        },
+        {
+          "id": "TR6213226",
+          "name": "Ūselių depiliacija",
+          "category": "Antakių Bei Blakstienų Procedūros Pas Ugnė"
+        }
+      ]
+    },
+    {
+      "id": 623533,
+      "name": "Smiltė Leksa",
+      "title": "Veido priežiūros sritis",
+      "description": "„Treatwell“ profilyje nurodoma veido priežiūros sritis. Individualus paslaugų sąrašas nepateiktas.",
+      "image": "/team/623533.jpg",
+      "categories": [
+        "Veidas"
+      ],
+      "profileUrl": "https://www.treatwell.lt/salonas/grozio-namai-sfinksas/#team-member-623533",
+      "services": []
+    },
+    {
+      "id": 720015,
+      "name": "Simona Brazauskaitė",
+      "title": "Manikiūro ir pedikiūro meistrė",
+      "description": "Sertifikuota meistrė: kombinuotas manikiūras, gelinis lakavimas ir aparatinis pedikiūras.",
+      "image": "/team/720015.jpg",
+      "categories": [
+        "Nagai",
+        "Veidas"
+      ],
+      "profileUrl": "https://www.treatwell.lt/salonas/grozio-namai-sfinksas/#team-member-720015",
+      "services": [
+        {
+          "id": "TR5860385",
+          "name": "Gelinis nagų lakavimas",
+          "category": "Manikiūras"
+        },
+        {
+          "id": "TR6483079",
+          "name": "Kombinuotas manikiūras (be lakavimo)",
+          "category": "Manikiūras"
+        },
+        {
+          "id": "TR5874316",
+          "name": "Aparatinis pedikiūras (be lakavimo)",
+          "category": "Pedikiūras"
+        },
+        {
+          "id": "TR5874311",
+          "name": "Aparatinis pedikiūras su ilgalaikiu lakavimu",
+          "category": "Pedikiūras"
+        },
+        {
+          "id": "TR5874318",
+          "name": "Express pedikiūras su ilgalaikiu lakavimu(tvarkomi tik kojų nagai)",
+          "category": "Pedikiūras"
+        },
+        {
+          "id": "TR5874312",
+          "name": "Ilgalaikio lako nuėmimas (kojų nagų) +pėdų tvarkymas",
+          "category": "Pedikiūras"
+        }
+      ]
+    },
+    {
+      "id": 628735,
+      "name": "Kestutis",
+      "title": "Veido priežiūros sritis",
+      "description": "„Treatwell“ profilyje nurodoma veido priežiūros sritis. Individualus paslaugų sąrašas nepateiktas.",
+      "image": null,
+      "categories": [
+        "Veidas"
+      ],
+      "profileUrl": "https://www.treatwell.lt/salonas/grozio-namai-sfinksas/#team-member-628735",
+      "services": []
+    },
+    {
+      "id": 742325,
+      "name": "Olia",
+      "title": "Makiažas ir antakių priežiūra",
+      "description": "Express, vakarinis ir foto bei video makiažas. Antakių laminavimas, dažymas ir korekcija.",
+      "image": "/team/742325.jpg",
+      "categories": [
+        "Veidas"
+      ],
+      "profileUrl": "https://www.treatwell.lt/salonas/grozio-namai-sfinksas/#team-member-742325",
+      "services": [
+        {
+          "id": "TR7339067",
+          "name": "Express makiažas",
+          "category": "Makiažo, Antakių Ir Blakstienų Procedūros Pas Olia"
+        },
+        {
+          "id": "TR7339080",
+          "name": "Vakarinis makiažas",
+          "category": "Makiažo, Antakių Ir Blakstienų Procedūros Pas Olia"
+        },
+        {
+          "id": "TR7339083",
+          "name": "Foto makiažas / video makiažas",
+          "category": "Makiažo, Antakių Ir Blakstienų Procedūros Pas Olia"
+        },
+        {
+          "id": "TR7339106",
+          "name": "Antakių laminavimas",
+          "category": "Makiažo, Antakių Ir Blakstienų Procedūros Pas Olia"
+        },
+        {
+          "id": "TR7339272",
+          "name": "Antakių korekcija ir dažymas (Elan)",
+          "category": "Makiažo, Antakių Ir Blakstienų Procedūros Pas Olia"
+        },
+        {
+          "id": "TR7339273",
+          "name": "Antakių + blakstienų dažymas ir korekcija",
+          "category": "Makiažo, Antakių Ir Blakstienų Procedūros Pas Olia"
+        }
+      ]
+    },
+    {
+      "id": 613635,
+      "name": "Ana",
+      "title": "Makiažas ir šukuosenos",
+      "description": "Makiažas, proginės bei vestuvinės šukuosenos, antakių ir blakstienų procedūros.",
+      "image": "/team/613635.jpg",
+      "categories": [
+        "Plaukai",
+        "Veidas"
+      ],
+      "profileUrl": "https://www.treatwell.lt/salonas/grozio-namai-sfinksas/#team-member-613635",
+      "services": [
+        {
+          "id": "TR3459143",
+          "name": "Proginė šukuosena",
+          "category": "Šukuosenos Ir Sušukavimas"
+        },
+        {
+          "id": "TR3459142",
+          "name": "Vestuvinė šukuosena",
+          "category": "Šukuosenos Ir Sušukavimas"
+        },
+        {
+          "id": "TR6127241",
+          "name": "Express makiažas (be klijuojamų blakstienų bei akių šešėliavimo, lengvai išformuotas veidas)",
+          "category": "Makiažas"
+        },
+        {
+          "id": "TR6127240",
+          "name": "Dieninis makiažas",
+          "category": "Makiažas"
+        },
+        {
+          "id": "TR6127242",
+          "name": "Vakarinis/proginis/fotosesijų makiažas",
+          "category": "Makiažas"
+        },
+        {
+          "id": "TR3645649",
+          "name": "Nuotakos makiažas",
+          "category": "Makiažas"
+        },
+        {
+          "id": "TR6127245",
+          "name": "Proginis makiažas ir šukuosena",
+          "category": "Makiažas"
+        },
+        {
+          "id": "TR6127238",
+          "name": "Express makiažas su express šukuosena",
+          "category": "Makiažas"
+        },
+        {
+          "id": "TR6127239",
+          "name": "Makiažas + šukuosena",
+          "category": "Makiažas"
+        },
+        {
+          "id": "TR6127244",
+          "name": "Makiažo pamoka sau",
+          "category": "Makiažas"
+        },
+        {
+          "id": "TR6127243",
+          "name": "Vyrų makiažas",
+          "category": "Makiažas"
+        },
+        {
+          "id": "TR6213226",
+          "name": "Ūselių depiliacija",
+          "category": "Antakių Bei Blakstienų Procedūros Pas Ugnė"
+        },
+        {
+          "id": "TR3470776",
+          "name": "Antakių dažymas ir korekcija",
+          "category": "Antakių Ir Blakstienų Procedūros Pas Aną"
+        },
+        {
+          "id": "TR6135238",
+          "name": "Blakstienų dažymas",
+          "category": "Antakių Ir Blakstienų Procedūros Pas Aną"
+        },
+        {
+          "id": "TR3470778",
+          "name": "Antakių + blakstienų dažymas ir korekcija",
+          "category": "Antakių Ir Blakstienų Procedūros Pas Aną"
+        },
+        {
+          "id": "TR6132064",
+          "name": "Antakių laminavimas su dažymu",
+          "category": "Antakių Ir Blakstienų Procedūros Pas Aną"
+        },
+        {
+          "id": "TR7216627",
+          "name": "Blakstienų laminavimas su dažymu",
+          "category": "Antakių Ir Blakstienų Procedūros Pas Aną"
+        }
+      ]
+    },
+    {
+      "id": 707204,
+      "name": "Marija",
+      "title": "Kirpimas ir plaukų dažymas",
+      "description": "Moterų kirpimas, tonavimas, plaukų dažymas ir spalvos korekcija.",
+      "image": "/team/707204.jpg",
+      "categories": [
+        "Plaukai",
+        "Veidas"
+      ],
+      "profileUrl": "https://www.treatwell.lt/salonas/grozio-namai-sfinksas/#team-member-707204",
+      "services": [
+        {
+          "id": "TR3427472",
+          "name": "Moterų kirpimas",
+          "category": "Kirpimas"
+        },
+        {
+          "id": "TR5716051",
+          "name": "Kirpčiukų kirpimas",
+          "category": "Kirpimas"
+        },
+        {
+          "id": "TR3427476",
+          "name": "Plaukų tonavimas",
+          "category": "Plaukų Dažymas"
+        },
+        {
+          "id": "TR3427486",
+          "name": "Plaukų šaknų dažymas ir tonavimas",
+          "category": "Plaukų Dažymas"
+        },
+        {
+          "id": "TR3427492",
+          "name": "Visų plaukų dažymas viena spalva",
+          "category": "Plaukų Dažymas"
+        },
+        {
+          "id": "TR3427515",
+          "name": "Plaukų dažymas su folija sruogelėmis",
+          "category": "Plaukų Dažymas"
+        },
+        {
+          "id": "TR3427521",
+          "name": "Balayage dažymas + Olaplex apsauga",
+          "category": "Plaukų Dažymas"
+        },
+        {
+          "id": "TR3836828",
+          "name": "Air Touch dažymas + Olaplex apsauga",
+          "category": "Plaukų Dažymas"
+        },
+        {
+          "id": "TR3427536",
+          "name": "OLAPLEX priedas į dažus",
+          "category": "Plaukų Dažymas"
+        },
+        {
+          "id": "TR4245926",
+          "name": "Visų plaukų šviesinimas +tonavimas",
+          "category": "Plaukų Dažymas"
+        },
+        {
+          "id": "TR6544071",
+          "name": "Plaukų spalvos išėmimas - korekcija",
+          "category": "Plaukų Dažymas"
+        },
+        {
+          "id": "TR7260943",
+          "name": "\"Nashi filler therapy\" maitinanti procedura",
+          "category": "Plaukų Procedūros"
+        }
+      ]
+    },
+    {
+      "id": 743306,
+      "name": "Ernestas Junior meistras",
+      "title": "Junior plaukų meistras",
+      "description": "Moterų, vyrų ir vaikų kirpimas, kirpimas karštomis žirklėmis, dažymas bei tiesinimas.",
+      "image": "/team/743306.jpg",
+      "categories": [
+        "Plaukai"
+      ],
+      "profileUrl": "https://www.treatwell.lt/salonas/grozio-namai-sfinksas/#team-member-743306",
+      "services": [
+        {
+          "id": "TR3427472",
+          "name": "Moterų kirpimas",
+          "category": "Kirpimas"
+        },
+        {
+          "id": "TR3427475",
+          "name": "Vyrų kirpimas",
+          "category": "Kirpimas"
+        },
+        {
+          "id": "TR5979136",
+          "name": "Vyrų kirpimas + 30 min. galvos masažas",
+          "category": "Kirpimas"
+        },
+        {
+          "id": "TR5716066",
+          "name": "Vaikų kirpimas",
+          "category": "Kirpimas"
+        },
+        {
+          "id": "TR3730638",
+          "name": "Kirpimas karštomis žirklėmis",
+          "category": "Kirpimas Karštomis Žirklėmis"
+        },
+        {
+          "id": "TR5979069",
+          "name": "Kirpimas karštomis žirklėmis + galvos odos pilingas",
+          "category": "Kirpimas Karštomis Žirklėmis"
+        },
+        {
+          "id": "TR3427515",
+          "name": "Plaukų dažymas su folija sruogelėmis",
+          "category": "Plaukų Dažymas"
+        },
+        {
+          "id": "TR3836828",
+          "name": "Air Touch dažymas + Olaplex apsauga",
+          "category": "Plaukų Dažymas"
+        },
+        {
+          "id": "TR3478342",
+          "name": "Plaukų tiesinimas keratinu ENCANTO",
+          "category": "Plaukų Procedūros"
+        }
+      ]
+    }
+  ]
+}
