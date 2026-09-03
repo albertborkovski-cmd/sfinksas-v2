@@ -29,6 +29,10 @@ import {
 } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
 import {
+  Select, SelectContent, SelectGroup, SelectItem,
+  SelectLabel, SelectTrigger, SelectValue,
+} from '@/components/ui/select';
+import {
   Sheet,
   SheetContent,
   SheetDescription,
@@ -548,7 +552,7 @@ export function Storefront({
               </p>
             </div>
             <div className="sticky top-[82px] z-30 -mx-5 mb-10 border-y border-black/10 bg-background/95 px-5 py-4 backdrop-blur-xl sm:top-[88px] sm:-mx-8 sm:px-8 lg:-mx-12 lg:px-12">
-              <div className="mx-auto grid max-w-[1384px] gap-3 sm:grid-cols-[minmax(280px,1fr)_220px]">
+              <div className="mx-auto grid max-w-[1384px] gap-3 sm:grid-cols-[minmax(240px,1fr)_260px]">
                 <label className="relative block">
                   <span className="sr-only">Ieškoti produktų</span>
                   <Search className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-black/45" />
@@ -562,16 +566,7 @@ export function Storefront({
                     className="h-11 rounded-full border-black/15 bg-white/55 pl-10"
                   />
                 </label>
-                <FilterSelect
-                  label="Rikiavimas"
-                  value={sort}
-                  onChange={setSort}
-                >
-                  <option value="recommended">Rekomenduojami</option>
-                  <option value="price-asc">Kaina: nuo mažiausios</option>
-                  <option value="price-desc">Kaina: nuo didžiausios</option>
-                  <option value="name">Pagal pavadinimą</option>
-                </FilterSelect>
+                <ProductSort value={sort} onChange={setSort} />
               </div>
             </div>
 
@@ -1176,29 +1171,59 @@ function ProductDialog({
   );
 }
 
-function FilterSelect({
-  label,
+const sortOptions = [
+  { value: 'recommended', label: 'Rekomenduojami' },
+  { value: 'price-asc', label: 'Kaina: nuo mažiausios' },
+  { value: 'price-desc', label: 'Kaina: nuo didžiausios' },
+  { value: 'name', label: 'Pagal pavadinimą' },
+];
+
+function ProductSort({
   value,
   onChange,
-  children,
 }: {
-  label: string;
   value: string;
   onChange: (value: string) => void;
-  children: React.ReactNode;
 }) {
   return (
-    <label className="relative block">
-      <span className="sr-only">{label}</span>
-      <select
-        value={value}
-        onChange={(event) => onChange(event.target.value)}
-        className="h-11 w-full appearance-none rounded-full border border-black/15 bg-white/55 px-4 pr-10 text-sm outline-none focus:ring-2 focus:ring-black/15"
+    <Select
+      items={sortOptions}
+      value={value}
+      onValueChange={(nextValue) => {
+        if (nextValue !== null) onChange(nextValue);
+      }}
+    >
+      <SelectTrigger
+        aria-label="Rikiuoti produktus"
+        className="w-full gap-2.5 rounded-full border-black/15 bg-white/70 pl-2 pr-4 text-[13px] text-[#28251f] shadow-sm hover:border-[#9c8b75] hover:bg-white focus-visible:border-[#9c8b75] focus-visible:ring-[#9c8b75]/25 data-[size=default]:h-11 data-popup-open:border-[#9c8b75] data-popup-open:bg-white"
       >
-        {children}
-      </select>
-      <ChevronDown className="pointer-events-none absolute right-3 top-1/2 size-4 -translate-y-1/2 text-black/43" />
-    </label>
+        <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-[#eee8df] text-[#766653]">
+          <SlidersHorizontal aria-hidden="true" className="size-3.5" />
+        </span>
+        <SelectValue className="font-medium" />
+      </SelectTrigger>
+      <SelectContent
+        align="end"
+        alignItemWithTrigger={false}
+        sideOffset={8}
+        className="rounded-2xl bg-[#faf7f1] p-1.5 text-[#28251f] shadow-[0_16px_48px_rgba(40,37,31,0.16)] ring-black/10 motion-reduce:animate-none"
+      >
+        <SelectGroup className="p-0">
+          <SelectLabel className="px-3 pb-2 pt-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-[#766653]">
+            Rikiuoti pagal
+          </SelectLabel>
+          {sortOptions.map((option) => (
+            <SelectItem
+              key={option.value}
+              value={option.value}
+              className={`my-0.5 min-h-11 cursor-pointer rounded-xl py-3 pl-3 pr-9 text-[13px] transition-colors data-highlighted:bg-[#e9e0d2] focus:bg-[#e9e0d2] focus:text-[#28251f] ${value === option.value ? 'bg-[#eee6d9] font-semibold' : 'text-black/65'}`}
+            >
+              {option.label}
+            </SelectItem>
+          ))}
+        </SelectGroup>
+      </SelectContent>
+    </Select>
   );
 }
 
