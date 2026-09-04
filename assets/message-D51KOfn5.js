@@ -1,0 +1,1 @@
+import{n as e,r as t,s as n,u as r}from"./index-VKDDZU5v.js";import{i}from"./chunk-YOKDWASO-JNzAO_Jj.js";var a=r(n(),1),o=e(),s=(0,a.memo)(({className:e,...n})=>(0,o.jsx)(i,{className:t(`size-full [&>*:first-child]:mt-0 [&>*:last-child]:mb-0`,e),...n}));s.displayName=`MessageResponse`;export{s as MessageResponse};
