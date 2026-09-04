@@ -28,6 +28,8 @@ Prašymas „Pateik nuorodą pas Styveną“ pateikia konkrečią kortelę. Nuor
 
 AI gali siūlyti iki 3 patikrintų viešų veiksmų: atidaryti meistro kortelę, konkretaus meistro paslaugos „Treatwell“ kalendorių arba produktų, paslaugų, komandos ir kontaktų puslapį. Nuorodas iš vietinių duomenų kuria programa, ne modelis; darbuotojo, paslaugos ir varianto derinys tikrinamas serveryje ir naršyklėje. Veiksmas vykdomas tik lankytojui paspaudus. Tiesioginiai vardiniai nuorodų prašymai nereikalauja modelio užklausos, bet jiems galioja tas pats užklausų ribojimas.
 
+Paslaugos nuoroda naudoja oficialų „Treatwell“ `OneLink`: telefone pirmiausia bando atidaryti vartotojo programėlę su konkrečia paslauga ir meistru, o kompiuteryje arba nepavykus grįžta į tą patį tikslų internetinį kalendorių. Nuoroda sąmoningai neatidaroma naujame skirtuke, nes tai gali sutrikdyti programėlės perėmimą mobiliojoje „Chrome“.
+
 Tai nėra administratoriaus agentas: jis negali keisti katalogo, užsakyti, apmokėti, peržiūrėti klientų duomenų ar patvirtinti rezervacijos. Registracija užbaigiama „Treatwell“. Platesniems veiksmams reikėtų atskiros autentifikacijos, serverio integracijų ir patvirtinimų.
 
 ### AI serverio paleidimas

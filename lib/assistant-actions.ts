@@ -1,6 +1,6 @@
 import team from './team.json';
 import { sitePath } from './demo';
-import { treatwellCalendarUrl } from './treatwell';
+import { treatwellAppBookingUrl } from './treatwell';
 
 // Public, read-only navigation only. No model-provided URLs or privileged commands.
 export type AssistantAction = { type: 'member' | 'booking' | 'page'; target: string };
@@ -37,9 +37,9 @@ export function resolveAssistantAction(action: AssistantAction) {
     const service = member?.services.find(s => s.id === serviceId);
     const option = service?.bookingOptions.find(o => o.id === optionId);
     return member && service && option ? {
-      href: treatwellCalendarUrl(member.id, service.id, option.id),
+      href: treatwellAppBookingUrl(member.id, service.id, option.id),
       label: `${member.name} · ${service.name}`,
-      detail: `${option.label} · ${option.durationMinutes} min. · Rinktis laiką „Treatwell“`, external: true,
+      detail: `${option.label} · ${option.durationMinutes} min. · Rinktis laiką „Treatwell“`, external: true, newTab: false,
     } : null;
   }
   return null;

@@ -147,10 +147,10 @@ export function AssistantChat({ products = [] }: { products?: Product[] }) {
                       {message.actions.map(action => {
                         const link = resolveAssistantAction(action);
                         return link ? <li key={`${action.type}:${action.target}`}>
-                          <a href={link.href} target={link.external ? '_blank' : undefined} rel={link.external ? 'noopener noreferrer' : undefined} className="block rounded-xl border border-[#d8cbb9] bg-[#f7f3ec] p-3 text-xs leading-5 hover:bg-[#e8dfd1] focus-visible:outline-2 focus-visible:outline-[#766653]">
+                          <a href={link.href} target={link.external && link.newTab !== false ? '_blank' : undefined} rel={link.external && link.newTab !== false ? 'noopener noreferrer' : undefined} className="block rounded-xl border border-[#d8cbb9] bg-[#f7f3ec] p-3 text-xs leading-5 hover:bg-[#e8dfd1] focus-visible:outline-2 focus-visible:outline-[#766653]">
                             <span className="flex items-center justify-between gap-2 font-medium">{link.label}<ArrowRight aria-hidden="true" className="size-3.5 shrink-0" /></span>
                             {link.detail && <span className="mt-1 block text-[11px] text-[#766653]">{link.detail}</span>}
-                            {link.external && <span className="sr-only">Atidaroma naujame skirtuke</span>}
+                            {link.external && <span className="sr-only">Atidaroma „Treatwell“ programėlė arba rezervacijos puslapis</span>}
                           </a>
                         </li> : null;
                       })}

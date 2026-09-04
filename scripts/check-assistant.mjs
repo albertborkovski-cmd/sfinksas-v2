@@ -32,7 +32,9 @@ try {
   const calendar = { type: 'booking', target: '339535:TR3427472:13581816' };
   const calendarLink = resolveAssistantAction(calendar);
   assert.equal(calendarLink.external, true);
-  assert.equal(JSON.parse(new URL(calendarLink.href).searchParams.get('proposedServices'))[0].employeeId, 339535);
+  const calendarFallback = new URL(calendarLink.href).searchParams.get('deep_link_value');
+  assert.equal(JSON.parse(new URL(calendarFallback).searchParams.get('proposedServices'))[0].employeeId, 339535);
+  assert.equal(new URL(calendarLink.href).origin, 'https://treatwell.onelink.me');
   assert(calendarLink.label.includes('Moterų kirpimas'));
   for (const bad of [{ type: 'admin', target: 'delete' }, { type: 'page', target: 'admin' }, { type: 'page', target: '__proto__' }, { type: 'member', target: '999999' }, { type: 'booking', target: '470900:TR3427472:13581816' }, { type: 'booking', target: `${calendar.target}:extra` }, { type: 'page', target: 'https://evil.test' }]) assert.deepEqual(verifiedActions([bad]), []);
   assert.deepEqual(verifiedActions([calendar, calendar]), [calendar]);

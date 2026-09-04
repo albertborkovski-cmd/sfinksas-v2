@@ -9,7 +9,7 @@ import {
 } from '@/components/ui/dialog';
 import team from '@/lib/team.json';
 import { cn } from '@/lib/utils';
-import { treatwellCalendarUrl } from '@/lib/treatwell';
+import { treatwellAppBookingUrl } from '@/lib/treatwell';
 import { sitePath } from '@/lib/demo';
 import { parseMemberSelection } from '@/lib/assistant-actions';
 
@@ -66,9 +66,7 @@ function MemberCard({ member, open, onOpenChange }: { member: Member; open: bool
                           {service.bookingOptions.map((option) => (
                               <a
                                 key={option.id}
-                                href={treatwellCalendarUrl(member.id, service.id, option.id)}
-                                target="_blank"
-                                rel="noopener noreferrer"
+                                href={treatwellAppBookingUrl(member.id, service.id, option.id)}
                                 className="group flex items-center gap-3 rounded-lg p-3 transition-colors hover:bg-[#e8dfd1] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#766653]"
                               >
                                 <span className="min-w-0 flex-1">
@@ -77,7 +75,7 @@ function MemberCard({ member, open, onOpenChange }: { member: Member; open: bool
                                   <span className="mt-1 block text-xs text-black/55">{option.durationMinutes} min. · Rinktis laiką</span>
                                 </span>
                                 <ArrowUpRight aria-hidden="true" className="size-4 shrink-0 text-[#766653]" />
-                                <span className="sr-only">{member.name}: Treatwell kalendorius naujame skirtuke</span>
+                                <span className="sr-only">{member.name}: atidaryti „Treatwell“ programėlę arba kalendorių</span>
                               </a>
                           ))}
                         </li>

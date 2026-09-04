@@ -19,7 +19,7 @@ try {
   assert(launcher.includes('size-12'));
   assert(!launcher.includes('<form'));
   console.log('PASS: small AI chat launcher remains closed initially');
-  const { treatwellCalendarUrl } = await server.ssrLoadModule('/../lib/treatwell.ts');
+  const { treatwellCalendarUrl, treatwellAppBookingUrl } = await server.ssrLoadModule('/../lib/treatwell.ts');
   const team = JSON.parse(await readFile('lib/team.json', 'utf8'));
   let bookingCount = 0;
   for (const member of team.members) {
@@ -33,12 +33,20 @@ try {
           { menuItemId: service.id, optionIds: [option.id], employeeId: member.id },
         ]);
         assert.deepEqual(JSON.parse(url.searchParams.get('employeeService')), { [service.id]: member.id });
+        const appUrl = new URL(treatwellAppBookingUrl(member.id, service.id, option.id));
+        assert.equal(appUrl.origin, 'https://treatwell.onelink.me');
+        assert.equal(appUrl.pathname, '/32083905');
+        assert.equal(appUrl.searchParams.get('deep_link_value'), url.toString());
+        assert.equal(appUrl.searchParams.get('af_web_dp'), url.toString());
+        assert.equal(appUrl.searchParams.get('af_dp'), url.toString().replace('https://', 'treatwell://'));
+        assert.equal(appUrl.searchParams.get('af_force_deeplink'), 'true');
+        assert.equal(appUrl.searchParams.get('is_retargeting'), 'true');
         bookingCount++;
       }
     }
   }
   assert(bookingCount > 0);
-  console.log(`PASS: ${bookingCount} employee/service links preserve the selected Treatwell calendar`);
+  console.log(`PASS: ${bookingCount} employee/service links preserve the calendar in Treatwell web and app deep links`);
 
   const { Storefront } = await server.ssrLoadModule('/../components/store/storefront.tsx');
   const products = JSON.parse(await readFile('demo/products.json', 'utf8'));
